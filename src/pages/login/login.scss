@@ -1,3 +1,21 @@
 page-login {
+    .input-field {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 5%;
+    }
 
+    .form {
+        margin-top: 50%;
+    }
+
+    .login-button {
+        float: left;
+        margin-left: 10%;
+    }
+
+    .signup-button {
+        float: right;
+        margin-right: 10%;
+    }
 }
