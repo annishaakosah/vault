@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth'
+import { AngularFireAuth } from 'angularfire2/auth';
+import { MyVaultPage } from '../my-vault/my-vault';
+
 import {
   IonicPage,
   NavController,
@@ -59,7 +61,7 @@ export class SignupPage {
       .createUserWithEmailAndPassword(data.email, data.password)
       .then(
         () => {
-          this.navCtrl.setRoot('MyVaultPage');
+          this.navCtrl.setRoot(MyVaultPage);
         },
         error => {
           this.signupError = error.message;

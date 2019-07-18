@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth'
+import { SignupPage } from '../signup/signup';
+import { MyVaultPage } from '../my-vault/my-vault';
+
 import {
   IonicPage,
   NavController,
@@ -11,7 +14,6 @@ import {
   Validators,
   FormControl
 } from "@angular/forms";
-
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -40,13 +42,14 @@ export class LoginPage {
   }
 
   signup() {
-    this.navCtrl.push('SignupPage');
+    this.navCtrl.push(SignupPage);
   }
 
   async login() {
     let data = this.loginForm.value;
 
     if (!data.email) {
+      this.loginError = "Please enter an email"
       return;
     }
 
@@ -54,7 +57,7 @@ export class LoginPage {
       .signInWithEmailAndPassword(data.email, data.password)
       .then(
         () => {
-          this.navCtrl.setRoot('MyVaultPage');
+          this.navCtrl.setRoot(MyVaultPage);
         },
         error => {
           this.loginError = error.message;

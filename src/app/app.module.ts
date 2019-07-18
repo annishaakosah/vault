@@ -8,10 +8,16 @@ import { AngularFireAuthModule }from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from "./app.firebase.config";
+import { LoginPage } from './../pages/login/login';
+import { SignupPage } from './../pages/signup/signup';
+import { MyVaultPage } from './../pages/my-vault/my-vault';
 
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
+    SignupPage,
+    MyVaultPage,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +27,10 @@ import { FIREBASE_CONFIG } from "./app.firebase.config";
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    LoginPage,
+    SignupPage,
+    MyVaultPage,
   ],
   providers: [
     StatusBar,
