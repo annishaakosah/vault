@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar class="navbar" color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Already Watched</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="getTitles().length; else no_content" class="already-watched-list">      
+    <ion-searchbar #title
+      type="search"
+      placeholder="Search for a title..."
+      clear-input=true
+      padding
+      margin>
+    </ion-searchbar>
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let title of getTitles()">
+        <ion-item (click)="toggleFoo()">
+          <img [src]="title.imgUrl"><h1>{{ title.title }}</h1>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <button ion-button color="danger" (click)="removeTitleFromAlreadyWatched(title.title)"><ion-icon name="trash"></ion-icon>Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+  <ng-template #no_content>
+    <h2 style="text-align: center">Already Watched list is empty</h2>
+  </ng-template>
+</ion-content>

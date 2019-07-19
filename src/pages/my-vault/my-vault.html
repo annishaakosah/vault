@@ -10,6 +10,33 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
 
+<ion-content padding>
+  <div class="search-omdb" padding>
+    <ion-searchbar #title
+      type="search"
+      (keyup.enter)="search(title.value)"
+      placeholder="Search for a title..."
+      clear-input=true
+      padding>
+    </ion-searchbar>
+  </div>
+
+  <div *ngIf="isValidSearch()" class="valid-search-result" padding>
+    <h1>{{ getTitle() }} ({{ getYear() }})</h1>
+    <h3>Directed by {{ getDirector() }}</h3>
+    <img [src]="getImgUrl()">
+    <p>{{ getPlot() }}</p>
+    
+    <button ion-button color="secondary" (click)="addToAlreadyWatched()">Add to Already Watched</button>
+    <button ion-button color="purple" (click)="addToWatchList()">Add to Watch List</button>
+  </div>
+
+  <div *ngIf="isNotFound()">
+    <p>No movie found with that title</p>
+  </div>
+
+  <div *ngIf="isNotProvided()">
+    <p>Please provide a title to search for</p>
+  </div>
 </ion-content>
