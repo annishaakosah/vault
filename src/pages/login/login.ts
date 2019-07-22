@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth'
 import { SignupPage } from '../signup/signup';
+import { MenuPage } from '../menu/menu';
+
 import { MyVaultPage } from '../my-vault/my-vault';
 
 import {
@@ -14,6 +16,7 @@ import {
   Validators,
   FormControl
 } from "@angular/forms";
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -57,7 +60,7 @@ export class LoginPage {
       .signInWithEmailAndPassword(data.email, data.password)
       .then(
         () => {
-          this.navCtrl.setRoot(MyVaultPage);
+          this.navCtrl.setRoot(MenuPage);
         },
         error => {
           this.loginError = error.message;

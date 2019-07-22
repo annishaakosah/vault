@@ -1,5 +1,4 @@
 
-
 import { Component } from '@angular/core';
 
 import { AlertController } from 'ionic-angular';
@@ -14,33 +13,37 @@ import { SearchTitleService } from '../../providers/search-title.service';
   templateUrl: 'my-vault.html',
   styles: ['./omdb-app.scss']
 })
+
 export class MyVaultPage {
+  isFoo = false;
+  constructor(private omdbService: OmdbService, private alertController: AlertController) { }
 
-  constructor(private omdbService: OmdbService,
-    private titleSearch: SearchTitleService,
-    private alertController: AlertController) {
+  getTitles() {
+    return JSON.parse(localStorage.getItem('alreadyWatched'));
   }
 
-  search(title: string) {
-    this.titleSearch.searchTitle(title);
+  removeTitleFromAlreadyWatched(title: string) {
+    const alert = this.alertController.create({
+      subTitle: `You're about to delete "${title}" from your Already Watched list. Continue?`,
+      buttons: [
+        {
+            text: 'Yes',
+            handler: () => {
+              this.omdbService.removeFromAlreadyWatched(title);
+            }
+        },
+        {
+            text: 'Cancel',
+            handler: () => {
+              // do nothing
+            }
+        }
+      ]
+    });
+    alert.present();
   }
 
-  // addToAlreadyWatched(title) {
-  //   this.omdbService.addToAlreadyWatched(title.id);
-  // }
-
-  // addToWatchList(title) {
-  //   this.omdbService.addToWatchList(title.id);
-  // }
-
-  public isValidSearch = () => this.titleSearch.isValidSearch();
-  public isNotFound = () => this.titleSearch.isNotFound();
-  public isNotProvided = () => this.titleSearch.isNotProvided();
-
-  public getImgUrl(title){
-    `https://image.tmdb.org/t/p/original${title.poster_path}`
+  toggleFoo() { 
+    this.isFoo = !this.isFoo;
   }
-
-  public getResults = () => this.titleSearch.getResults();
 }
-

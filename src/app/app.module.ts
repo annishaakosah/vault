@@ -14,11 +14,14 @@ import { FIREBASE_CONFIG } from "./app.firebase.config";
 import { LoginPage } from './../pages/login/login';
 import { SignupPage } from './../pages/signup/signup';
 import { MyVaultPage } from '../pages/my-vault/my-vault';
-import { AlreadyWatched } from '../pages/already-watched/already-watched';
+import { MenuPage } from '../pages/menu/menu';
+import { SearchPage } from '../pages/search/search';
+import { DiscoverPage } from '../pages/discover/discover';
 
 // Services:
 import { OmdbService } from '../providers/omdb-app.service';
 import { SearchTitleService } from '../providers/search-title.service';
+
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { SearchTitleService } from '../providers/search-title.service';
     LoginPage,
     SignupPage,
     MyVaultPage,
-    AlreadyWatched
+    SearchPage,
+    MenuPage,
+    DiscoverPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,9 @@ import { SearchTitleService } from '../providers/search-title.service';
     LoginPage,
     SignupPage,
     MyVaultPage,
-    AlreadyWatched
+    SearchPage,
+    MenuPage,
+    DiscoverPage
   ],
   providers: [
     StatusBar,
