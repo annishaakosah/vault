@@ -1,15 +1,8 @@
-<!--
-  Generated template for the MyVaultPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <ion-title>MyVault</ion-title>
   </ion-navbar>
 </ion-header>
-
 
 <ion-content padding>
   <div class="search-omdb" padding>
@@ -22,18 +15,20 @@
     </ion-searchbar>
   </div>
 
-  <div *ngIf="isValidSearch()" class="valid-search-result" padding>
-    <h1>{{ getTitle() }} ({{ getYear() }})</h1>
-    <h3>Directed by {{ getDirector() }}</h3>
-    <img [src]="getImgUrl()">
-    <p>{{ getPlot() }}</p>
-    
-    <button ion-button color="secondary" (click)="addToAlreadyWatched()">Add to Already Watched</button>
-    <button ion-button color="purple" (click)="addToWatchList()">Add to Watch List</button>
+  <div *ngFor="let title of getResults()">
+    <div *ngIf="isValidSearch() && title.poster_path!=null" class="valid-search-result" padding>
+      <h1>{{ title.name}} ({{ title.first_air_date }})</h1>
+      <img src="{{'https://image.tmdb.org/t/p/w500'+title.poster_path}}"/>
+
+      <p>{{ title.overview }}</p>
+      
+      <button ion-button color="secondary" (click)="addToAlreadyWatched()">Add to Already Watched</button>
+      <button ion-button color="purple" (click)="addToWatchList()">Add to Watch List</button>
+    </div>
   </div>
 
   <div *ngIf="isNotFound()">
-    <p>No movie found with that title</p>
+    <p>No tv shows found with that title</p>
   </div>
 
   <div *ngIf="isNotProvided()">
