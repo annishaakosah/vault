@@ -22,8 +22,7 @@ import { DiscoverPage } from '../pages/discover/discover';
 // Services:
 import { ImdbService } from '../providers/imdb-app.service';
 import { SearchTitleService } from '../providers/search-title.service';
-
-
+import { AuthService } from '../providers/auth.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +57,8 @@ import { SearchTitleService } from '../providers/search-title.service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ImdbService,
-    SearchTitleService
+    SearchTitleService,
+    AuthService
   ]
 })
 export class AppModule {}
