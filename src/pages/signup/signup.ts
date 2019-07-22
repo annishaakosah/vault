@@ -62,8 +62,8 @@ export class SignupPage {
     this.firebase.auth
       .createUserWithEmailAndPassword(data.email, data.password)
       .then(
-        () => {
-          this.addToDatabase(data.email);
+        (auth) => {
+          this.addToDatabase(data.email, auth.user.uid);
           this.navCtrl.setRoot(MyVaultPage);
         },
         error => {
@@ -72,18 +72,18 @@ export class SignupPage {
       );
   }
 
-  private addToDatabase(email){
-    this.db.collection("users").add({
+  private addToDatabase(email, id){
+    this.db.collection("users").doc(id).set({
       email: email,
       watchList: [],
-      alreadyWatched: []
+      alreadyWatched: [],
+
     })
     .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
+        console.log("Document written with ID: ", id);
     })
     .catch(function(error) {
         console.error("Error adding document: ", error);
     });
   }
-
 }

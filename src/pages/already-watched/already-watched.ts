@@ -24,7 +24,7 @@ export class AlreadyWatched {
         {
             text: 'Yes',
             handler: () => {
-              this.imdbService.removeFromAlreadyWatched(title);
+              // this.imdbService.removeFromAlreadyWatched(title);
             }
         },
         {
