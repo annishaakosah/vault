@@ -30,7 +30,7 @@ export class MyVaultPage {
         {
             text: 'Yes',
             handler: () => {
-              this.imdbService.removeFromAlreadyWatched(title);
+              // this.imdbService.removeFromAlreadyWatched(title);
             }
         },
         {
@@ -47,24 +47,6 @@ export class MyVaultPage {
   toggleFoo() { 
     this.isFoo = !this.isFoo;
   }
-
-  
-
-  // addToAlreadyWatched(title) {
-  //   this.imdbService.addToAlreadyWatched(this.user, title.id);
-  // }
-
-  // addToWatchList(title) {
-  //   this.imdbService.addToWatchList(this.user, title.id);
-  // }
-
-  // inWatchList(title) {
-  //   this.user.watchList.includes(title.id);
-  // }
-
-  public isValidSearch = () => this.titleSearch.isValidSearch();
-  public isNotFound = () => this.titleSearch.isNotFound();
-  public isNotProvided = () => this.titleSearch.isNotProvided();
 
   public getImgUrl(title){
     `https://image.tmdb.org/t/p/original${title.poster_path}`
