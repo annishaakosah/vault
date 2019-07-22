@@ -1,21 +1,25 @@
 <ion-header></ion-header>
 
 <ion-content padding>
-  <form (ngSubmit)="login()" [formGroup]="loginForm" class="form">
+  <div class="container">
+    <form (ngSubmit)="login()" [formGroup]="loginForm" class="form">
 
-    <ion-item class="input-field">
-      <ion-label floating color="mid">Email</ion-label>
-      <ion-input type="text" formControlName="email"></ion-input>
-    </ion-item>
+      <ion-item class="input-field">
+        <ion-label floating color="mid">Email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
 
-    <ion-item class="input-field">
-      <ion-label floating color="mid">Password</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
-    </ion-item>
+      <ion-item class="input-field">
+        <ion-label floating color="mid">Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
 
-    <div>{{loginError}}</div>
-
-    <button ion-button type="submit" class="login-button">Login</button>
-  </form>
-  <button ion-button (click)="signup()" color="light" class="signup-button">Signup</button>
+      <div>{{loginError}}</div>
+      <div class=buttons>
+      <button ion-button type="submit" class="login-button">Login</button>
+      <button ion-button (click)="signup()" color="light" class="signup-button">Signup</button></div>
+    </form>
+    
+    
+</div>
 </ion-content>

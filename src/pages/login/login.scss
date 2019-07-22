@@ -5,17 +5,22 @@ page-login {
         padding-bottom: 5%;
     }
 
-    .form {
-        margin-top: 50%;
+    .container {
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        height:100%;
+    }
+
+    .buttons {
+        display: flex;
     }
 
     .login-button {
-        float: left;
         margin-left: 10%;
     }
 
     .signup-button {
-        float: right;
-        margin-right: 10%;
+        
     }
 }
