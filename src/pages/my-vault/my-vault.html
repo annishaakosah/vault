@@ -7,14 +7,7 @@
 
 <ion-content>
   <div *ngIf="getTitles().length; else no_content" class="already-watched-list">      
-    <ion-searchbar #title
-      type="search"
-      placeholder="Search for a title..."
-      clear-input=true
-      padding
-      margin>
-    </ion-searchbar>
-
+    
     <ion-list>
       <ion-item-sliding *ngFor="let title of getTitles()">
         <ion-item (click)="toggleFoo()">
