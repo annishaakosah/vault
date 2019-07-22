@@ -51,12 +51,5 @@ export class MyVaultPage {
   public getImgUrl(title){
     `https://image.tmdb.org/t/p/original${title.poster_path}`
   }
-
-  public getResults() {
-    let results = this.titleSearch.getResults()
-    if(results) {
-      return results.filter(t => t.poster_path != null);
-    }
-  }
 }
 
