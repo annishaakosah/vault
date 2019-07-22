@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MyVaultPage } from '../my-vault/my-vault';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 import {
   IonicPage,
@@ -25,6 +26,7 @@ export class SignupPage {
 
   constructor(
     private firebase:AngularFireAuth,
+    private db:AngularFirestore,
     public fb: FormBuilder,
     public navCtrl: NavController, 
     public navParams: NavParams) 
@@ -61,6 +63,7 @@ export class SignupPage {
       .createUserWithEmailAndPassword(data.email, data.password)
       .then(
         () => {
+          this.addToDatabase(data.email);
           this.navCtrl.setRoot(MyVaultPage);
         },
         error => {
@@ -68,4 +71,19 @@ export class SignupPage {
         }
       );
   }
+
+  private addToDatabase(email){
+    this.db.collection("users").add({
+      email: email,
+      watchList: [],
+      alreadyWatched: []
+    })
+    .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
+  }
+
 }

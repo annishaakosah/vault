@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 
 import { AlertController } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 import { ImdbService } from '../../providers/imdb-app.service';
 import { SearchTitleService } from '../../providers/search-title.service';
@@ -30,7 +30,7 @@ export class MyVaultPage {
         {
             text: 'Yes',
             handler: () => {
-              this.omdbService.removeFromAlreadyWatched(title);
+              this.imdbService.removeFromAlreadyWatched(title);
             }
         },
         {
@@ -48,17 +48,19 @@ export class MyVaultPage {
     this.isFoo = !this.isFoo;
   }
 
-  addToAlreadyWatched(title) {
-    this.imdbService.addToAlreadyWatched(user, title.id);
-  }
+  
 
-  addToWatchList(title) {
-    this.imdbService.addToWatchList(user, title.id);
-  }
+  // addToAlreadyWatched(title) {
+  //   this.imdbService.addToAlreadyWatched(this.user, title.id);
+  // }
 
-  inWatchList(title) {
-    this.user.watchList.includes(title.id);
-  }
+  // addToWatchList(title) {
+  //   this.imdbService.addToWatchList(this.user, title.id);
+  // }
+
+  // inWatchList(title) {
+  //   this.user.watchList.includes(title.id);
+  // }
 
   public isValidSearch = () => this.titleSearch.isValidSearch();
   public isNotFound = () => this.titleSearch.isNotFound();
