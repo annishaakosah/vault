@@ -10,7 +10,7 @@ export class SearchTitleService {
   private notFound: boolean;
   private notProvided: boolean;
 
-  private results: {};
+  private results;
 
   constructor(private httpClient: HttpClient) { }
 

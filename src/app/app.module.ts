@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule }from 'angularfire2/auth'; 
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -19,7 +20,7 @@ import { SearchPage } from '../pages/search/search';
 import { DiscoverPage } from '../pages/discover/discover';
 
 // Services:
-import { OmdbService } from '../providers/omdb-app.service';
+import { ImdbService } from '../providers/imdb-app.service';
 import { SearchTitleService } from '../providers/search-title.service';
 
 
@@ -39,7 +40,8 @@ import { SearchTitleService } from '../providers/search-title.service';
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,7 +57,7 @@ import { SearchTitleService } from '../providers/search-title.service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    OmdbService,
+    ImdbService,
     SearchTitleService
   ]
 })
