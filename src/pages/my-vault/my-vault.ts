@@ -17,10 +17,19 @@ import { User } from '../../models/user';
 
 export class MyVaultPage {
   isFoo = false;
-  constructor(private imdbService: ImdbService, private alertController: AlertController) { }
+  watchList;
+
+  constructor(
+    private imdbService: ImdbService, 
+    private alertController: AlertController,
+    private search: SearchTitleService) { 
+  }
 
   getTitles() {
-    return JSON.parse(localStorage.getItem('alreadyWatched'));
+    this.watchList= this.imdbService.getWatchList();
+    if(this.watchList) {
+      return Object.keys(this.watchList)
+    }
   }
 
   removeTitleFromAlreadyWatched(title: string) {
@@ -46,10 +55,6 @@ export class MyVaultPage {
 
   toggleFoo() { 
     this.isFoo = !this.isFoo;
-  }
-
-  public getImgUrl(title){
-    `https://image.tmdb.org/t/p/original${title.poster_path}`
   }
 }
 

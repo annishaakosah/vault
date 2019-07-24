@@ -8,44 +8,55 @@ import { User } from "../models/user";
 
 @Injectable()
 export class ImdbService {
-  public user;
+  private user;
+  private watchList;
+  private alreadyWatched;
 
   constructor(
     private alertController: AlertController,
     private auth: AuthService,
     private db: AngularFirestore) {
-      this.getUser();
+      this.updateUser();
   }
 
-  addToAlreadyWatched(id) {
-    if(this.getAlreadyWatched().includes(id)) {return;}
+  addToAlreadyWatched(id, poster_path) {
+    if(this.getAlreadyWatched().has(id)) {return;}
 
     let docRef = this.db.collection("users").doc(this.auth.currentUID());
     docRef.update({
-      "alreadyWatched": this.getAlreadyWatched().concat(id)
+      "alreadyWatched": this.getAlreadyWatched().set(id, poster_path)
     });
   }
 
-  addToWatchList(id) {
-    if(this.getWatchList().includes(id)) {return;}
-
+  addToWatchList(id, poster_path) {
+    if(!this.watchList || this.watchList[id]) {return;}
+    
     let docRef = this.db.collection("users").doc(this.auth.currentUID());
-    docRef.update({
-      "watchList": this.getWatchList().concat(id)
-    });
+    docRef.set({
+      "watchList": {
+        [id]: poster_path
+      }
+    }, {merge:true})
   }
 
-  private getUser() {
+  private updateUser() {
     let docRef = this.db.collection("users").doc(this.auth.currentUID());
     docRef
       .valueChanges()
-      .subscribe((user) => {
+      .subscribe((user:User) => {
         if (user !== undefined) {
           this.user = user;
+          this.watchList = user.watchList;
+          this.alreadyWatched = user.alreadyWatched;
         }
     });
   }
 
-  public getWatchList = () => this.user.watchList;
-  public getAlreadyWatched = () => this.user.alreadyWatched;
+  public getWatchList() {
+    return (this.user !== undefined) ? this.watchList : null;
+  }
+
+  public getAlreadyWatched() {
+    return (this.user !== undefined) ? this.alreadyWatched : null;
+  }
 }

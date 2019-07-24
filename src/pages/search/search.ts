@@ -26,15 +26,16 @@ export class SearchPage {
   }
 
   addToAlreadyWatched(title) {
-    this.imdbService.addToAlreadyWatched(title.id);
+    this.imdbService.addToAlreadyWatched(title.id, title.poster_path);
   }
 
   addToWatchList(title) {
-    this.imdbService.addToWatchList(title.id);
+    this.imdbService.addToWatchList(title.id, title.poster_path);
   }
 
-  inWatchList(title) {  
-    this.imdbService.getWatchList().includes(title.id)
+  inWatchList(title) { 
+    // let watchList = this.imdbService.getWatchList();
+    true;
   }
 
   public isValidSearch = () => this.titleSearch.isValidSearch();

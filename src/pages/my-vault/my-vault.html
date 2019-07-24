@@ -9,10 +9,9 @@
   <div *ngIf="getTitles(); else no_content" class="already-watched-list">      
     
     <ion-list>
-      <ion-item-sliding *ngFor="let title of getTitles()">
+      <ion-item-sliding *ngFor="let id of getTitles()">
         <ion-item (click)="toggleFoo()">
-          <img [src]="title.imgUrl">
-          <h1>{{ title.title }}</h1>
+          <img src="{{'https://image.tmdb.org/t/p/w500'+watchList[id]}}" (click)='getDetails(title)'>
         </ion-item>
 
         <ion-item-options side="end">
