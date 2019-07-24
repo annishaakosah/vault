@@ -20,12 +20,14 @@ export class ImdbService {
   }
 
   addToAlreadyWatched(id, poster_path) {
-    if(this.getAlreadyWatched().has(id)) {return;}
-
+    if(!this.alreadyWatched || this.alreadyWatched[id]) {return;}
+    
     let docRef = this.db.collection("users").doc(this.auth.currentUID());
-    docRef.update({
-      "alreadyWatched": this.getAlreadyWatched().set(id, poster_path)
-    });
+    docRef.set({
+      "alreadyWatched": {
+        [id]: poster_path
+      }
+    }, {merge:true})
   }
 
   addToWatchList(id, poster_path) {

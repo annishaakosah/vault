@@ -18,6 +18,7 @@ import { User } from '../../models/user';
 export class MyVaultPage {
   isFoo = false;
   watchList;
+  alreadyWatched;
 
   constructor(
     private imdbService: ImdbService, 
@@ -25,10 +26,17 @@ export class MyVaultPage {
     private search: SearchTitleService) { 
   }
 
-  getTitles() {
+  getWatchListTitles() {
     this.watchList= this.imdbService.getWatchList();
     if(this.watchList) {
       return Object.keys(this.watchList)
+    }
+  }
+
+  getAlreadyWatchedTitles() {
+    this.alreadyWatched= this.imdbService.getAlreadyWatched();
+    if(this.alreadyWatched) {
+      return Object.keys(this.alreadyWatched)
     }
   }
 

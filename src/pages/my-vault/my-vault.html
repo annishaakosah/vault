@@ -6,10 +6,10 @@
 
 
 <ion-content>
-  <div *ngIf="getTitles(); else no_content" class="already-watched-list">      
+  <div *ngIf="getWatchListTitles(); else no_content" class="already-watched-list">      
     
     <ion-list>
-      <ion-item-sliding *ngFor="let id of getTitles()">
+      <ion-item-sliding *ngFor="let id of getWatchListTitles()">
         <ion-item (click)="toggleFoo()">
           <img src="{{'https://image.tmdb.org/t/p/w500'+watchList[id]}}" (click)='getDetails(title)'>
         </ion-item>
@@ -24,6 +24,6 @@
   </div>
 
   <ng-template #no_content>
-    <h2 style="text-align: center">Already Watched list is empty</h2>
+    <h2 style="text-align: center">List is empty</h2>
   </ng-template>
 </ion-content>
