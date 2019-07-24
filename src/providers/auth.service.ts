@@ -4,17 +4,27 @@ import * as firebase from "firebase/app";
 
 @Injectable()
 export class AuthService {
-    private user: firebase.User;
+    private authState: any = null;
 
     constructor(public auth: AngularFireAuth) {
-        auth.authState.subscribe(user => {
-            this.user = user;
+        auth.authState.subscribe((auth) => {
+            this.authState = auth;
+            console.log(this.authState);
         });
     }
 
-    getUID(){
-        if (this.user !== null) return this.user.uid;
-    } 
+    currentUser(): any {
+        return this.authenticated() ? this.authState : null;
+    }
+
+    currentUID(): string {
+        return this.authenticated() ? this.authState.uid : '';
+    }
+
+    // Returns true if user is logged in
+    authenticated(): boolean {
+        return this.authState !== null;
+    }
 
     signup(credentials) {
         return this.auth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password)
@@ -24,5 +34,9 @@ export class AuthService {
         return this.auth.auth.signInWithEmailAndPassword(
             credentials.email, 
             credentials.password)
+    }
+
+    logOut(): Promise<void> {
+        return this.auth.auth.signOut();
     }
 }

@@ -8,32 +8,34 @@ import { User } from "../models/user";
 
 @Injectable()
 export class ImdbService {
-  public user: User;
+  public user;
 
   constructor(
     private alertController: AlertController,
     private auth: AuthService,
     private db: AngularFirestore) {
+      // this.addToDatabase();
       this.getUser();
-    }
+  }
 
   addToAlreadyWatched(id) {
 
   }
 
   addToWatchList(id) {
-
+    // let u = user;
   }
 
   private getUser() {
-    this.db
-      .collection("users")
-      .doc(this.auth.getUID())
-      .valueChanges()
-      .subscribe((user: User) => {
-        if (user !== undefined) {
-          this.user = user;
-        }
+    let docRef = this.db.collection("users").doc(this.auth.currentUID());
+    docRef
+      .get()
+      .subscribe((data) => {
+        // if (user !== undefined) {
+        //   this.user = user;
+        // }
+        console.log(data);
       });
+    
   }
 }

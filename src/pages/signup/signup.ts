@@ -49,7 +49,7 @@ export class SignupPage {
       });
   }
 
-  async signup() {
+  signup() {
     let data = this.signupForm.value;
 
     if (!data.email) {
@@ -67,24 +67,26 @@ export class SignupPage {
     };
     
     this.auth.signup(credentials).then(
-			() => {
-        this.addToDatabase(data.email); 
+			(u) => {
+        this.addToDatabase(u.user.email, u.user.uid);
         this.navCtrl.setRoot(MenuPage);
       },
 			error => this.signupError = error.message
     );
   }
 
-  private addToDatabase(email){
-    const docRef = this.db.doc(`users/${this.auth.getUID()}`);
+  private addToDatabase(email, id){
+    let docRef = this.db.collection("users").doc(id);
 
-    docRef.set({
-      email: email,
-      watchList: [],
-      alreadyWatched: [],
-    })
+    docRef.set(
+      {
+        email: email,
+        watchList: [],
+        alreadyWatched: []
+      }
+    )
     .then(function(docRef) {
-        console.log("Document written with ID: ", this.auth.getUID());
+        console.log("Document written with ID: ", id);
     })
     .catch(function(error) {
         console.error("Error adding document: ", error);
