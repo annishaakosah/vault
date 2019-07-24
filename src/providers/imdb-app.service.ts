@@ -14,28 +14,38 @@ export class ImdbService {
     private alertController: AlertController,
     private auth: AuthService,
     private db: AngularFirestore) {
-      // this.addToDatabase();
       this.getUser();
   }
 
   addToAlreadyWatched(id) {
+    if(this.getAlreadyWatched().includes(id)) {return;}
 
+    let docRef = this.db.collection("users").doc(this.auth.currentUID());
+    docRef.update({
+      "alreadyWatched": this.getAlreadyWatched().concat(id)
+    });
   }
 
   addToWatchList(id) {
-    // let u = user;
+    if(this.getWatchList().includes(id)) {return;}
+
+    let docRef = this.db.collection("users").doc(this.auth.currentUID());
+    docRef.update({
+      "watchList": this.getWatchList().concat(id)
+    });
   }
 
   private getUser() {
     let docRef = this.db.collection("users").doc(this.auth.currentUID());
     docRef
-      .get()
-      .subscribe((data) => {
-        // if (user !== undefined) {
-        //   this.user = user;
-        // }
-        console.log(data);
-      });
-    
+      .valueChanges()
+      .subscribe((user) => {
+        if (user !== undefined) {
+          this.user = user;
+        }
+    });
   }
+
+  public getWatchList = () => this.user.watchList;
+  public getAlreadyWatched = () => this.user.alreadyWatched;
 }
