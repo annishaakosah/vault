@@ -24,6 +24,7 @@ import { ImdbService } from '../providers/imdb-app.service';
 import { SearchTitleService } from '../providers/search-title.service';
 import { AuthService } from '../providers/auth.service';
 import { DiscoverService } from '../providers/discover.service';
+import { DetailsPage } from '../pages/details/details';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DiscoverService } from '../providers/discover.service';
     MyVaultPage,
     SearchPage,
     MenuPage,
-    DiscoverPage
+    DiscoverPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { DiscoverService } from '../providers/discover.service';
     MyVaultPage,
     SearchPage,
     MenuPage,
-    DiscoverPage
+    DiscoverPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,

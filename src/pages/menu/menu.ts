@@ -37,15 +37,15 @@ export class MenuPage {
       params = { tabIndex: page.index};
     }
 
-    if (this.nav.getActiveChildNav() && page.index != undefined) {
-        this.nav.getActiveChildNav().select(page.index);
+    if (this.nav.getActiveChildNavs() && page.index != undefined) {
+        this.nav.getActiveChildNavs()[0].select(page.index);
     } else {
       this.nav.setRoot(page.pageName, params);
     }
   }
 
   isActive(page: PageInterface) {
-    let childNav = this.nav.getActiveChildNav();
+    let childNav = this.nav.getActiveChildNavs()[0];
 
     if (childNav) {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {

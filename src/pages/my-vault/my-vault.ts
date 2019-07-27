@@ -8,6 +8,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { ImdbService } from '../../providers/imdb-app.service';
 import { SearchTitleService } from '../../providers/search-title.service';
 import { User } from '../../models/user';
+import { DetailsPage } from '../details/details';
 
 @Component({
   selector: 'page-my-vault',
@@ -23,6 +24,7 @@ export class MyVaultPage {
   constructor(
     private imdbService: ImdbService, 
     private alertController: AlertController,
+    private navCtrl: NavController,
     private search: SearchTitleService) { 
   }
 
@@ -40,25 +42,8 @@ export class MyVaultPage {
     }
   }
 
-  removeTitleFromAlreadyWatched(title: string) {
-    const alert = this.alertController.create({
-      subTitle: `You're about to delete "${title}" from your Already Watched list. Continue?`,
-      buttons: [
-        {
-            text: 'Yes',
-            handler: () => {
-              // this.imdbService.removeFromAlreadyWatched(title);
-            }
-        },
-        {
-            text: 'Cancel',
-            handler: () => {
-              // do nothing
-            }
-        }
-      ]
-    });
-    alert.present();
+  public getDetails(id){
+    this.navCtrl.push(DetailsPage, { id: id });
   }
 
   toggleFoo() { 

@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="loaded">
+    <img src="{{'https://image.tmdb.org/t/p/w500/'+title.backdrop_path}}" />
+  </div>
+
+</ion-content>

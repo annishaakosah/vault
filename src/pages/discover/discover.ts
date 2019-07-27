@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { ImdbService } from '../../providers/imdb-app.service';
 import { DiscoverService } from '../../providers/discover.service';
+import { DetailsPage } from '../details/details';
 
 @IonicPage()
 @Component({
@@ -25,5 +26,9 @@ export class DiscoverPage {
   public getResults() {
     let results = this.discover.getResults()
     if (results) return results.filter(t => t.poster_path != null);
+  }
+
+  public getDetails(id){
+    this.navCtrl.push(DetailsPage, { id: id });
   }
 }

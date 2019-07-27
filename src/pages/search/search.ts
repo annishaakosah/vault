@@ -1,5 +1,3 @@
-
-
 import { Component } from '@angular/core';
 
 import { AlertController } from 'ionic-angular';
@@ -8,6 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import { ImdbService } from '../../providers/imdb-app.service';
 import { SearchTitleService } from '../../providers/search-title.service';
+import { DetailsPage } from '../details/details';
 
 @Component({
   selector: 'page-search',
@@ -18,7 +17,8 @@ export class SearchPage {
 
   constructor(private imdbService: ImdbService,
     private titleSearch: SearchTitleService,
-    private alertController: AlertController) {
+    private alertController: AlertController,
+    private navCtrl: NavController) {
   }
 
   search(title: string) {
@@ -36,6 +36,10 @@ export class SearchPage {
   inWatchList(title) { 
     // let watchList = this.imdbService.getWatchList();
     true;
+  }
+
+  public getDetails(id){
+    this.navCtrl.push(DetailsPage, { id: id });
   }
 
   public isValidSearch = () => this.titleSearch.isValidSearch();
