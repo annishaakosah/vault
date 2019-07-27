@@ -11,7 +11,7 @@
     <ion-list>
       <ion-item-sliding *ngFor="let id of getWatchListTitles()">
         <ion-item (click)="toggleFoo()">
-          <img src="{{'https://image.tmdb.org/t/p/w500'+watchList[id]}}" (click)='getDetails(title)'>
+          <img src="{{'https://image.tmdb.org/t/p/w500'+watchList[id]}}" (click)='getDetails(id)'>
         </ion-item>
 
         <ion-item-options side="end">

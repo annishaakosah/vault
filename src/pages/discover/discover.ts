@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the DiscoverPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ImdbService } from '../../providers/imdb-app.service';
+import { DiscoverService } from '../../providers/discover.service';
 
 @IonicPage()
 @Component({
@@ -15,11 +11,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DiscoverPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    private imdbService: ImdbService,
+    private discover: DiscoverService,
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DiscoverPage');
+    this.discover.discover();    
   }
 
+  public getResults() {
+    let results = this.discover.getResults()
+    if (results) return results.filter(t => t.poster_path != null);
+  }
 }
