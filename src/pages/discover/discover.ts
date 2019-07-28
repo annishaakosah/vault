@@ -35,11 +35,7 @@ export class DiscoverPage {
     this.page = this.page+1;
     
     setTimeout(() => {
-      this.results = this.discover.discoverByPage(this.sort_by, this.page).then((data) => {
-        this.results = data
-      }, (err) => {
-        console.log("something went wrong");
-      });
+      this.discover.discoverByPage(this.sort_by, this.page)
       infiniteScroll.complete();
     }, 1000);
   }
