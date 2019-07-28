@@ -4,7 +4,6 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content>
   <div *ngIf="getWatchListTitles(); else no_content" class="already-watched-list">      
     
@@ -12,10 +11,13 @@
       <ion-item-sliding *ngFor="let id of getWatchListTitles()">
         <ion-item (click)="toggleFoo()">
           <img src="{{'https://image.tmdb.org/t/p/w500'+watchList[id]}}" (click)='getDetails(id)'>
+          <button ion-button (click)="removeFromWatchList(id)">
+              delete
+          </button>
         </ion-item>
-
+        
         <ion-item-options side="end">
-          <button ion-button color="danger" (click)="removeTitleFromAlreadyWatched(title.title)">
+          <button ion-button color="danger" (click)="removeFromWatchList(id)">
             <ion-icon name="trash"></ion-icon>Delete
           </button>
         </ion-item-options>

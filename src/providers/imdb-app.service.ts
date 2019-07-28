@@ -5,6 +5,7 @@ import { AngularFirestore } from "angularfire2/firestore";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AuthService } from './auth.service';
 import { User } from "../models/user";
+import firebase from "firebase";
 
 @Injectable()
 export class ImdbService {
@@ -39,6 +40,24 @@ export class ImdbService {
         [id]: poster_path
       }
     }, {merge:true})
+  }
+
+  removeFromWatchList(id) {
+    if(!this.watchList || !this.watchList[id]) {return;}
+    
+    let docRef = this.db.collection("users").doc(this.auth.currentUID());
+    docRef.update({
+      ["watchList."+id]: firebase.firestore.FieldValue.delete()  
+    })
+  }
+
+  removeFromAlreadyWatched(id) {
+    if(!this.alreadyWatched || !this.alreadyWatched[id]) {return;}
+    
+    let docRef = this.db.collection("users").doc(this.auth.currentUID());
+    docRef.update({
+      ["alreadyWatched."+id]: firebase.firestore.FieldValue.delete()  
+    })
   }
 
   private updateUser() {
