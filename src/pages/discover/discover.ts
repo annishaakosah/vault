@@ -11,6 +11,8 @@ import { DetailsPage } from '../details/details';
   templateUrl: 'discover.html',
 })
 export class DiscoverPage {
+  results;
+  sort_by = "popularity.desc";
 
   constructor(
     private imdbService: ImdbService,
@@ -20,12 +22,16 @@ export class DiscoverPage {
   }
 
   ionViewDidLoad() {
-    this.discover.discover();    
+    this.discover.discover();
+  }
+
+  change_selection(sort_by: string) {
+    this.discover.discover(sort_by);
   }
 
   public getResults() {
-    let results = this.discover.getResults()
-    if (results) return results.filter(t => t.poster_path != null);
+    this.results = this.discover.getResults()
+    if (this.results) return this.results.filter(t => t.poster_path != null);
   }
 
   public getDetails(id){
