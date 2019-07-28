@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MyVaultPage } from '../my-vault/my-vault';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AuthService } from '../../providers/auth.service';
+import { MenuPage } from '../menu/menu';
 
 import {
   IonicPage,
@@ -24,7 +27,8 @@ export class SignupPage {
   signupError: string;
 
   constructor(
-    private firebase:AngularFireAuth,
+    private auth:AuthService,
+    private db:AngularFirestore,
     public fb: FormBuilder,
     public navCtrl: NavController, 
     public navParams: NavParams) 
@@ -45,7 +49,7 @@ export class SignupPage {
       });
   }
 
-  async signup() {
+  signup() {
     let data = this.signupForm.value;
 
     if (!data.email) {
@@ -57,15 +61,35 @@ export class SignupPage {
       return;
     }
 
-    this.firebase.auth
-      .createUserWithEmailAndPassword(data.email, data.password)
-      .then(
-        () => {
-          this.navCtrl.setRoot(MyVaultPage);
-        },
-        error => {
-          this.signupError = error.message;
-        }
-      );
+    let credentials = {
+			email: data.email,
+			password: data.password
+    };
+    
+    this.auth.signup(credentials).then(
+			(u) => {
+        this.addToDatabase(u.user.email, u.user.uid);
+        this.navCtrl.setRoot(MenuPage);
+      },
+			error => this.signupError = error.message
+    );
+  }
+
+  private addToDatabase(email, id){
+    let docRef = this.db.collection("users").doc(id);
+
+    docRef.set(
+      {
+        email: email,
+        watchList: [],
+        alreadyWatched: []
+      }
+    )
+    .then(function(docRef) {
+        console.log("Document written with ID: ", id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
   }
 }

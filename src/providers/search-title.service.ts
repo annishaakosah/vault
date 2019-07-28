@@ -4,13 +4,14 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class SearchTitleService {
   private apiKey = 'edb14e33dbf6b5a849f1f06b16399595';
-  private api = `https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}`
-  
+  private apiSearch = `https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}`
+  private apiFind = `https://api.themoviedb.org/3/tv/`
+
   private validSearch: boolean;
   private notFound: boolean;
   private notProvided: boolean;
 
-  private results: {};
+  private results;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -25,7 +26,7 @@ export class SearchTitleService {
   }
 
   private getValidSearchResults(title: string) {
-    this.httpClient.get(`${this.api}&language=en-US&query=${title}`, { responseType: 'text' })
+    this.httpClient.get(`${this.apiSearch}&language=en-US&query=${title}`, { responseType: 'text' })
       .subscribe(response => {
         const responseBody = JSON.parse(response);
 
@@ -43,6 +44,17 @@ export class SearchTitleService {
       });
   }
 
+  public getByID(id: number) {
+    return new Promise((resolve, reject) => {
+      this.httpClient.get(`${this.apiFind}${id}?api_key=${this.apiKey}`, { responseType: 'text' })
+        .subscribe(response => {
+          resolve(JSON.parse(response));
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+  
   public isValidSearch = () => this.validSearch;
   public isNotFound = () => this.notFound;
   public isNotProvided = () => this.notProvided;

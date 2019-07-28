@@ -1,15 +1,24 @@
-<!--
-  Generated template for the DiscoverPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
-    <ion-title>discover</ion-title>
+    <ion-title>Discover</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+    <ion-label>Sort by:</ion-label>
+    <ion-select value="popularity.desc" [(ngModel)]="sort_by" (ionChange)="change_selection(sort_by)">
+        <ion-option value="popularity.desc">Popularity ↓</ion-option>
+        <ion-option value="popularity.asc">Popularity ↑</ion-option>
+        <ion-option value="first_air_date.asc">Newest</ion-option>
+        <ion-option value="first_air_date.desc">Oldest</ion-option>
+        <ion-option value="vote_average.desc">Top rated</ion-option>
+    </ion-select>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let title of getResults()">
+        <img src="{{'https://image.tmdb.org/t/p/w500'+title.poster_path}}" (click)='getDetails(title.id)' />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

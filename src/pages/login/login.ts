@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth'
 import { SignupPage } from '../signup/signup';
 import { MenuPage } from '../menu/menu';
-
 import { MyVaultPage } from '../my-vault/my-vault';
+import { AuthService } from '../../providers/auth.service';
 
 import {
   IonicPage,
@@ -28,7 +28,7 @@ export class LoginPage {
   loginError: string;
 
   constructor(
-    private firebase: AngularFireAuth,
+    private auth: AuthService,
     public fb: FormBuilder,
     public navCtrl: NavController,
     public navParams: NavParams) {
@@ -52,12 +52,15 @@ export class LoginPage {
     let data = this.loginForm.value;
 
     if (!data.email) {
-      this.loginError = "Please enter an email"
       return;
     }
 
-    this.firebase.auth
-      .signInWithEmailAndPassword(data.email, data.password)
+    let credentials = {
+			email: data.email,
+			password: data.password
+    };
+
+    this.auth.login(credentials)
       .then(
         () => {
           this.navCtrl.setRoot(MenuPage);
