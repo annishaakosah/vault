@@ -5,19 +5,28 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="getWatchListTitles(); else no_content" class="already-watched-list">      
+  <ion-segment [(ngModel)]="selectedList" (onchange)="getTitles()">
+    <ion-segment-button value="alreadyWatched">
+      Already Watched
+    </ion-segment-button>
+    <ion-segment-button value="watchList">
+      Watchlist
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="getTitles(); else no_content" class="already-watched-list">      
     
     <ion-list>
-      <ion-item-sliding *ngFor="let id of getWatchListTitles()">
-        <ion-item (click)="toggleFoo()">
-          <img src="{{'https://image.tmdb.org/t/p/w500'+watchList[id]}}" (click)='getDetails(id)'>
-          <button ion-button (click)="removeFromWatchList(id)">
+      <ion-item-sliding *ngFor="let id of getTitles()">
+        <ion-item >
+          <img [src]="getImageUrl(id)" (click)='getDetails(id)'>
+          <button ion-button (click)="removeFromList(id)">
               delete
           </button>
         </ion-item>
         
         <ion-item-options side="end">
-          <button ion-button color="danger" (click)="removeFromWatchList(id)">
+          <button ion-button color="danger" (click)="removeFromList(id)">
             <ion-icon name="trash"></ion-icon>Delete
           </button>
         </ion-item-options>
@@ -25,7 +34,7 @@
     </ion-list>
   </div>
 
-  <ng-template #no_content>
+ <ng-template #no_content>
     <h2 style="text-align: center">List is empty</h2>
   </ng-template>
 </ion-content>

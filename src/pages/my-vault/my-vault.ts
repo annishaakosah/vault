@@ -20,6 +20,8 @@ export class MyVaultPage {
   isFoo = false;
   watchList;
   alreadyWatched;
+  selectedList = 'watchList'
+  titles;
 
   constructor(
     private imdbService: ImdbService, 
@@ -28,34 +30,78 @@ export class MyVaultPage {
     private search: SearchTitleService) { 
   }
 
-  getWatchListTitles() {
-    this.watchList = this.imdbService.getWatchList();
-    if(this.watchList) {
-      return Object.keys(this.watchList)
-    }
-  }
-
-  getAlreadyWatchedTitles() {
+  ionViewDidLoad(){
+    this.watchList = this.imdbService.getWatchList();  
     this.alreadyWatched = this.imdbService.getAlreadyWatched();
-    if(this.alreadyWatched) {
-      return Object.keys(this.alreadyWatched)
+  }
+
+  public getTitles(){
+    switch(this.selectedList) {
+      case "watchList":
+        this.titles = this.getWatchListTitles()
+        break;
+      case "alreadyWatched":
+        this.titles = this.getAlreadyWatchedTitles();
+        break;
+      default:
+        this.titles = this.getWatchListTitles()
+        break;
     }
+    return this.titles
   }
 
-  removeFromWatchList(id) {
-    this.imdbService.removeFromWatchList(id);
-  }
+  public removeFromList(id){
+    debugger;
 
-  removeFromAlreadyWatched(id) {
-    this.imdbService.removeFromAlreadyWatched(id);
+    switch(this.selectedList) {
+      case "watchList":
+        this.removeFromWatchList(id)
+        this.titles = this.getWatchListTitles();
+        break;
+      case "alreadyWatched":
+        this.removeFromAlreadyWatched(id)
+        this.titles = this.getAlreadyWatchedTitles();
+        break;
+      default:
+        break;
+    }
   }
 
   public getDetails(id){
     this.navCtrl.push(DetailsPage, { id: id });
   }
 
-  toggleFoo() { 
-    this.isFoo = !this.isFoo;
+  public getImageUrl(id){
+    switch(this.selectedList){
+      case "watchList":
+        return `https://image.tmdb.org/t/p/w500${this.watchList[id]}`
+      case "alreadyWatched":
+        return `https://image.tmdb.org/t/p/w500${this.alreadyWatched[id]}`
+      default:
+        break;
+    }
+  }
+
+  private getWatchListTitles() {
+    this.watchList = this.imdbService.getWatchList();
+    if(this.watchList) {
+      return Object.keys(this.watchList)
+    }
+  }
+
+  private getAlreadyWatchedTitles() {
+    this.alreadyWatched = this.imdbService.getAlreadyWatched();
+    if(this.alreadyWatched) {
+      return Object.keys(this.alreadyWatched)
+    }
+  }
+
+  private removeFromWatchList(id) {
+    this.imdbService.removeFromWatchList(id);
+  }
+
+  private removeFromAlreadyWatched(id) {
+    this.imdbService.removeFromAlreadyWatched(id);
   }
 }
 
