@@ -1,13 +1,9 @@
 
 import { Component } from '@angular/core';
 
-import { AlertController } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { AngularFirestore } from 'angularfire2/firestore';
 
 import { ImdbService } from '../../providers/imdb-app.service';
-import { SearchTitleService } from '../../providers/search-title.service';
-import { User } from '../../models/user';
 import { DetailsPage } from '../details/details';
 
 @Component({
@@ -17,7 +13,6 @@ import { DetailsPage } from '../details/details';
 })
 
 export class MyVaultPage {
-  isFoo = false;
   watchList;
   alreadyWatched;
   selectedList = 'watchList'
@@ -25,9 +20,7 @@ export class MyVaultPage {
 
   constructor(
     private imdbService: ImdbService, 
-    private alertController: AlertController,
-    private navCtrl: NavController,
-    private search: SearchTitleService) { 
+    private navCtrl: NavController) { 
   }
 
   ionViewDidLoad(){
@@ -51,8 +44,6 @@ export class MyVaultPage {
   }
 
   public removeFromList(id){
-    debugger;
-
     switch(this.selectedList) {
       case "watchList":
         this.removeFromWatchList(id)

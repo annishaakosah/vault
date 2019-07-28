@@ -44,6 +44,19 @@ export class SearchTitleService {
       });
   }
 
+  public searchByPage(title: string, page) {
+    return new Promise((resolve, reject) => {
+      this.httpClient.get(`${this.apiSearch}&page=${page}&language=en-US&query=${title}`, { responseType: 'text' })
+        .subscribe(response => {
+          const responseBody = JSON.parse(response);
+          this.results = this.results.concat(responseBody.results)
+          resolve(this.results);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   public getByID(id: number) {
     return new Promise((resolve, reject) => {
       this.httpClient.get(`${this.apiFind}${id}?api_key=${this.apiKey}`, { responseType: 'text' })

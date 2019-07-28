@@ -19,7 +19,7 @@ export class DetailsPage {
 
   ionViewWillEnter() {
     const id = this.navParams.get('id');
-    this.title = this.search.getByID(id).then((data) => {
+    this.search.getByID(id).then((data) => {
       this.title = data;
       this.loaded = true;
     }, (err) => {
