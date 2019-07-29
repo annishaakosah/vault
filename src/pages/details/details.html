@@ -1,17 +1,35 @@
 <ion-header>
   <ion-navbar>
     <div *ngIf="loaded">
-    <ion-title>
+    <ion-title text-center>
       {{title.name}}
     </ion-title>
     </div>
+    <ion-buttons end> 
+      <button ion-button icon-only (click)="openModal()"> 
+      <ion-icon name="list"></ion-icon> 
+    </button> 
+  </ion-buttons> 
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <div *ngIf="loaded">
     <img src="{{'https://image.tmdb.org/t/p/w500/'+title.backdrop_path}}" />
-    {{title.overview}}
-  </div>
+    <p>{{title.overview}}</p>
+
+    <div class="buttons">
+        <div class="button"> 
+          <button ion-button icon-only (click)="action1()">
+            <ion-icon name="add"></ion-icon>
+        </button></div>
+        <div class="button">
+          <button ion-button icon-only (click)="action2()">
+            <ion-icon name="share"></ion-icon>
+        </button>
+     
+      </div>
+    </div>
+  </div> 
 
 </ion-content>

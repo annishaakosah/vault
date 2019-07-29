@@ -14,8 +14,7 @@
     </ion-segment-button>
   </ion-segment>
 
-  <div *ngIf="getTitles(); else no_content" class="already-watched-list">      
-    
+  <div class="already-watched-list">      
     <ion-list>
       <ion-item-sliding *ngFor="let id of getTitles()">
         <ion-item >
@@ -33,8 +32,4 @@
       </ion-item-sliding>
     </ion-list>
   </div>
-
- <ng-template #no_content>
-    <h2 style="text-align: center">List is empty</h2>
-  </ng-template>
 </ion-content>
