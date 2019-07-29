@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-import { AlertController } from 'ionic-angular';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
-
+import { NavController } from 'ionic-angular';
 import { ImdbService } from '../../providers/imdb-app.service';
 import { SearchTitleService } from '../../providers/search-title.service';
 import { DetailsPage } from '../details/details';
@@ -19,7 +15,6 @@ export class SearchPage {
 
   constructor(private imdbService: ImdbService,
     private titleSearch: SearchTitleService,
-    private alertController: AlertController,
     private navCtrl: NavController) {
   }
 
@@ -68,4 +63,3 @@ export class SearchPage {
     }, 1000);
   }
 }
-

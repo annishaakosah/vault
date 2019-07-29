@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AuthService } from '../../providers/auth.service';
-
 import {
   IonicPage,
   NavController,
@@ -15,6 +13,7 @@ import {
   Validators,
   FormControl
 } from "@angular/forms";
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -77,7 +76,7 @@ export class SignupPage {
 			(u) => {
         loading.dismiss();
         this.addToDatabase(u.user.email, u.user.uid);
-        this.navCtrl.setRoot(MenuPage);
+        this.navCtrl.setRoot(TabsPage);
       },
 			(error) => {
         loading.dismiss();

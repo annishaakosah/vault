@@ -1,8 +1,6 @@
 
 import { Component } from '@angular/core';
-
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-
+import { NavController } from 'ionic-angular';
 import { ImdbService } from '../../providers/imdb-app.service';
 import { DetailsPage } from '../details/details';
 
@@ -95,4 +93,3 @@ export class MyVaultPage {
     this.imdbService.removeFromAlreadyWatched(id);
   }
 }
-

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth'
 import { SignupPage } from '../signup/signup';
-import { AuthService } from '../../providers/auth.service';
 import { TabsPage } from '../tabs/tabs';
-
+import { AuthService } from '../../providers/auth.service';
 import {
   IonicPage,
   NavController,

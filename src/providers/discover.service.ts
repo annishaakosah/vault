@@ -6,7 +6,6 @@ import { LoadingController } from 'ionic-angular';
 export class DiscoverService {
   private apiKey = 'edb14e33dbf6b5a849f1f06b16399595';
   private apiDiscover = `https://api.themoviedb.org/3/discover/tv`
-  
   private results;
 
   constructor(private http: HttpClient, public loadingCtrl: LoadingController) { }
