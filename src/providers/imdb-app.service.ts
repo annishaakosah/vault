@@ -38,6 +38,15 @@ export class ImdbService {
     }, {merge:true})
   }
 
+  isInWatchList(id) {
+    debugger
+    this.watchList[id] !== undefined
+  }
+
+  isInAlreadyWatched(id) {
+    this.alreadyWatched[id] !== undefined
+  }
+
   removeFromWatchList(id) {
     if(!this.watchList || !this.watchList[id]) {return;}
     
