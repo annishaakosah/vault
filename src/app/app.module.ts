@@ -8,23 +8,24 @@ import { AngularFireAuthModule }from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { HttpClientModule } from '@angular/common/http';
 
-
 // Components:
 import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from "./app.firebase.config";
+
+// Pages:
 import { LoginPage } from './../pages/login/login';
 import { SignupPage } from './../pages/signup/signup';
 import { MyVaultPage } from '../pages/my-vault/my-vault';
-import { MenuPage } from '../pages/menu/menu';
 import { SearchPage } from '../pages/search/search';
 import { DiscoverPage } from '../pages/discover/discover';
+import { DetailsPage } from '../pages/details/details';
+import { TabsPage } from '../pages/tabs/tabs';
 
 // Services:
 import { ImdbService } from '../providers/imdb-app.service';
 import { SearchTitleService } from '../providers/search-title.service';
 import { AuthService } from '../providers/auth.service';
 import { DiscoverService } from '../providers/discover.service';
-import { DetailsPage } from '../pages/details/details';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { DetailsPage } from '../pages/details/details';
     SignupPage,
     MyVaultPage,
     SearchPage,
-    MenuPage,
+    TabsPage,
     DiscoverPage,
     DetailsPage
   ],
@@ -52,7 +53,7 @@ import { DetailsPage } from '../pages/details/details';
     SignupPage,
     MyVaultPage,
     SearchPage,
-    MenuPage,
+    TabsPage,
     DiscoverPage,
     DetailsPage
   ],
