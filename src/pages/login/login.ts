@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth'
 import { SignupPage } from '../signup/signup';
-import { MenuPage } from '../menu/menu';
-import { MyVaultPage } from '../my-vault/my-vault';
 import { AuthService } from '../../providers/auth.service';
+import { TabsPage } from '../tabs/tabs';
 
 import {
   IonicPage,
@@ -16,6 +15,7 @@ import {
   Validators,
   FormControl
 } from "@angular/forms";
+
 
 @IonicPage()
 @Component({
@@ -63,7 +63,7 @@ export class LoginPage {
     this.auth.login(credentials)
       .then(
         () => {
-          this.navCtrl.setRoot(MenuPage);
+          this.navCtrl.setRoot(TabsPage);
         },
         error => {
           this.loginError = error.message;
