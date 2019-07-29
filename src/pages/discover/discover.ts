@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { ImdbService } from '../../providers/imdb-app.service';
 import { DiscoverService } from '../../providers/discover.service';
 import { DetailsPage } from '../details/details';
 
@@ -16,7 +14,6 @@ export class DiscoverPage {
   sort_by = "popularity.desc";
 
   constructor(
-    private imdbService: ImdbService,
     private discover: DiscoverService,
     public navCtrl: NavController, 
     public navParams: NavParams) {

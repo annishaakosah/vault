@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AuthService } from '../../providers/auth.service';
-
 import {
   IonicPage,
   NavController,
-  NavParams
+  NavParams,
+  LoadingController
 } from 'ionic-angular';
 import {
   FormGroup,
@@ -14,6 +13,7 @@ import {
   Validators,
   FormControl
 } from "@angular/forms";
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -28,7 +28,8 @@ export class SignupPage {
     private auth:AuthService,
     private db:AngularFirestore,
     public fb: FormBuilder,
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
+    public loadingCtrl: LoadingController,
     public navParams: NavParams) 
     {
       this.signupForm = fb.group({
@@ -58,6 +59,13 @@ export class SignupPage {
       this.signupError = "Your passwords don't match";
       return;
     }
+    
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      content: "Creating account...",
+      showBackdrop: true,
+    })
+    loading.present()
 
     let credentials = {
 			email: data.email,
@@ -66,10 +74,14 @@ export class SignupPage {
     
     this.auth.signup(credentials).then(
 			(u) => {
+        loading.dismiss();
         this.addToDatabase(u.user.email, u.user.uid);
-        this.navCtrl.setRoot(MenuPage);
+        this.navCtrl.setRoot(TabsPage);
       },
-			error => this.signupError = error.message
+			(error) => {
+        loading.dismiss();
+        this.signupError = error.message
+      }
     );
   }
 
