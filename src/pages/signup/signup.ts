@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { MyVaultPage } from '../my-vault/my-vault';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AuthService } from '../../providers/auth.service';
-import { MenuPage } from '../menu/menu';
 
 import {
   IonicPage,
