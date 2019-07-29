@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AuthService } from '../../providers/auth.service';
+import { DiscoverPage } from '../discover/discover';
 
 import {
   IonicPage,
@@ -14,6 +14,8 @@ import {
   Validators,
   FormControl
 } from "@angular/forms";
+
+
 
 @IonicPage()
 @Component({
@@ -67,7 +69,7 @@ export class SignupPage {
     this.auth.signup(credentials).then(
 			(u) => {
         this.addToDatabase(u.user.email, u.user.uid);
-        this.navCtrl.setRoot(MenuPage);
+        this.navCtrl.setRoot(DiscoverPage);
       },
 			error => this.signupError = error.message
     );
