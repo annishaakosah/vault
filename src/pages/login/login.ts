@@ -7,7 +7,8 @@ import { TabsPage } from '../tabs/tabs';
 import {
   IonicPage,
   NavController,
-  NavParams
+  NavParams,
+  LoadingController
 } from 'ionic-angular';
 import {
   FormGroup,
@@ -31,6 +32,7 @@ export class LoginPage {
     private auth: AuthService,
     public fb: FormBuilder,
     public navCtrl: NavController,
+    public loadingCtrl: LoadingController,
     public navParams: NavParams) {
     this.loginForm = fb.group({
       email: new FormControl(
@@ -54,6 +56,13 @@ export class LoginPage {
     if (!data.email) {
       return;
     }
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      content: "Logging in...",
+      dismissOnPageChange: true,
+      showBackdrop: true,
+    })
+    loading.present()
 
     let credentials = {
 			email: data.email,
@@ -63,9 +72,11 @@ export class LoginPage {
     this.auth.login(credentials)
       .then(
         () => {
+          loading.dismiss()
           this.navCtrl.setRoot(TabsPage);
         },
         error => {
+          loading.dismiss()
           this.loginError = error.message;
         }
       );
