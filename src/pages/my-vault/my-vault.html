@@ -14,22 +14,12 @@
     </ion-segment-button>
   </ion-segment>
 
-  <div class="already-watched-list">      
-    <ion-list>
-      <ion-item-sliding *ngFor="let id of getTitles()">
-        <ion-item >
-          <img [src]="getImageUrl(id)" (click)='getDetails(id)'>
-          <button ion-button (click)="removeFromList(id)">
-              delete
-          </button>
-        </ion-item>
-        
-        <ion-item-options side="end">
-          <button ion-button color="danger" (click)="removeFromList(id)">
-            <ion-icon name="trash"></ion-icon>Delete
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-list>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 col-md-4 col-lg-2 *ngFor="let id of getTitles()" class="poster">
+        <img [src]="getImageUrl(id)" class="poster" (click)='getDetails(id)'>
+        <img [src]="getImageUrl(id)" class="poster-effect" (click)='getDetails(id)'>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

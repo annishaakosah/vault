@@ -1,5 +1,27 @@
 page-my-vault {
-    .add-icon {
-        // Add styling here
+    .poster {
+        width: 100%;
+        position: relative;
+        height: 250px;
+        background: #eee;
+        border-radius: 5px;
+        img.poster, img.poster-effect {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 5px;
+            z-index: 9999;
+            position: relative;
+            margin-bottom: -225px;
+            -webkit-transform: translateZ(0);
+            -webkit-perspective: 1000;
+            -webkit-backface-visibility: hidden;
+            &.poster-effect {
+                z-index: 999;
+                opacity: 0.4;
+                transform: scale(0.95) translateZ(0);
+                filter: blur(15px);
+            }   
+        }
     }
 }
