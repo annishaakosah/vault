@@ -13,16 +13,22 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <div *ngIf="loaded">
     <img src="{{'https://image.tmdb.org/t/p/w500/'+title.backdrop_path}}" />
-    <p>{{title.overview}}</p>
+    <p padding >{{title.overview}}</p>
 
-    <div class="buttons">
-        <div class="button"> 
-          <button ion-button icon-only (click)="action1()">
+    <div class="buttons"> 
+        <div class="button" *ngIf="inList()">
+          <button ion-button icon-only (click)="removeFromWatchList()">
+            <ion-icon name="close"></ion-icon>
+        </button>
+      </div>
+      <div class="button" *ngIf="!inList()">
+          <button ion-button icon-only (click)="addToWatchList()">
             <ion-icon name="add"></ion-icon>
-        </button></div>
+        </button>
+      </div>
         <div class="button">
           <button ion-button icon-only (click)="action2()">
             <ion-icon name="share"></ion-icon>

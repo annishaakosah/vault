@@ -39,12 +39,11 @@ export class ImdbService {
   }
 
   isInWatchList(id) {
-    debugger
-    this.watchList[id] !== undefined
+    return this.watchList[id] !== undefined
   }
 
   isInAlreadyWatched(id) {
-    this.alreadyWatched[id] !== undefined
+    return this.alreadyWatched[id] !== undefined
   }
 
   removeFromWatchList(id) {
