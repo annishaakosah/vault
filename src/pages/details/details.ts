@@ -23,7 +23,7 @@ export class DetailsPage {
 
   ionViewWillEnter() {
     this.id = this.navParams.get('id');
-    this.list = this.navParams.get('list')
+    this.list = this.navParams.get('list') || 'watchList'
     this.search.getByID(this.id).then((data) => {
       this.title = data;
       this.loaded = true;
@@ -59,4 +59,7 @@ export class DetailsPage {
     }
     this.imdbService.removeFromAlreadyWatched(this.id)
   }
+
+  public addToWatchList = () => this.imdbService.addToWatchList(this.title.id, this.title.poster_path);
+
 }

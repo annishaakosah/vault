@@ -57,7 +57,7 @@ export class MyVaultPage {
   }
 
   public getDetails(id){
-    this.navCtrl.push(DetailsPage, { id: id });
+    this.navCtrl.push(DetailsPage, { id: id, list: this.selectedList });
   }
 
   public getImageUrl(id){
