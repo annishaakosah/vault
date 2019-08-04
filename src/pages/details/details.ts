@@ -11,8 +11,7 @@ import { ImdbService } from '../../providers/imdb-app.service';
 export class DetailsPage {
   id:number
   list
-  title;
-  loaded = false;
+  show;
 
   constructor(
     private search: SearchTitleService,
@@ -25,11 +24,9 @@ export class DetailsPage {
     this.id = this.navParams.get('id');
     this.list = this.navParams.get('list') || 'watchList'
     this.search.getByID(this.id).then((data) => {
-      this.title = data;
-      this.loaded = true;
+      this.show = data;
     }, (err) => {
       console.log("something went wrong");
-      this.loaded = false;
     });
   }
 
@@ -60,6 +57,6 @@ export class DetailsPage {
     this.imdbService.removeFromAlreadyWatched(this.id)
   }
 
-  public addToWatchList = () => this.imdbService.addToWatchList(this.title.id, this.title.poster_path);
+  public addToWatchList = () => this.imdbService.addToWatchList(this.show.id, this.show.poster_path);
 
 }

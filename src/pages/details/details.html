@@ -1,41 +1,70 @@
 <ion-header>
   <ion-navbar>
-    <div *ngIf="loaded">
     <ion-title text-center>
-      {{title.name}}
+      {{show?.name}}
     </ion-title>
-    </div>
-    <ion-buttons end> 
-      <button ion-button icon-only (click)="openModal()"> 
-      <ion-icon name="list"></ion-icon> 
-    </button> 
-  </ion-buttons> 
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openModal()">
+        <ion-icon name="list"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <div *ngIf="loaded">
-    <img src="{{'https://image.tmdb.org/t/p/w500/'+title.backdrop_path}}" />
-    <p padding >{{title.overview}}</p>
+  <div class="backdrop" *ngIf="show">
+    <img *ngIf="show.backdrop_path" [src]="'https://image.tmdb.org/t/p/original' + show.backdrop_path">
+  </div>
+  <div class="poster" *ngIf="show">
+    <img *ngIf="show.poster_path" class="poster" [src]="'https://image.tmdb.org/t/p/w500' + show.poster_path">
+    <div class="poster-shadow"></div>
+  </div>
+
+  <div class="show-data" *ngIf="show" padding>
+    <div class="name">{{ show.name }}</div>
+    <div class="year">{{ show.first_air_date | date:'yyyy' }}</div>
+    <div class="vote">
+      <div class="text">
+        <b>{{ show.vote_average }}</b>/10
+      </div>
+      <div class="stars">
+          <ion-icon [name]="show.vote_average >= 2 ? 'star' : show.vote_average >= 1 ? 'star-half' : 'star-outline'"></ion-icon>
+          <ion-icon [name]="show.vote_average >= 4 ? 'star' : show.vote_average >= 3 ? 'star-half' : 'star-outline'"></ion-icon>
+          <ion-icon [name]="show.vote_average >= 6 ? 'star' : show.vote_average >= 5 ? 'star-half' : 'star-outline'"></ion-icon>
+          <ion-icon [name]="show.vote_average >= 8 ? 'star' : show.vote_average >= 7 ? 'star-half' : 'star-outline'"></ion-icon>
+          <ion-icon [name]="show.vote_average >= 10 ? 'star' : show.vote_average >= 9 ? 'star-half' : 'star-outline'"></ion-icon>
+      </div>
+      <div class="count">{{ show.vote_count }} votes</div>
+    </div>
+
+    <div padding class="overview">{{ show.overview }}</div>
+
+    <div class="duration" *ngIf="show && show.episode_run_time">
+      <div class="label">
+        <ion-icon name="md-time"></ion-icon>Duration
+      </div>
+      <div class="value">{{ show.episode_run_time }} mins</div>
+    </div>
+    <div class="genres" *ngIf="show && show.genres && show.genres.length">
+      <div class="label">
+        <ion-icon name="md-pricetag"></ion-icon>Genres
+      </div>
+      <div class="value"><span *ngFor="let genre of show.genres; let last = last">{{ genre.name }}<span *ngIf="!last">,
+          </span></span></div>
+    </div>
 
     <div class="buttons"> 
         <div class="button" *ngIf="inList()">
-          <button ion-button icon-only (click)="removeFromWatchList()">
+          <button ion-button color="light" round icon-only (click)="removeFromWatchList()">
             <ion-icon name="close"></ion-icon>
         </button>
       </div>
       <div class="button" *ngIf="!inList()">
-          <button ion-button icon-only (click)="addToWatchList()">
+          <button ion-button color="light" round icon-only (click)="addToWatchList()">
             <ion-icon name="add"></ion-icon>
         </button>
       </div>
-        <div class="button">
-          <button ion-button icon-only (click)="action2()">
-            <ion-icon name="share"></ion-icon>
-        </button>
-     
-      </div>
     </div>
-  </div> 
 
+  </div>
 </ion-content>
