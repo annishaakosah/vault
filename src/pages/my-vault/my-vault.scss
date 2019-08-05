@@ -37,4 +37,25 @@ page-my-vault {
         width: 100%;
         height: 100%;
     }
+
+    ion-segment-button {
+        border-radius: 0px !important;
+        background-color: transparent !important;
+        color: color($colors, primary)!important;
+        border-top-width: 0px !important;
+        border-left-width: 0px !important;
+        border-right-width: 0px !important;
+        border-bottom-width: 0px !important;
+
+        &.segment-activated {
+            border-color: color($colors, primary) !important;
+            border-bottom-width: 2px !important;
+        }
+    }
+
+    ion-segment {
+        height: 10%;
+
+        // border-radius: 0px !important;
+    }
 }

@@ -1,16 +1,16 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar (tap)="optionsID=undefined">
     <ion-title>MyVault</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
   <ion-segment [(ngModel)]="selectedList" (ionChange)="optionsID=undefined">
     <ion-segment-button value="alreadyWatched">
-      Already Watched
+      ALREADY WATCHED
     </ion-segment-button>
     <ion-segment-button value="watchList">
-      Watchlist
+      WATCHLIST
     </ion-segment-button>
   </ion-segment>
 
@@ -21,7 +21,7 @@
         <div class="overlay" *ngIf="optionsID == id">
           <div class="icons">
             <ion-icon [name]="selectedList=='watchList' ? 'archive' : 'add-circle'" (click)="moveToOtherList(id)"></ion-icon><br>
-            <ion-icon name="trash" (click)="removeFromList(id)"></ion-icon>
+            <ion-icon name="trash" (click)="removeFromList(id)" ></ion-icon>
           </div>
         </div>
       </ion-col>
