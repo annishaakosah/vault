@@ -15,6 +15,7 @@ export class MyVaultPage {
   alreadyWatched;
   selectedList = 'watchList'
   titles;
+  optionsID = undefined;
 
   constructor(
     private imdbService: ImdbService, 
@@ -24,6 +25,19 @@ export class MyVaultPage {
   ionViewDidLoad(){
     this.watchList = this.imdbService.getWatchList();  
     this.alreadyWatched = this.imdbService.getAlreadyWatched();
+  }
+
+  ionViewWillLeave(){
+    this.optionsID = undefined;
+  }
+
+  swipeEvent(swipe) {
+    if(swipe.direction == 2) { //LEFT
+      this.selectedList = "watchList"
+    }
+    else if (swipe.direction == 4) { //RIGHT
+      this.selectedList = "alreadyWatched"
+    }
   }
 
   public getTitles(){

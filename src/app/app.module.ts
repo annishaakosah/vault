@@ -7,6 +7,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule }from 'angularfire2/auth'; 
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { HttpClientModule } from '@angular/common/http';
+import { LongPressModule } from 'ionic-long-press';
 
 // Components:
 import { MyApp } from './app.component';
@@ -44,7 +45,8 @@ import { DiscoverService } from '../providers/discover.service';
     HttpClientModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    LongPressModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

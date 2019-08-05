@@ -4,9 +4,33 @@ page-my-vault {
         height: 270px;
         border-radius: 6px;
         img.poster {
-            width: 100%;
+            width: 170px;
             height: 260px;
             object-fit: cover;
         }
+        .overlay {
+            position: absolute;
+            bottom: 5px;
+            left: 2.5%;
+            background-color: rgba(255,255,255,0.8);
+            overflow: hidden;
+            width: 95%;
+            height: 260px;
+            z-index: 100;
+        }
+        .invisible-overlay {
+            position: absolute;
+            background-color: rgba(255,255,255,0);
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            z-index: 99;
+        }
+    }
+
+    .content {
+        width: 100%;
+        height: 100%;
+        z-index:-99;
     }
 }
