@@ -18,7 +18,7 @@ export class ImdbService {
 
   addToAlreadyWatched(id, poster_path) {
     if(!this.alreadyWatched || this.alreadyWatched[id]) {return;}
-    
+
     let docRef = this.db.collection("users").doc(this.auth.currentUID());
     docRef.set({
       "alreadyWatched": {

@@ -1,5 +1,61 @@
 page-my-vault {
-    .add-icon {
-        // Add styling here
+    .poster {
+        width: 100%;
+        height: 270px;
+        border-radius: 6px;
+
+        img.poster {
+            width: 170px;
+            height: 260px;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 5px;
+            background-color: rgba(255,255,255,0.9);
+            overflow: hidden;
+            width: 170px;
+            height: 260px;
+            z-index: 99;
+            .icons {
+                width: 100%;
+                text-align: center;
+                color: rgba(120,120,120,0.9);
+                font-size: 4.5rem;
+                position: relative;
+                margin-top: 35%;
+            }
+        }
+        ion-icon{
+            cursor:pointer;
+            padding-bottom: 20%;
+        }
+        
+    }
+
+    .gestures {
+        width: 100%;
+        height: 100%;
+    }
+
+    ion-segment-button {
+        border-radius: 0px !important;
+        background-color: transparent !important;
+        color: color($colors, primary)!important;
+        border-top-width: 0px !important;
+        border-left-width: 0px !important;
+        border-right-width: 0px !important;
+        border-bottom-width: 0px !important;
+
+        &.segment-activated {
+            border-color: color($colors, primary) !important;
+            border-bottom-width: 2px !important;
+        }
+    }
+
+    ion-segment {
+        height: 10%;
+
+        // border-radius: 0px !important;
     }
 }

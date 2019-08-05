@@ -15,8 +15,8 @@
     </ion-select>
   <ion-grid>
     <ion-row>
-      <ion-col col-6 *ngFor="let title of getResults()">
-        <img src="{{'https://image.tmdb.org/t/p/w500'+title.poster_path}}" (click)='getDetails(title.id)' />
+      <ion-col col-6 col-md-4 col-lg-2 class="poster" *ngFor="let title of getResults()">
+        <img src="{{'https://image.tmdb.org/t/p/w500'+title.poster_path}}" class="poster" (click)='getDetails(title.id)' />
       </ion-col>
     </ion-row>
   </ion-grid>

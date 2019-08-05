@@ -15,6 +15,7 @@ export class MyVaultPage {
   alreadyWatched;
   selectedList = 'watchList'
   titles;
+  optionsID = undefined;
 
   constructor(
     private imdbService: ImdbService, 
@@ -24,6 +25,21 @@ export class MyVaultPage {
   ionViewDidLoad(){
     this.watchList = this.imdbService.getWatchList();  
     this.alreadyWatched = this.imdbService.getAlreadyWatched();
+  }
+
+  ionViewWillLeave(){
+    this.optionsID = undefined;
+  }
+
+  swipeEvent(swipe) {
+    if(swipe.direction == 2) { //LEFT
+      this.optionsID = undefined;
+      this.selectedList = "watchList"
+    }
+    else if (swipe.direction == 4) { //RIGHT
+      this.optionsID = undefined;
+      this.selectedList = "alreadyWatched"
+    }
   }
 
   public getTitles(){
@@ -56,8 +72,26 @@ export class MyVaultPage {
     }
   }
 
+  public moveToOtherList(id){
+    switch(this.selectedList) {
+      case "watchList":
+        this.imdbService.addToAlreadyWatched(id, this.watchList[id]);
+        this.removeFromWatchList(id)
+        this.titles = this.getWatchListTitles();
+        break;
+      case "alreadyWatched":
+        this.imdbService.addToWatchList(id, this.alreadyWatched[id]);
+        this.removeFromAlreadyWatched(id)
+        this.titles = this.getAlreadyWatchedTitles();
+        break;
+      default:
+        break;
+    }
+  }
+
   public getDetails(id){
     this.navCtrl.push(DetailsPage, { id: id, list: this.selectedList });
+    this.optionsID = undefined;
   }
 
   public getImageUrl(id){
