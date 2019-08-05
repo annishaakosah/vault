@@ -14,14 +14,15 @@
     </ion-segment-button>
   </ion-segment>
 
-  <ion-grid class='gestures' (tap)="optionsID=undefined" (swipe)="swipeEvent($event)" >
+  <ion-grid class='gestures' (tap)="optionsID=undefined" (swipe)="swipeEvent($event)">
     <ion-row>
       <ion-col col-6 col-md-4 col-lg-2 *ngFor="let id of getTitles()" class="poster">
-        <img [src]="getImageUrl(id)" ion-long-press class="poster" (onPressStart)="optionsID=id"
-         (click)='getDetails(id)'>
+        <img [src]="getImageUrl(id)" ion-long-press class="poster" (onPressStart)="optionsID=id" (click)='getDetails(id)'>
         <div class="overlay" *ngIf="optionsID == id">
-          <ion-icon [name]="selectedList=='watchList' ? 'archive' : 'add-circle'" (click)="moveToOtherList(id)"></ion-icon><br>
-          <ion-icon name="trash" (click)="removeFromList(id)"></ion-icon>
+          <div class="icons">
+            <ion-icon [name]="selectedList=='watchList' ? 'archive' : 'add-circle'" (click)="moveToOtherList(id)"></ion-icon><br>
+            <ion-icon name="trash" (click)="removeFromList(id)"></ion-icon>
+          </div>
         </div>
       </ion-col>
     </ion-row>

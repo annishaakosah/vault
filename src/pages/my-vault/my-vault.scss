@@ -17,16 +17,20 @@ page-my-vault {
             width: 170px;
             height: 260px;
             z-index: 99;
+            .icons {
+                width: 100%;
+                text-align: center;
+                color: rgba(120,120,120,0.9);
+                font-size: 4.5rem;
+                position: relative;
+                margin-top: 35%;
+            }
         }
-        ion-icon {
-            width: 100%;
-            text-align: center;
-            color: rgba(120,120,120,0.9);
-            font-size: 4.5rem;
-            position: relative;
-            margin-top: 30%;
+        ion-icon{
             cursor:pointer;
+            padding-bottom: 20%;
         }
+        
     }
 
     .gestures {
