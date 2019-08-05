@@ -3,6 +3,7 @@ page-my-vault {
         width: 100%;
         height: 270px;
         border-radius: 6px;
+
         img.poster {
             width: 170px;
             height: 260px;
@@ -15,13 +16,6 @@ page-my-vault {
             overflow: hidden;
             width: 170px;
             height: 260px;
-            z-index: 100;
-            
-        }
-        .invisible-overlay {
-            position: absolute;
-            background-color: rgba(255,255,255,0);
-            overflow: hidden;
             z-index: 99;
         }
         ion-icon {
@@ -35,9 +29,8 @@ page-my-vault {
         }
     }
 
-    .content {
+    .gestures {
         width: 100%;
         height: 100%;
-        z-index:-99;
     }
 }

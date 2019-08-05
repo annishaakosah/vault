@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar (tap)="optionsID=undefined">
     <ion-title>MyVault</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-segment [(ngModel)]="selectedList">
+  <ion-segment [(ngModel)]="selectedList" (ionChange)="optionsID=undefined">
     <ion-segment-button value="alreadyWatched">
       Already Watched
     </ion-segment-button>
@@ -14,21 +14,16 @@
     </ion-segment-button>
   </ion-segment>
 
-  <div class='content' (swipe)="swipeEvent($event)">
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6 col-md-4 col-lg-2 *ngFor="let id of getTitles()" class="poster">
-          <img [src]="getImageUrl(id)" ion-long-press class="poster" (onPressStart)="optionsID = id"
-            (click)='getDetails(id)'>
-          <div class="overlay" *ngIf="optionsID == id">
-              <ion-icon [name]="selectedList=='watchList' ? 'archive' : 'add-circle'" (click)="moveToOtherList(id)"></ion-icon><br>
-              <ion-icon name="trash" (click)="removeFromList(id)"></ion-icon>
-          </div>
-          <div class="invisible-overlay" *ngIf="optionsID && optionsID!= id" (click)="optionsID = undefined"
-            ion-long-press (onPressStart)="optionsID = id"></div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
-
+  <ion-grid class='gestures' (tap)="optionsID=undefined" (swipe)="swipeEvent($event)" >
+    <ion-row>
+      <ion-col col-6 col-md-4 col-lg-2 *ngFor="let id of getTitles()" class="poster">
+        <img [src]="getImageUrl(id)" ion-long-press class="poster" (onPressStart)="optionsID=id"
+         (click)='getDetails(id)'>
+        <div class="overlay" *ngIf="optionsID == id">
+          <ion-icon [name]="selectedList=='watchList' ? 'archive' : 'add-circle'" (click)="moveToOtherList(id)"></ion-icon><br>
+          <ion-icon name="trash" (click)="removeFromList(id)"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

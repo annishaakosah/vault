@@ -90,8 +90,8 @@ export class MyVaultPage {
   }
 
   public getDetails(id){
-    this.optionsID = undefined;
     this.navCtrl.push(DetailsPage, { id: id, list: this.selectedList });
+    this.optionsID = undefined;
   }
 
   public getImageUrl(id){
