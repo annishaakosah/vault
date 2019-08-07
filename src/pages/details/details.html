@@ -20,7 +20,20 @@
     <div class="poster-shadow"></div>
   </div>
 
-  <div class="show-data" *ngIf="show" padding>
+  <div class="buttons"> 
+    <div class="button" *ngIf="inList()">
+      <button ion-button icon-only clear large style="color: #ff5252" (click)="removeFromWatchList()">
+        <ion-icon name="ios-checkmark-circle-outline"></ion-icon>
+    </button>
+  </div>
+  <div class="button" *ngIf="!inList()">
+      <button ion-button icon-only clear large (click)="addToWatchList()">
+        <ion-icon name="ios-add-circle-outline"></ion-icon>
+      </button>
+  </div>
+</div>
+
+  <div class="show-data" *ngIf="show">
     <div class="name">{{ show.name }}</div>
     <div class="year">{{ show.first_air_date | date:'yyyy' }}</div>
     <div class="vote">
@@ -53,18 +66,9 @@
           </span></span></div>
     </div>
 
-    <div class="buttons"> 
-        <div class="button" *ngIf="inList()">
-          <button ion-button color="light" round icon-only (click)="removeFromWatchList()">
-            <ion-icon name="close"></ion-icon>
-        </button>
-      </div>
-      <div class="button" *ngIf="!inList()">
-          <button ion-button color="light" round icon-only (click)="addToWatchList()">
-            <ion-icon name="add"></ion-icon>
-        </button>
-      </div>
-    </div>
+    
 
   </div>
+
+
 </ion-content>
