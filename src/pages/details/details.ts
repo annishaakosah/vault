@@ -59,7 +59,7 @@ export class DetailsPage {
   }
 
   public getEpisodeList(){
-    this.navCtrl.push(EpisodeListPage, { id: this.id });
+    this.navCtrl.push(EpisodeListPage, { show: this.show });
   }
 
   public addToWatchList = () => this.imdbService.addToWatchList(this.show.id, this.show.poster_path);
