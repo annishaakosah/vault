@@ -4,7 +4,7 @@
       {{show?.name}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="openModal()">
+      <button ion-button icon-only (click)="getEpisodeList()">
         <ion-icon name="list"></ion-icon>
       </button>
     </ion-buttons>
@@ -14,12 +14,14 @@
 <ion-content>
   <div class="backdrop" *ngIf="show">
     <img *ngIf="show.backdrop_path" [src]="'https://image.tmdb.org/t/p/original' + show.backdrop_path">
+    
   </div>
   <div class="poster" *ngIf="show">
     <img *ngIf="show.poster_path" class="poster" [src]="'https://image.tmdb.org/t/p/w500' + show.poster_path">
     <div class="poster-shadow"></div>
   </div>
 
+ 
   <div class="buttons"> 
     <div class="button" *ngIf="inList()">
       <button ion-button icon-only clear large style="color: #ff5252" (click)="removeFromWatchList()">

@@ -1,0 +1,52 @@
+
+<ion-header>
+    <ion-navbar>
+      <ion-title text-center>
+        {{show?.name}}
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+
+<ion-content>
+    <!-- <ion-item-group  *ngFor="let season of show.seasons"> 
+        <ion-item-divider sticky>Season {{season.season_number}}</ion-item-divider>
+        <ion-item>EPISODE NAME</ion-item>
+        <ion-item>EPISODE NAME</ion-item>
+        <ion-item>EPISODE NAME</ion-item>
+        <ion-item>EPISODE NAME</ion-item>
+        <ion-item>EPISODE NAME</ion-item>
+        <ion-item>EPISODE NAME</ion-item>
+      </ion-item-group> -->
+
+    
+<!-- 
+      <ion-item-group>
+          <ion-item-divider sticky>SEASONS</ion-item-divider>
+        </ion-item-group>
+
+        <ion-item-group>
+            <ion-item-divider sticky>C</ion-item-divider>
+            <ion-item>Angola</ion-item>
+            <ion-item>Argentina</ion-item>
+            <ion-item>Angola</ion-item>
+          
+          </ion-item-group> -->
+
+
+<ion-content>
+    
+
+  
+    <div class="show-data" *ngIf="show">
+        <ion-item-group *ngFor="let season of show.seasons;"> 
+            <ion-item-divider sticky>Season {{season.season_number}}</ion-item-divider>
+            <ion-item *ngFor="let episode of getEpisodes(season.season_number)">{{episode.name}} </ion-item>
+          </ion-item-group>
+  
+      
+  
+    </div>
+  
+
+</ion-content>

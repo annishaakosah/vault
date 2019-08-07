@@ -21,11 +21,10 @@ ion-icon {
         mask-position: 50% 50%;
         mask-repeat: no-repeat;
         background: currentColor;
-        min-width: 40px;
     }
 // custom icons
     &[class*="prefix-discover"] {
-        mask-image: url(../assets/icon/navi.svg);
+        mask-image: url(../assets/icon/discover.svg);
     }
     &[class*="prefix-vault"] {
         mask-image: url(../assets/icon/vault.svg);

@@ -21,6 +21,7 @@ import { SearchPage } from '../pages/search/search';
 import { DiscoverPage } from '../pages/discover/discover';
 import { DetailsPage } from '../pages/details/details';
 import { TabsPage } from '../pages/tabs/tabs';
+import { EpisodeListPage } from '../pages/episode-list/episode-list';
 
 // Services:
 import { ImdbService } from '../providers/imdb-app.service';
@@ -37,7 +38,8 @@ import { DiscoverService } from '../providers/discover.service';
     SearchPage,
     TabsPage,
     DiscoverPage,
-    DetailsPage
+    DetailsPage,
+    EpisodeListPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { DiscoverService } from '../providers/discover.service';
     SearchPage,
     TabsPage,
     DiscoverPage,
-    DetailsPage
+    DetailsPage,
+    EpisodeListPage
   ],
   providers: [
     StatusBar,
