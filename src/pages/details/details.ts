@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SearchTitleService } from '../../providers/search-title.service';
 import { ImdbService } from '../../providers/imdb-app.service';
+import { EpisodeListPage } from '../episode-list/episode-list';
 
 @IonicPage()
 @Component({
@@ -55,6 +56,10 @@ export class DetailsPage {
       return
     }
     this.imdbService.removeFromAlreadyWatched(this.id)
+  }
+
+  public getEpisodeList(){
+    this.navCtrl.push(EpisodeListPage, { show: this.show });
   }
 
   public addToWatchList = () => this.imdbService.addToWatchList(this.show.id, this.show.poster_path);

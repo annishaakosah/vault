@@ -14,6 +14,8 @@ page-details {
     }
   }
 
+  
+
   .poster-shadow {
     width: 170px;
     height: 230px;
@@ -23,6 +25,15 @@ page-details {
     transform: scale(0.9);
     filter: blur(7px);
   }
+
+  .buttons {
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   
   div.poster {
     position: absolute;
@@ -45,13 +56,16 @@ page-details {
     }
   }
   .show-data {
-    margin-top: 30px;
+    padding-top: 0px;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-bottom: 16px;
     .name {
       font-weight: 800;
       letter-spacing: -0.03em;
       font-size: 32px;
       line-height: 30px;
-      padding: 0 0 20px 0;
+      padding: 0 0 10px 0;
     }
     .year {
       width: 100px;

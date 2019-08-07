@@ -9,4 +9,14 @@ page-discover {
             object-fit: cover;
         }
     }
+
+    ion-label {
+        max-width: 75px !important;
+        position: flex;
+      }
+      ion-select {
+        max-width: 300px;
+        padding-right: 60px !important;
+        color:#408ABE;
+      }
 }
