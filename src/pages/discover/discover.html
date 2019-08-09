@@ -20,16 +20,19 @@
         </ion-select>
       </ion-col>
       <ion-col col-1>
-        <ion-icon class="filter-button" large name="options" (click)="getGenresList()"></ion-icon>
+        <ion-icon class="filter-button" large name="options" (click)="toggleOptions()"></ion-icon>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <div class="options-overlay" *ngIf="showGenres">
     <ion-scroll scrollY="true">
+      <ion-item>
+        <ion-label (click)="getWithGenre()" [ngClass]="!currentGenre ? 'selected' : ''">ALL GENRES</ion-label>
+      </ion-item>
       <div *ngFor="let genre of getGenresList()">
-        <ion-item>
-          <ion-label (click)="getWithGenre(genre.id)">{{genre.name}}</ion-label>
+        <ion-item (click)="getWithGenre(genre.id)">
+          <ion-label [ngClass]="genre.id == currentGenre ? 'selected' : ''">{{genre.name | uppercase }}</ion-label>
         </ion-item>
       </div>
     </ion-scroll>

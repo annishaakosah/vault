@@ -15,6 +15,7 @@ export class DiscoverPage {
   sort_by = "popularity.desc";
   showGenres = false;
   genres
+  currentGenre = undefined
   scrollerClass = 'scroll'
 
   constructor(
@@ -36,15 +37,20 @@ export class DiscoverPage {
 
   doInfinite(infiniteScroll) {
     this.page = this.page+1;
-    
     setTimeout(() => {
-      this.discover.discoverByPage(this.sort_by, this.page)
+      this.discover.discoverByPage(this.sort_by, this.page, this.currentGenre)
       infiniteScroll.complete();
     }, 1000);
   }
 
   public getWithGenre(id) {
-    this.discover.discoverByGenre(id, this.sort_by);
+    this.currentGenre = id;
+    if(id) {
+      this.discover.discoverByGenre(id, this.sort_by)
+    }
+    else {
+      this.discover.discover(this.sort_by)
+    }
     this.showGenres = false;
     this.scrollerClass = "scroll";
   }
@@ -57,10 +63,13 @@ export class DiscoverPage {
   public getGenresList() {
     this.genres = this.discover.getGenresList()
     if (this.genres) {
-      this.showGenres = true;
-      this.scrollerClass = "no-scroll";
       return this.genres
     }
+  }
+
+  public toggleOptions() {
+    this.showGenres = !this.showGenres;
+    this.scrollerClass = this.showGenres? "no-scroll" : "scroll"
   }
 
   public getDetails(id: number){

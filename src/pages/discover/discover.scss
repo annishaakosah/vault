@@ -46,7 +46,7 @@ page-discover {
     position: absolute;
 
     .scroll-y {
-      height: calc(100% - 60px) !important;
+      height: calc(100% - 75px) !important;
     }
 
     .scroll-content {
@@ -78,5 +78,9 @@ page-discover {
     .scroll-content {
       overflow-y: scroll !important;
     }
+  }
+
+  .selected {
+    color: color($colors, primary);
   }
 }

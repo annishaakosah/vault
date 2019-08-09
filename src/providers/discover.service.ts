@@ -56,9 +56,13 @@ export class DiscoverService {
     );
   }
 
-  public discoverByPage(sort_by = 'popularity.desc', page) {
+  public discoverByPage(sort_by = 'popularity.desc', page, currentGenre) {
+    let url = `${this.apiDiscover}?api_key=${this.apiKey}&sort_by=${sort_by}&page=${page}&language=en-US`
+    if(currentGenre) {
+      url += `&with_genres=${currentGenre}`
+    }
     return new Promise((resolve, reject) => {
-      this.http.get(`${this.apiDiscover}?api_key=${this.apiKey}&sort_by=${sort_by}&page=${page}&language=en-US`, { responseType: 'text' })
+      this.http.get(url, { responseType: 'text' })
         .subscribe(response => {
           const responseBody = JSON.parse(response);
           this.results = this.results.concat(responseBody.results)
