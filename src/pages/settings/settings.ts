@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic-angular';
 import { AuthService } from '../../providers/auth.service';
 import { LoginPage } from '../login/login';
+import { AboutPage } from '../about/about';
 
 @IonicPage()
 @Component({
@@ -16,6 +17,10 @@ export class SettingsPage {
     public navParams: NavParams,
     public appCtrl: App,
     private auth: AuthService) {
+  }
+
+  getAbout() {
+    this.navCtrl.push(AboutPage)
   }
 
   logOut() {

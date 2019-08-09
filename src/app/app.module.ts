@@ -30,6 +30,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { EpisodeListPage } from '../pages/episode-list/episode-list';
 import { EpisodeDetailsPage } from '../pages/episode-details/episode-details';
 import { SettingsPage } from '../pages/settings/settings';
+import { AboutPage } from '../pages/about/about';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SettingsPage } from '../pages/settings/settings';
     DetailsPage,
     EpisodeListPage,
     EpisodeDetailsPage,
-    SettingsPage
+    SettingsPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -66,8 +68,9 @@ import { SettingsPage } from '../pages/settings/settings';
     DiscoverPage,
     DetailsPage,
     EpisodeListPage,
-    EpisodeDetailsPage, 
-    SettingsPage
+    EpisodeDetailsPage,
+    SettingsPage,
+    AboutPage
   ],
   providers: [
     StatusBar,
