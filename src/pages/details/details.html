@@ -22,7 +22,7 @@
 
   <div class="buttons">
     <div class="button" *ngIf="inList()">
-      <button ion-button icon-only clear large style="color: #ff5252" (click)="removeFromWatchList()">
+      <button ion-button icon-only clear large color="danger" (click)="removeFromWatchList()">
         <ion-icon name="ios-checkmark-circle-outline"></ion-icon>
       </button>
     </div>
@@ -31,6 +31,7 @@
         <ion-icon name="ios-add-circle-outline"></ion-icon>
       </button>
     </div>
+<<<<<<< HEAD
     <div class="button" *ngIf="!inList()">
       <button ion-button icon-only clear large (click)="addToAlreadyWatchedList()">
         <ion-icon name="custom-icon4"></ion-icon>
@@ -41,6 +42,8 @@
         <ion-icon name="custom-icon4"></ion-icon>
       </button>
     </div>
+=======
+>>>>>>> b153db8341b80a1465164fcbb376b318ac3d7524
   </div>
 
   <div class="show-data" *ngIf="show">
