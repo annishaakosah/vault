@@ -13,6 +13,10 @@ export class DiscoverPage {
   results;
   page = 1;
   sort_by = "popularity.desc";
+  showGenres = false;
+  genres
+  currentGenre = undefined
+  scrollerClass = 'scroll'
 
   constructor(
     private discover: DiscoverService,
@@ -23,6 +27,7 @@ export class DiscoverPage {
 
   ionViewDidLoad() {
     this.discover.discover();
+    this.discover.getGenres();
   }
 
   change_selection() {
@@ -32,16 +37,39 @@ export class DiscoverPage {
 
   doInfinite(infiniteScroll) {
     this.page = this.page+1;
-    
     setTimeout(() => {
-      this.discover.discoverByPage(this.sort_by, this.page)
+      this.discover.discoverByPage(this.sort_by, this.page, this.currentGenre)
       infiniteScroll.complete();
     }, 1000);
+  }
+
+  public getWithGenre(id) {
+    this.currentGenre = id;
+    if(id) {
+      this.discover.discoverByGenre(id, this.sort_by)
+    }
+    else {
+      this.discover.discover(this.sort_by)
+    }
+    this.showGenres = false;
+    this.scrollerClass = "scroll";
   }
 
   public getResults() {
     this.results = this.discover.getResults()
     if (this.results) return this.results.filter(t => t.poster_path != null);
+  }
+
+  public getGenresList() {
+    this.genres = this.discover.getGenresList()
+    if (this.genres) {
+      return this.genres
+    }
+  }
+
+  public toggleOptions() {
+    this.showGenres = !this.showGenres;
+    this.scrollerClass = this.showGenres? "no-scroll" : "scroll"
   }
 
   public getDetails(id: number){
