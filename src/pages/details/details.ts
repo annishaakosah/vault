@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SearchTitleService } from '../../providers/search-title.service';
 import { ImdbService } from '../../providers/imdb-app.service';
 import { EpisodeListPage } from '../episode-list/episode-list';
+import { Show } from '../../models/show';
 
 @IonicPage()
 @Component({
@@ -10,9 +11,9 @@ import { EpisodeListPage } from '../episode-list/episode-list';
   templateUrl: 'details.html',
 })
 export class DetailsPage {
-  id:number
-  list
-  show;
+  id: number;
+  list: string;
+  show: Show;
 
   constructor(
     private search: SearchTitleService,

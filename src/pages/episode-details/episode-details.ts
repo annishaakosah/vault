@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { SearchTitleService } from "../../providers/search-title.service";
+import { Show } from "../../models/show";
+import { Episode } from "../../models/episode";
 
 /**
  * Generated class for the EpisodeDetailsPage page.
@@ -15,9 +17,9 @@ import { SearchTitleService } from "../../providers/search-title.service";
   templateUrl: "episode-details.html"
 })
 export class EpisodeDetailsPage {
-  show;
+  show: Show;
   season;
-  episode;
+  episode: Episode;
   constructor(
     private search: SearchTitleService,
     public navCtrl: NavController,
@@ -30,13 +32,5 @@ export class EpisodeDetailsPage {
     this.season = this.navParams.get("season");
     this.episode = this.navParams.get("episode");
     console.log(this.episode);
-  }
-
-  public getEpisodeStill() {
-    let posterPath = this.season.poster_path;
-    if (posterPath == null) {
-      posterPath = this.season.poster_path;
-    }
-    return posterPath;
   }
 }

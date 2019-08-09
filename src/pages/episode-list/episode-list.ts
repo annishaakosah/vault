@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { SearchTitleService } from "../../providers/search-title.service";
 import { EpisodeDetailsPage } from "../episode-details/episode-details";
+import { Show } from "../../models/show";
 
 @IonicPage()
 @Component({
@@ -9,7 +10,7 @@ import { EpisodeDetailsPage } from "../episode-details/episode-details";
   templateUrl: "episode-list.html"
 })
 export class EpisodeListPage {
-  show;
+  show: Show;
   seasons = [];
   season;
   seasonNumbers;

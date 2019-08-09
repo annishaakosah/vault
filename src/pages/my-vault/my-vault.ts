@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ImdbService } from '../../providers/imdb-app.service';
 import { DetailsPage } from '../details/details';
+import { Show } from '../../models/show';
 
 @Component({
   selector: 'page-my-vault',
@@ -11,8 +12,8 @@ import { DetailsPage } from '../details/details';
 })
 
 export class MyVaultPage {
-  watchList;
-  alreadyWatched;
+  watchList: Show[];
+  alreadyWatched: Show[];
   selectedList = 'watchList'
   titles;
   optionsID = undefined;
