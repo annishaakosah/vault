@@ -1,33 +1,45 @@
-
 <ion-header>
   <ion-navbar>
-    <ion-title>{{episode?.name}}</ion-title>
+    <ion-title>{{ episode?.name }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="details-bg-color">
   <div class="backdrop" *ngIf="episode">
-    <img *ngIf="episode.still_path" [src]="'https://image.tmdb.org/t/p/original' + episode.still_path">
-
+    <img *ngIf="episode.still_path" [src]="'https://image.tmdb.org/t/p/original' + episode.still_path" />
   </div>
 
-    <div padding class="episode-data" *ngIf="episode">
-        <div class="name">{{ episode.name }}</div>
-        <div class="year">{{ episode.air_date }}</div>
-        <div class="vote">
-          <div class="text">
-            <b>{{ episode.vote_average }}</b>/10
-          </div>
-          
-          <div class="count">{{ episode.vote_count }} votes</div>
-        </div>
-    
-        <div padding class="overview">{{ episode.overview }}</div>
-    
-        
-    
-        
-    
+  <div class="buttons">
+    <div class="button">
+      <button ion-button icon-only clear large (click)="getDetails(show.id)">
+        <ion-icon name="ios-information-circle-outline"></ion-icon>
+      </button>
+    </div>
+
+    <div class="button">
+      <button ion-button icon-only clear large (click)="getDetails(show.id)">
+        <ion-icon name="ios-share-outline"></ion-icon>
+      </button>
+    </div>
+   
+  </div>
+
+  <div class="show-progress" *ngIf="episode">
+    <div class="season-progress">Season {{ episode.season_number }}</div>
+    <div class="episode-progress">Episode {{ episode.episode_number}}</div>
+  
+  </div>
+
+  <div padding class="episode-data" *ngIf="episode">
+    <div class="year">{{ episode.air_date }}</div>
+    <div class="vote">
+      <div class="text">
+        <b>{{ episode.vote_average }}</b>/10
       </div>
 
+      <div class="count">{{ episode.vote_count }} votes</div>
+    </div>
+
+    <div padding class="overview">{{ episode.overview }}</div>
+  </div>
 </ion-content>

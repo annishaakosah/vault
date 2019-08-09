@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DiscoverService } from '../../providers/discover.service';
 import { DetailsPage } from '../details/details';
 import { ImdbService } from '../../providers/imdb-app.service';
+import { Show } from '../../models/show';
 
 @IonicPage()
 @Component({
@@ -10,7 +11,7 @@ import { ImdbService } from '../../providers/imdb-app.service';
   templateUrl: 'discover.html',
 })
 export class DiscoverPage {
-  results;
+  results: Show[];
   page = 1;
   sort_by = "popularity.desc";
   showGenres = false;

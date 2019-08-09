@@ -3,12 +3,13 @@ import { AngularFirestore } from "angularfire2/firestore";
 import { AuthService } from './auth.service';
 import { User } from "../models/user";
 import firebase from "firebase";
+import { Show } from "../models/show";
 
 @Injectable()
 export class ImdbService {
   private user: User;
-  private watchList;
-  private alreadyWatched;
+  private watchList: Show[];
+  private alreadyWatched: Show[];
 
   constructor(
     private auth: AuthService,
