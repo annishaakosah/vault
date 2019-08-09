@@ -14,32 +14,24 @@
 <ion-content>
   <div class="backdrop" *ngIf="show">
     <img *ngIf="show.backdrop_path" [src]="'https://image.tmdb.org/t/p/original' + show.backdrop_path">
-    
   </div>
   <div class="poster" *ngIf="show">
     <img *ngIf="show.poster_path" class="poster" [src]="'https://image.tmdb.org/t/p/w500' + show.poster_path">
     <div class="poster-shadow"></div>
   </div>
 
- 
-  <div class="buttons"> 
+  <div class="buttons">
     <div class="button" *ngIf="inList()">
-      <button ion-button icon-only clear large style="color: #ff5252" (click)="removeFromWatchList()">
+      <button ion-button icon-only clear large color="danger" (click)="removeFromWatchList()">
         <ion-icon name="ios-checkmark-circle-outline"></ion-icon>
-    </button>
-  </div>
-  <div class="button" *ngIf="!inList()">
+      </button>
+    </div>
+    <div class="button" *ngIf="!inList()">
       <button ion-button icon-only clear large (click)="addToWatchList()">
         <ion-icon name="ios-add-circle-outline"></ion-icon>
       </button>
+    </div>
   </div>
-  <div class="button">
-    <button ion-button icon-only clear large (click)="addToAlreadyWatchedList()">
-      <ion-icon name="custom-icon4"></ion-icon>
-    </button>
-  </div>
-</div>
-
 
   <div class="show-data" *ngIf="show">
     <div class="name">{{ show.name }}</div>
@@ -49,11 +41,16 @@
         <b>{{ show.vote_average }}</b>/10
       </div>
       <div class="stars">
-          <ion-icon [name]="show.vote_average >= 2 ? 'star' : show.vote_average >= 1 ? 'star-half' : 'star-outline'"></ion-icon>
-          <ion-icon [name]="show.vote_average >= 4 ? 'star' : show.vote_average >= 3 ? 'star-half' : 'star-outline'"></ion-icon>
-          <ion-icon [name]="show.vote_average >= 6 ? 'star' : show.vote_average >= 5 ? 'star-half' : 'star-outline'"></ion-icon>
-          <ion-icon [name]="show.vote_average >= 8 ? 'star' : show.vote_average >= 7 ? 'star-half' : 'star-outline'"></ion-icon>
-          <ion-icon [name]="show.vote_average >= 10 ? 'star' : show.vote_average >= 9 ? 'star-half' : 'star-outline'"></ion-icon>
+        <ion-icon [name]="show.vote_average >= 2 ? 'star' : show.vote_average >= 1 ? 'star-half' : 'star-outline'">
+        </ion-icon>
+        <ion-icon [name]="show.vote_average >= 4 ? 'star' : show.vote_average >= 3 ? 'star-half' : 'star-outline'">
+        </ion-icon>
+        <ion-icon [name]="show.vote_average >= 6 ? 'star' : show.vote_average >= 5 ? 'star-half' : 'star-outline'">
+        </ion-icon>
+        <ion-icon [name]="show.vote_average >= 8 ? 'star' : show.vote_average >= 7 ? 'star-half' : 'star-outline'">
+        </ion-icon>
+        <ion-icon [name]="show.vote_average >= 10 ? 'star' : show.vote_average >= 9 ? 'star-half' : 'star-outline'">
+        </ion-icon>
       </div>
       <div class="count">{{ show.vote_count }} votes</div>
     </div>
@@ -74,9 +71,5 @@
           </span></span></div>
     </div>
 
-    
-
   </div>
-
-
 </ion-content>

@@ -6,7 +6,7 @@ import firebase from "firebase";
 
 @Injectable()
 export class ImdbService {
-  private user;
+  private user: User;
   private watchList;
   private alreadyWatched;
 
