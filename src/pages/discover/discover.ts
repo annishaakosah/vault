@@ -15,6 +15,7 @@ export class DiscoverPage {
   sort_by = "popularity.desc";
   showGenres = false;
   genres
+  scrollerClass = 'scroll'
 
   constructor(
     private discover: DiscoverService,
@@ -42,6 +43,12 @@ export class DiscoverPage {
     }, 1000);
   }
 
+  public getWithGenre(id) {
+    this.discover.discoverByGenre(id, this.sort_by);
+    this.showGenres = false;
+    this.scrollerClass = "scroll";
+  }
+
   public getResults() {
     this.results = this.discover.getResults()
     if (this.results) return this.results.filter(t => t.poster_path != null);
@@ -51,6 +58,7 @@ export class DiscoverPage {
     this.genres = this.discover.getGenresList()
     if (this.genres) {
       this.showGenres = true;
+      this.scrollerClass = "no-scroll";
       return this.genres
     }
   }

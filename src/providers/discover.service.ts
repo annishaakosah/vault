@@ -27,6 +27,17 @@ export class DiscoverService {
     );
   }
 
+  public discoverByGenre(id: number, sort_by = 'popularity.desc') {
+    this.http.get(`${this.apiDiscover}?api_key=${this.apiKey}&sort_by=${sort_by}&with_genres=${id}&language=en-US`, { responseType: 'text' })
+      .subscribe(response => {
+        const responseBody = JSON.parse(response);
+        this.results = responseBody.results;
+      }, err => {
+        console.log(err);
+      }
+    );
+  }
+
   public discover(sort_by = 'popularity.desc') {
     let loading = this.loadingCtrl.create({
       spinner: 'crescent',

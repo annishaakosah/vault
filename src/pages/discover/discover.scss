@@ -61,4 +61,22 @@ page-discover {
       background-color: rgba(230,230,230,0.99) !important;
     }
   }
+
+  .no-scroll {
+    .scroll-content {
+      overflow-y: hidden;
+    }
+  }
+
+  .scroll {
+    .scroll-content {
+      overflow-y: scroll;
+    }
+  }
+
+  ion-scroll {
+    .scroll-content {
+      overflow-y: scroll !important;
+    }
+  }
 }
