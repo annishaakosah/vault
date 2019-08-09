@@ -13,6 +13,12 @@ import { LongPressModule } from 'ionic-long-press';
 import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from "./app.firebase.config";
 
+// Services:
+import { ImdbService } from '../providers/imdb-app.service';
+import { SearchTitleService } from '../providers/search-title.service';
+import { AuthService } from '../providers/auth.service';
+import { DiscoverService } from '../providers/discover.service';
+
 // Pages:
 import { LoginPage } from './../pages/login/login';
 import { SignupPage } from './../pages/signup/signup';
@@ -22,12 +28,7 @@ import { DiscoverPage } from '../pages/discover/discover';
 import { DetailsPage } from '../pages/details/details';
 import { TabsPage } from '../pages/tabs/tabs';
 import { EpisodeListPage } from '../pages/episode-list/episode-list';
-
-// Services:
-import { ImdbService } from '../providers/imdb-app.service';
-import { SearchTitleService } from '../providers/search-title.service';
-import { AuthService } from '../providers/auth.service';
-import { DiscoverService } from '../providers/discover.service';
+import { EpisodeDetailsPage } from '../pages/episode-details/episode-details';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DiscoverService } from '../providers/discover.service';
     TabsPage,
     DiscoverPage,
     DetailsPage,
-    EpisodeListPage
+    EpisodeListPage,
+    EpisodeDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,8 @@ import { DiscoverService } from '../providers/discover.service';
     TabsPage,
     DiscoverPage,
     DetailsPage,
-    EpisodeListPage
+    EpisodeListPage,
+    EpisodeDetailsPage
   ],
   providers: [
     StatusBar,

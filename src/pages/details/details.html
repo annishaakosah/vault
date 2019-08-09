@@ -5,7 +5,7 @@
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="getEpisodeList()">
-        <ion-icon name="list"></ion-icon>
+        <ion-icon large name="list"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -33,7 +33,13 @@
         <ion-icon name="ios-add-circle-outline"></ion-icon>
       </button>
   </div>
+  <div class="button">
+    <button ion-button icon-only clear large (click)="addToAlreadyWatchedList()">
+      <ion-icon name="custom-icon4"></ion-icon>
+    </button>
+  </div>
 </div>
+
 
   <div class="show-data" *ngIf="show">
     <div class="name">{{ show.name }}</div>

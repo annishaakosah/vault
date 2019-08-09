@@ -64,4 +64,6 @@ export class DetailsPage {
 
   public addToWatchList = () => this.imdbService.addToWatchList(this.show.id, this.show.poster_path);
 
+  public addToAlreadyWatchedList = () => this.imdbService.addToAlreadyWatched(this.show.id, this.show.poster_path);
+
 }
