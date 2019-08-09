@@ -87,7 +87,34 @@ $colors: (
 @import "roboto";
 @import "noto-sans";
 
+// @font-face {
+//   font-family: 'Lacquer', sans-serif;
+//   src: url('../assets/fonts/Lacquer/Lacquer-Regular.ttf');
+//   font-weight: 200;
+//   font-style: normal;
+// }
+
+
+// @import url('https://fonts.googleapis.com/css?family=Oxygen+Mono&display=swap');
+// $font-family-base: "Oxygen", sans-serif !default;
+
+@font-face {
+font-family: Avenir-Black;
+src: url("../assets/fonts/Avenir/AvenirLTStd-black.otf");
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("../assets/fonts/Avenir/AvenirLTStd-regular.otf");
+  }
+
+
+
+
 $tabs-ios-tab-icon-size: 1.5em;
 $tabs-md-tab-icon-size: 1.5em;
 
 
+$toolbar-md-title-text-color: #404040;
+$toolbar-ios-title-text-color: #404040;
+$toolbar-wp-title-text-color: #404040;

@@ -51,6 +51,7 @@ import { EpisodeDetailsPage } from '../pages/episode-details/episode-details';
     AngularFireAuthModule,
     AngularFirestoreModule,
     LongPressModule
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [

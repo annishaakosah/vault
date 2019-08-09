@@ -1,4 +1,10 @@
-<ion-content padding>
+<ion-header no-border>
+  <ion-navbar>
+    <ion-title text-center>My Vault</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg-color">
   <ion-item no-padding no-margin>
     <ion-label>Sorted by</ion-label>
     <ion-select no-padding value="popularity.desc" [(ngModel)]="sort_by" (ionChange)="change_selection(sort_by)">

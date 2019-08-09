@@ -78,6 +78,17 @@ export class SearchTitleService {
         });
     });
   }
+
+  public getImage(id: number, season: number) {
+    return new Promise((resolve, reject) => {
+      this.httpClient.get(`${this.apiFind}${id}/season/${season}/images?api_key=${this.apiKey}`, { responseType: 'text' })
+        .subscribe(response => {
+          resolve(JSON.parse(response));
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
   
   public isValidSearch = () => this.validSearch;
   public isNotFound = () => this.notFound;

@@ -14,8 +14,6 @@ page-details {
     }
   }
 
-  
-
   .poster-shadow {
     width: 170px;
     height: 230px;
@@ -57,15 +55,17 @@ page-details {
   }
   .show-data {
     padding-top: 0px;
-    padding-right: 16px;
-    padding-left: 16px;
-    padding-bottom: 16px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 25px;
+    font-family: Avenir;
     .name {
       font-weight: 800;
       letter-spacing: -0.03em;
       font-size: 32px;
       line-height: 30px;
       padding: 0 0 10px 0;
+      color: #404040;
     }
     .year {
       width: 100px;
@@ -103,7 +103,7 @@ page-details {
     .overview {
       margin-top: 50px;
       font-size: 18px;
-      line-height: 21px;
+      line-height: 30px;
       padding: 15px 0 15px 0;
       color: #444;
       font-weight: 250;
