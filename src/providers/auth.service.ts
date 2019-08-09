@@ -32,7 +32,8 @@ export class AuthService {
     login(credentials) {
         return this.auth.auth.signInWithEmailAndPassword(
             credentials.email, 
-            credentials.password)
+            credentials.password
+        )
     }
 
     logOut(): Promise<void> {
