@@ -14,13 +14,11 @@
 <ion-content>
   <div class="backdrop" *ngIf="show">
     <img *ngIf="show.backdrop_path" [src]="'https://image.tmdb.org/t/p/original' + show.backdrop_path">
-
   </div>
   <div class="poster" *ngIf="show">
     <img *ngIf="show.poster_path" class="poster" [src]="'https://image.tmdb.org/t/p/w500' + show.poster_path">
     <div class="poster-shadow"></div>
   </div>
-
 
   <div class="buttons">
     <div class="button" *ngIf="inList()">
@@ -34,16 +32,6 @@
       </button>
     </div>
   </div>
-<<<<<<< HEAD
-  <div class="button">
-    <button ion-button icon-only clear large (click)="addToAlreadyWatchedList()">
-      <ion-icon name="custom-icon4"></ion-icon>
-    </button>
-  </div>
-</div>
-=======
->>>>>>> Add buttons on discover page and fix padding on sort
-
 
   <div class="show-data" *ngIf="show">
     <div class="name">{{ show.name }}</div>

@@ -8,17 +8,6 @@ page-discover {
       height: 260px;
       object-fit: cover;
     }
-<<<<<<< HEAD
-    ion-label {
-        max-width: 75px !important;
-        position: flex;
-      }
-      ion-select {
-        max-width: 300px;
-        padding-right: 60px !important;
-        color:#408ABE;
-      }
-=======
     .icons {
       position: absolute;
       border-radius: 5px;
@@ -45,5 +34,4 @@ page-discover {
     padding-right: 60px !important;
     color: color($colors, primary);
   }
->>>>>>> Add buttons on discover page and fix padding on sort
 }
