@@ -11,13 +11,16 @@
         <ion-label>Sorted by</ion-label>
       </ion-col>
       <ion-col col-8>
-        <ion-select no-padding value="popularity.desc" [(ngModel)]="sort_by" (ionChange)="change_selection(sort_by)">
-          <ion-option value="popularity.desc">Popularity (high to low)</ion-option>
-          <ion-option value="popularity.asc">Popularity (low to high)</ion-option>
-          <ion-option value="first_air_date.desc">Newest</ion-option>
-          <ion-option value="first_air_date.asc">Oldest</ion-option>
-          <ion-option value="vote_average.desc">Top rated</ion-option>
-        </ion-select>
+        <ion-item>
+            <ion-select no-padding value="popularity.desc" [(ngModel)]="sort_by" (ionChange)="change_selection(sort_by)">
+                <ion-option value="popularity.desc">Popularity (high to low)</ion-option>
+                <ion-option value="popularity.asc">Popularity (low to high)</ion-option>
+                <ion-option value="first_air_date.desc">Newest</ion-option>
+                <ion-option value="first_air_date.asc">Oldest</ion-option>
+                <ion-option value="vote_average.desc">Top rated</ion-option>
+              </ion-select>
+        </ion-item>
+        
       </ion-col>
       <ion-col col-1>
         <ion-icon class="filter-button" large name="options" (click)="toggleOptions()"></ion-icon>
