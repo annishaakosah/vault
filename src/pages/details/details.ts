@@ -23,6 +23,7 @@ export class DetailsPage {
   }
 
   ionViewWillEnter() {
+    this.navCtrl.swipeBackEnabled = true;
     this.id = this.navParams.get('id');
     this.list = this.navParams.get('list') || 'watchList'
     this.search.getByID(this.id).then((data) => {

@@ -1,0 +1,31 @@
+page-settings {
+    .underline {
+        width: 100%;
+        border-bottom: 3px solid color($colors, primary); /* This creates the border. Replace black with whatever color you want. */
+    }
+    .content {
+        text-align: center;
+        margin-top: 5%;
+    }
+    .gradient-button {
+        background: linear-gradient(
+            to bottom right,
+            color($colors, primary),
+            color($colors, secondary)
+        );
+        width: 80%;
+        padding: 8%;
+        margin: 6%;
+    }
+    
+    .gradient-button-red {
+        background: linear-gradient(
+            to bottom right,
+            color($colors, danger),
+            #ff5e44
+        );
+        width: 80%;
+        padding: 8%;
+        margin: 6%;
+      }
+}
