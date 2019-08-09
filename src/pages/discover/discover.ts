@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DiscoverService } from '../../providers/discover.service';
 import { DetailsPage } from '../details/details';
+import { ImdbService } from '../../providers/imdb-app.service';
 
 @IonicPage()
 @Component({
@@ -15,6 +16,7 @@ export class DiscoverPage {
 
   constructor(
     private discover: DiscoverService,
+    private imdbService: ImdbService,
     public navCtrl: NavController, 
     public navParams: NavParams) {
   }
@@ -42,7 +44,19 @@ export class DiscoverPage {
     if (this.results) return this.results.filter(t => t.poster_path != null);
   }
 
-  public getDetails(id){
+  public getDetails(id: number){
     this.navCtrl.push(DetailsPage, { id: id });
+  }
+
+  public inWatchList(id: number) {
+    return this.imdbService.isInWatchList(id);
+  }
+
+  public addToWatchList(title) {
+    this.imdbService.addToWatchList(title.id, title.poster_path)
+  }
+
+  public removeFromWatchList(id: number) {
+    this.imdbService.removeFromWatchList(id)
   }
 }
