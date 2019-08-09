@@ -1,3 +1,5 @@
+@import '../theme/fonts.scss';
+
 ion-icon {
     &[class*="custom-"] {
         // Instead of using the font-based icons
@@ -36,3 +38,4 @@ ion-icon {
   .bg-style {
     background: rgb(243, 242, 241);
 }
+
