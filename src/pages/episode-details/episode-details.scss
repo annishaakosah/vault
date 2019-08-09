@@ -24,6 +24,25 @@ page-episode-details {
         justify-content: center;
       }
 
+      .show-progress {
+        display: flex;
+        text-align: center;
+        justify-content: space-around;
+        text-transform: uppercase;
+        font-family: Avenir;
+       
+      }
+
+      .season-progress {
+        float: left;
+        font-size: 1.5em;
+    
+      }
+      .episode-progress {
+        float: left;
+        font-size: 1.5em;
+      }
+
       .overview {
         margin-top: 50px;
         font-size: 18px;

@@ -24,9 +24,9 @@
    
   </div>
 
-  <div class="show-progress">
-    <!-- <div class="season">Season {{ episode.season_number }}</div>
-    <div class="episode">Episode {{ episode.episode_number }}</div> -->
+  <div class="show-progress" *ngIf="episode">
+    <div class="season-progress">Season {{ episode.season_number }}</div>
+    <div class="episode-progress">Episode {{ episode.episode_number}}</div>
   
   </div>
 
