@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic-angular';
 import { AuthService } from '../../providers/auth.service';
 import { LoginPage } from '../login/login';
 
@@ -10,15 +10,37 @@ import { LoginPage } from '../login/login';
 })
 export class SettingsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthService) {
+  constructor(
+    public alertCtrl: AlertController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public appCtrl: App,
+    private auth: AuthService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
-  }
-
-  logOut(){
+  logOut() {
     this.auth.logOut();
-    this.navCtrl.setRoot(LoginPage);
+    this.appCtrl.getRootNav().push(LoginPage);
   }
+
+  deleteAccount() {
+    let alert = this.alertCtrl.create({
+      title: 'Confirm delete',
+      message: 'Are you sure you want to permanently delete your account?',
+      buttons: [
+        {
+          text: 'No',
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            this.auth.deleteAccount();
+            this.appCtrl.getRootNav().push(LoginPage);
+          }
+        }
+      ]
+    })
+    alert.present();
+  }
+
 }
