@@ -24,14 +24,41 @@ page-discover {
       cursor:pointer;
     }
   } 
-  ion-label {
-    max-width: 75px !important;
-    margin-left: 16px !important;
-    position: flex;
+
+  .filter {
+    width: 100%;
+
+    ion-select {
+      color: color($colors, primary);
+      max-width: fit-content;
+      overflow: visible;
+    }
+    .filter-button {
+      font-size: 25px;
+      color: color($colors, primary);
+    }
   }
-  ion-select {
-    max-width: 300px;
-    padding-right: 60px !important;
-    color: color($colors, primary);
+
+  .options-overlay {
+    width:100%;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+
+    .scroll-y {
+      height: calc(100% - 60px) !important;
+    }
+
+    .scroll-content {
+      padding: 0 !important;
+    }
+
+    ion-item {
+      background-color: rgba(255,255,255,0.98) !important;
+    }
+
+    ion-item:hover {
+      background-color: rgba(230,230,230,0.99) !important;
+    }
   }
 }

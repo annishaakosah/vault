@@ -13,6 +13,8 @@ export class DiscoverPage {
   results;
   page = 1;
   sort_by = "popularity.desc";
+  showGenres = false;
+  genres
 
   constructor(
     private discover: DiscoverService,
@@ -23,6 +25,7 @@ export class DiscoverPage {
 
   ionViewDidLoad() {
     this.discover.discover();
+    this.discover.getGenres();
   }
 
   change_selection() {
@@ -42,6 +45,14 @@ export class DiscoverPage {
   public getResults() {
     this.results = this.discover.getResults()
     if (this.results) return this.results.filter(t => t.poster_path != null);
+  }
+
+  public getGenresList() {
+    this.genres = this.discover.getGenresList()
+    if (this.genres) {
+      this.showGenres = true;
+      return this.genres
+    }
   }
 
   public getDetails(id: number){

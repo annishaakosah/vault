@@ -29,6 +29,7 @@ import { DetailsPage } from '../pages/details/details';
 import { TabsPage } from '../pages/tabs/tabs';
 import { EpisodeListPage } from '../pages/episode-list/episode-list';
 import { EpisodeDetailsPage } from '../pages/episode-details/episode-details';
+import { FilterOptionsPage } from '../pages/filter-options/filter-options';
 
 @NgModule({
   declarations: [

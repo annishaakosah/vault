@@ -6,11 +6,26 @@ import { LoadingController } from 'ionic-angular';
 export class DiscoverService {
   private apiKey = 'edb14e33dbf6b5a849f1f06b16399595';
   private apiDiscover = `https://api.themoviedb.org/3/discover/tv`
+  private apiGenres = `https://api.themoviedb.org/3/genre/tv/list?api_key=${this.apiKey}&language=en-US`
   private results;
+  private genres;
 
   constructor(private http: HttpClient, public loadingCtrl: LoadingController) { }
 
   public getResults = () => this.results;
+  public getGenresList = () => this.genres;
+
+  public getGenres() {
+    this.http.get(this.apiGenres, { responseType: 'text' })
+    .subscribe(response => {
+      const responseBody = JSON.parse(response);
+
+      this.genres = responseBody.genres;
+      }, err => {
+        console.log(err);
+      }
+    );
+  }
 
   public discover(sort_by = 'popularity.desc') {
     let loading = this.loadingCtrl.create({
@@ -26,7 +41,7 @@ export class DiscoverService {
         loading.dismiss();
       }, err => {
         console.log(err);
-    }
+      }
     );
   }
 
