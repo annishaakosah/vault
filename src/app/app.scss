@@ -1,38 +1,69 @@
 ion-icon {
-    &[class*="custom-"] {
-        // Instead of using the font-based icons
-        // We're applying SVG masks
-        mask-size: contain;
-        mask-position: 50% 50%;
-        mask-repeat: no-repeat;
-        background: currentColor;
-        width: 0.91em;
-        height: 0.91em;
-    }
-    // custom icons
-    &[class*="custom-icon1"] {
-        mask-image: url(../assets/icon/vault.svg);
-    }
-    &[class*="custom-icon2"] {
-        mask-image: url(../assets/icon/discover.svg);
-    }
-    &[class*="custom-icon3"] {
-        mask-image: url(../assets/icon/search.svg);
-    }
-    &[class*="custom-icon4"] {
-        mask-image: url(../assets/icon/watched.svg);
-    }
+  &[class*="custom-"] {
+    // Instead of using the font-based icons
+    // We're applying SVG masks
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 0.91em;
+    height: 0.91em;
+  }
+  // custom icons
+  &[class*="custom-icon1"] {
+    mask-image: url(../assets/icon/vault.svg);
+  }
+  &[class*="custom-icon2"] {
+    mask-image: url(../assets/icon/discover.svg);
+  }
+  &[class*="custom-icon3"] {
+    mask-image: url(../assets/icon/search.svg);
+  }
+  &[class*="custom-icon4"] {
+    mask-image: url(../assets/icon/watched.svg);
+  }
 }
-
 
 .toolbar {
-    height: 60px;
-  }
+  height: 60px;
+}
 
-  .toolbar-background {
-    background-color: rgb(255, 255, 255);
-  }
+.toolbar-background {
+  background-color: rgb(255, 255, 255);
+}
 
-  .bg-style {
+
+.bg-color {
     background: rgb(243, 242, 241);
 }
+
+.details-bg-color {
+  background: #FCFCFC
+}
+
+
+ion-title {
+  font-family: "Avenir-Black" !important;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+ion-segment {
+    font-family: "Avenir-Black" !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    
+}
+
+.header {
+    font-family: "Avenir" !important;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 10px;
+}
+
+
+.toolbar-title, .toolbar-title-ios {
+    padding-top: 15px;
+}
+

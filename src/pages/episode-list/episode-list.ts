@@ -49,7 +49,7 @@ export class EpisodeListPage {
     }
   }
 
-  getEpisodeDetails(episode) {
-    this.navCtrl.push(EpisodeDetailsPage, { episode: episode });
+  getEpisodeDetails(show, season, episode) {
+    this.navCtrl.push(EpisodeDetailsPage, { show: show, season: season, episode: episode });
   }
 }

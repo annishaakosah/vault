@@ -11,7 +11,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="details-bg-color">
   <div class="backdrop" *ngIf="show">
     <img *ngIf="show.backdrop_path" [src]="'https://image.tmdb.org/t/p/original' + show.backdrop_path">
   </div>
@@ -31,12 +31,8 @@
         <ion-icon name="ios-add-circle-outline"></ion-icon>
       </button>
     </div>
-    <div class="button" *ngIf="!inList()">
-      <button ion-button icon-only clear large (click)="addToAlreadyWatchedList()">
-        <ion-icon name="custom-icon4"></ion-icon>
-      </button>
-    </div>
-    <div class="button">
+
+    <div class="button" *ngIf="!inAlreadyWatched()">
       <button ion-button icon-only clear large (click)="addToAlreadyWatchedList()">
         <ion-icon name="custom-icon4"></ion-icon>
       </button>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { SearchTitleService } from "../../providers/search-title.service";
 
 /**
  * Generated class for the EpisodeDetailsPage page.
@@ -10,18 +11,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-episode-details',
-  templateUrl: 'episode-details.html',
+  selector: "page-episode-details",
+  templateUrl: "episode-details.html"
 })
 export class EpisodeDetailsPage {
-episode
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  show;
+  season;
+  episode;
+  constructor(
+    private search: SearchTitleService,
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EpisodeDetailsPage');
-    this.episode = this.navParams.get('episode');
+    console.log("ionViewDidLoad EpisodeDetailsPage");
+    this.show = this.navParams.get("show");
+    this.season = this.navParams.get("season");
+    this.episode = this.navParams.get("episode");
     console.log(this.episode);
   }
 
+  public getEpisodeStill() {
+    let posterPath = this.season.poster_path;
+    if (posterPath == null) {
+      posterPath = this.season.poster_path;
+    }
+    return posterPath;
+  }
 }

@@ -42,6 +42,10 @@ export class DetailsPage {
     }
   }
 
+  public inAlreadyWatched() {
+    return this.imdbService.isInAlreadyWatched(this.id);
+  }
+
   removeFromWatchList(){
     if(this.list == "alreadyWatched") {
       console.error("You cannot perform this action")
