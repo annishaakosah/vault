@@ -32,15 +32,19 @@ export class DetailsPage {
     });
   }
 
-  inList(){
-    switch(this.list){
-      case ("watchList"):
-        return this.imdbService.isInWatchList(this.id)
-      case "alreadyWatched":
-        return this.imdbService.isInAlreadyWatched(this.id)
-      default:
-        return false
-    }
+  // inList(){
+  //   switch(this.list){
+  //     case ("watchList"):
+  //       return this.imdbService.isInWatchList(this.id)
+  //     case "alreadyWatched":
+  //       return this.imdbService.isInAlreadyWatched(this.id)
+  //     default:
+  //       return false
+  //   }
+  // }
+
+  public inWatchList() {
+    return this.imdbService.isInWatchList(this.id);
   }
 
   public inAlreadyWatched() {
@@ -48,18 +52,18 @@ export class DetailsPage {
   }
 
   removeFromWatchList(){
-    if(this.list == "alreadyWatched") {
-      console.error("You cannot perform this action")
-      return
-    }
+    // if(this.list == "alreadyWatched") {
+    //   console.error("You cannot perform this action")
+    //   return
+    // }
     this.imdbService.removeFromWatchList(this.id)
   }
 
   removeFromAlreadyWatched(){
-    if(this.list == "watchList") {
-      console.error("You cannot perform this action")
-      return
-    }
+    // if(this.list == "watchList") {
+    //   console.error("You cannot perform this action")
+    //   return
+    // }
     this.imdbService.removeFromAlreadyWatched(this.id)
   }
 

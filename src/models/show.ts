@@ -1,7 +1,7 @@
 export interface Show {
     id: number;
     name: string;
-    seasons;
+    seasons: any;
     airDate: string;
     voteAverage: number;
     voteCount: number;

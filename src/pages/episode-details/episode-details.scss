@@ -1,6 +1,4 @@
 page-episode-details {
-   
-
     .backdrop {
         position: relative;
         height: 200px;
@@ -14,6 +12,27 @@ page-episode-details {
           position: absolute;
         }
       }
+      .episode-data {
+        font-family: Avenir;
+      }
+
+      .buttons {
+        width: 100%;
+        padding-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .overview {
+        margin-top: 50px;
+        font-size: 18px;
+        line-height: 30px;
+        padding: 15px 0 15px 0;
+        color: #444;
+        font-weight: 250;
+      }
+    
 
     
 }

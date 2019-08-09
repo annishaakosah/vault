@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { SearchTitleService } from "../../providers/search-title.service";
 import { Show } from "../../models/show";
 import { Episode } from "../../models/episode";
+import { DetailsPage } from "../details/details";
 
 /**
  * Generated class for the EpisodeDetailsPage page.
@@ -18,10 +18,9 @@ import { Episode } from "../../models/episode";
 })
 export class EpisodeDetailsPage {
   show: Show;
-  season;
+  season: any;
   episode: Episode;
   constructor(
-    private search: SearchTitleService,
     public navCtrl: NavController,
     public navParams: NavParams
   ) {}
@@ -33,4 +32,11 @@ export class EpisodeDetailsPage {
     this.episode = this.navParams.get("episode");
     console.log(this.episode);
   }
+
+  public getDetails(id){
+    this.navCtrl.setRoot(DetailsPage, {id: id}, {animate: true, direction: 'forward'});
+
+  
+  }
+
 }
