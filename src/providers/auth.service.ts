@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
 import { User } from "firebase";
+import firebase from "firebase";
 
 @Injectable()
 export class AuthService {
@@ -43,15 +44,16 @@ export class AuthService {
 
     updatePassword(password) {
         var user = this.currentUser();
-        user.updatePassword(password).then(function () {
-            alert("Successfully changed password")
-        }).catch(function (error) {
-            console.log("Error updating password")
-        });
+        return user.updatePassword(password)
+    }
+
+    verifyPassword(password) {
+        let credential = firebase.auth.EmailAuthProvider.credential(this.currentUser().email, password)
+        return this.currentUser().reauthenticateAndRetrieveDataWithCredential(credential)
     }
 
     deleteAccount() {
-        var user = this.currentUser().delete().then(function () {
+        this.currentUser().delete().then(function () {
             alert("Successfully deleted account.")
         }).catch(function (error) {
             console.error("Error deleting account")

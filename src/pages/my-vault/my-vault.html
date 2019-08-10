@@ -17,7 +17,7 @@
     <ion-slide>
       <ion-grid class='gestures'>
         <ion-row>
-          <ion-col col-6 col-md-4 col-lg-2 *ngFor="let id of getAlreadyWatchedTitles()" class="poster">
+          <ion-col col-6 col-sm-3 col-md-3 col-lg-2 *ngFor="let id of getAlreadyWatchedTitles()" class="poster">
             <img src="{{'https://image.tmdb.org/t/p/w500'+alreadyWatched[id]}}" ion-long-press class="poster" (onPressStart)="optionsID=id"
               (click)='getDetails(id)'>
             <div class="overlay" *ngIf="optionsID == id">
@@ -35,7 +35,7 @@
     <ion-slide>
       <ion-grid class='gestures'>
         <ion-row>
-          <ion-col col-6 col-md-4 col-lg-2 *ngFor="let id of getWatchListTitles()" class="poster">
+          <ion-col col-6 col-sm-3 col-md-3 col-lg-2 *ngFor="let id of getWatchListTitles()" class="poster">
             <img src="{{'https://image.tmdb.org/t/p/w500'+watchList[id]}}" ion-long-press class="poster" (onPressStart)="optionsID=id"
               (click)='getDetails(id)'>
             <div class="overlay" *ngIf="optionsID == id">

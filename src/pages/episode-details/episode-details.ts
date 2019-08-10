@@ -48,6 +48,4 @@ export class EpisodeDetailsPage {
     this.navCtrl.setRoot(DetailsPage, {id: id}, {animate: true, direction: 'forward'});
   }
 
-
-
 }

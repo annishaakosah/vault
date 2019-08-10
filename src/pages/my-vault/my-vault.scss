@@ -1,6 +1,6 @@
-page-my-vault {  
+page-my-vault { 
     .poster {
-        width: 100%;
+        width: 170px;
         height: 270px;
 
         img.poster {
@@ -14,14 +14,14 @@ page-my-vault {
             bottom: 5px;
             background-color: rgba(255,255,255,0.9);
             overflow: hidden;
-            width: 172.5px;
+            width: 95%;
             height: 260px;
             z-index: 99;
             .icons {
                 width: 100%;
                 text-align: center;
                 color: rgba(120,120,120,0.9);
-                font-size: 4.5rem;
+                font-size: 4rem;
                 position: relative;
                 margin-top: 35%;
             }
