@@ -1,28 +1,45 @@
-<ion-header>
-  <ion-navbar>
-  </ion-navbar>
-</ion-header>
+<ion-content class="signup-content" padding>
 
-<ion-content padding>
-  <form (ngSubmit)="signup()" [formGroup]="signupForm">
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <ion-icon name="icon6"></ion-icon>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
 
-    <ion-item>
-      <ion-label floating color="mid">Email</ion-label>
-      <ion-input type="text" formControlName="email"></ion-input>
-    </ion-item>
+  <div class="signup-box">
+    <form (ngSubmit)="signup()" [formGroup]="signupForm">
 
-    <ion-item>
-      <ion-label floating color="mid">Password</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
-    </ion-item>
+      <ion-item class="input-field">
+        <ion-label floating color="mid">Email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
 
-    <ion-item>
+      <ion-item class="input-field">
+        <ion-label floating color="mid">Password </ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-field">
+          <ion-label floating color="mid">Confirm Password </ion-label>
+          <ion-input type="password" formControlName="passwordConf"></ion-input>
+        </ion-item>
+
+      <!-- <ion-item class="input-field">
         <ion-label floating color="mid">Confirm password</ion-label>
         <ion-input type="password" formControlName="passwordConf"></ion-input>
-    </ion-item>
+      </ion-item> -->
 
-    <div>{{signupError}}</div>
+      <ion-row>
+        <p class="error">{{loginError}}</p>
+        <ion-col class="signup-col">
+          <button ion-button type="submit" class="signup-button">Signup</button>
+          <p>Already have an account? <button (click)="login()">Log in</button></p>
+        </ion-col>
+      </ion-row>
 
-    <button ion-button type="submit">Signup</button>
-  </form>
+
+    </form>
+  </div>
 </ion-content>

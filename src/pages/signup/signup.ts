@@ -14,6 +14,7 @@ import {
   FormControl
 } from "@angular/forms";
 import { TabsPage } from '../tabs/tabs';
+import { LoginPage } from '../login/login';
 
 
 
@@ -85,6 +86,10 @@ export class SignupPage {
         this.signupError = error.message
       }
     );
+  }
+
+  login() {
+    this.navCtrl.push(LoginPage);
   }
 
   private addToDatabase(email, id){
