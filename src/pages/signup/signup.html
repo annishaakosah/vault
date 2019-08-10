@@ -10,7 +10,6 @@
 
   <div class="signup-box">
     <form (ngSubmit)="signup()" [formGroup]="signupForm">
-
       <ion-item class="input-field">
         <ion-label floating color="mid">Email</ion-label>
         <ion-input type="text" formControlName="email"></ion-input>
@@ -25,11 +24,6 @@
           <ion-label floating color="mid">Confirm Password </ion-label>
           <ion-input type="password" formControlName="passwordConf"></ion-input>
         </ion-item>
-
-      <!-- <ion-item class="input-field">
-        <ion-label floating color="mid">Confirm password</ion-label>
-        <ion-input type="password" formControlName="passwordConf"></ion-input>
-      </ion-item> -->
 
       <ion-row>
         <p class="error">{{signupError}}</p>
