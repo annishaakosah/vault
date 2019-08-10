@@ -91,6 +91,10 @@ export class MyVaultPage {
   }
 
   public getDetails(id){
+    if(this.optionsID) {
+      this.optionsID = undefined;
+      return;
+    }
     this.navCtrl.push(DetailsPage, { id: id, list: this.selectedList });
     this.optionsID = undefined;
   }
