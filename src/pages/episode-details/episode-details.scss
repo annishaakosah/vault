@@ -123,9 +123,12 @@ page-episode-details {
     border-bottom: 2px solid red;
   }
 
-  .w3-grey,.w3-hover-grey:hover,.w3-gray,.w3-hover-gray:hover{color:#000!important;background-color:#9e9e9e!important}
-.w3-light-grey,.w3-hover-light-grey:hover,.w3-light-gray,.w3-hover-light-gray:hover{
-  color:#000!important;
+  .grey {
+    background-color:#9e9e9e!important;
+    height: 4px;
+  }
+
+  .light-grey {
   background-color:#f1f1f1!important;
   margin: 0 !important;
   width: 100px;
