@@ -19,7 +19,10 @@ export class AboutPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AboutPage');
+    this.navCtrl.swipeBackEnabled = true;
   }
 
+  redirectToGitLab() {
+    window.open("https://gitlab.ecs.vuw.ac.nz/ongsama/vault",'_system', 'location=yes');
+  }
 }

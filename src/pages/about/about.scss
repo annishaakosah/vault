@@ -1,3 +1,14 @@
 page-about {
-
+    .about-container {
+        font-family: "Avenir" !important;
+        font-size: 18px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        padding: 8%;
+        text-align: center;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 }
