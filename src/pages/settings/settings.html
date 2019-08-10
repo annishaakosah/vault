@@ -1,15 +1,16 @@
 <ion-header no-border>
   <ion-navbar>
-    <ion-title text-center class="underline">Settings</ion-title>
+    <ion-title text-center>Settings</ion-title>
   </ion-navbar>
+  <div no-padding class="underline"><hr></div>
 </ion-header>
 
 <ion-content padding>
-    <button class="gradient-button" (click)="getNotifications()" ion-button round>Notifications</button>
-    <button class="gradient-button" (click)="changePassword()" ion-button round>Change
+    <button class="green-button" (click)="getNotifications()" ion-button round>Notifications</button>
+    <button class="green-button" (click)="changePassword()" ion-button round>Change
       Password</button>
-    <button class="gradient-button" (click)="getAbout()" ion-button round>About</button>
-    <button class="gradient-button" (click)="logOut()" ion-button round>Log Out</button>
-    <button class="gradient-button-red" (click)="deleteAccount()" ion-button round>Delete
+    <button class="green-button" (click)="getAbout()" ion-button round>About</button>
+    <button class="green-button" (click)="logOut()" ion-button round>Log Out</button>
+    <button class="red-button" (click)="deleteAccount()" ion-button round>Delete
       Account</button>
 </ion-content>

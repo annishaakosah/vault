@@ -33,7 +33,7 @@ page-signup {
     .signup-button {
       font-family: Avenir-Black;
       font-size: 1.3em;
-      background: #51cfb1 !important;
+      background: color($colors, secondary)!important;
       border-radius: 30px !important;
       width: 5em;
       -webkit-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
@@ -44,6 +44,10 @@ page-signup {
       width: 80%;
       height: 5%;
     }
+
+    .signup-button:hover .signup-button:active{
+      background: color($colors, button-press) !important;
+    }
   }
   p {
     font-family: Avenir-Heavy;
@@ -51,7 +55,7 @@ page-signup {
     button {
       background-color: #fff !important;
       border: none;
-      color: #51cfb1;
+      color: color($colors, secondary);
       text-align: center;
       text-decoration: none;
       display: inline-block;
@@ -61,7 +65,7 @@ page-signup {
   }
 
   .error {
-    color: #ff5252 !important;
+    color: color($colors, error) !important;
     width: 80%;
     text-align: center;
     margin-left: auto;
