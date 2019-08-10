@@ -22,6 +22,9 @@ ion-icon {
   &[class*="custom-icon4"] {
     mask-image: url(../assets/icon/watched.svg);
   }
+  &[class*="custom-icon5"] {
+    mask-image: url(../assets/icon/settings.svg);
+  }
 }
 
 .toolbar {
@@ -38,7 +41,7 @@ ion-icon {
 }
 
 .details-bg-color {
-  background: rgb(243, 243, 243)
+  background: rgb(250, 250, 250)
 }
 
 

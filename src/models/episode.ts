@@ -4,4 +4,5 @@ export interface Episode {
     overview: string;
     seasonNumber: number;
     stillPath: string;
+    episode_number: number;
 }

@@ -20,6 +20,8 @@ export class EpisodeDetailsPage {
   show: Show;
   season: any;
   episode: Episode;
+  episodeProgress: number;
+  seasonProgress: number;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams
@@ -31,12 +33,21 @@ export class EpisodeDetailsPage {
     this.season = this.navParams.get("season");
     this.episode = this.navParams.get("episode");
     console.log(this.episode);
+
+    let seasProgress =  this.season.season_number/this.show.number_of_seasons * 100;
+    if (seasProgress > 100) {
+      this.seasonProgress = 100
+    } else {
+      this.seasonProgress = seasProgress;
+    }
+    
+    this.episodeProgress = this.episode.episode_number/this.season.episode_count * 100;
   }
 
   public getDetails(id){
     this.navCtrl.setRoot(DetailsPage, {id: id}, {animate: true, direction: 'forward'});
-
-  
   }
+
+
 
 }
