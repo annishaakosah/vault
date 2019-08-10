@@ -1,54 +1,52 @@
-import { Component } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { AuthService } from '../../providers/auth.service';
+import { Component } from "@angular/core";
+import { AngularFirestore } from "angularfire2/firestore";
+import { AuthService } from "../../providers/auth.service";
 import {
   IonicPage,
   NavController,
   NavParams,
   LoadingController
-} from 'ionic-angular';
+} from "ionic-angular";
 import {
   FormGroup,
   FormBuilder,
   Validators,
   FormControl
 } from "@angular/forms";
-import { TabsPage } from '../tabs/tabs';
-import { LoginPage } from '../login/login';
-
-
+import { TabsPage } from "../tabs/tabs";
+import { LoginPage } from "../login/login";
 
 @IonicPage()
 @Component({
-  selector: 'page-signup',
-  templateUrl: 'signup.html',
+  selector: "page-signup",
+  templateUrl: "signup.html"
 })
 export class SignupPage {
   signupForm: FormGroup;
   signupError: string;
 
   constructor(
-    private auth:AuthService,
-    private db:AngularFirestore,
+    private auth: AuthService,
+    private db: AngularFirestore,
     public fb: FormBuilder,
     public navCtrl: NavController,
     public loadingCtrl: LoadingController,
-    public navParams: NavParams) 
-    {
-      this.signupForm = fb.group({
-        email: new FormControl(
-          "",
-          Validators.compose([Validators.required, Validators.email])
-        ),
-        password: new FormControl(
-          "",
-          Validators.compose([Validators.required, Validators.minLength(6)])
-        ),
-        passwordConf: new FormControl(
-          "",
-          Validators.compose([Validators.required, Validators.minLength(6)])
-        )
-      });
+    public navParams: NavParams
+  ) {
+    this.signupForm = fb.group({
+      email: new FormControl(
+        "",
+        Validators.compose([Validators.required, Validators.email])
+      ),
+      password: new FormControl(
+        "",
+        Validators.compose([Validators.required, Validators.minLength(6)])
+      ),
+      passwordConf: new FormControl(
+        "",
+        Validators.compose([Validators.required, Validators.minLength(6)])
+      )
+    });
   }
 
   signup() {
@@ -57,33 +55,32 @@ export class SignupPage {
     if (!data.email) {
       this.signupError = "Please enter an email";
       return;
-    }
-    else if(data.password != data.passwordConf) {
-      this.signupError = "Your passwords don't match";
+    } else if (data.password != data.passwordConf) {
+      this.signupError = "Passwords don't match";
       return;
     }
-    
+
     let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
+      spinner: "crescent",
       content: "Creating account...",
-      showBackdrop: true,
-    })
-    loading.present()
+      showBackdrop: true
+    });
+    loading.present();
 
     let credentials = {
-			email: data.email,
-			password: data.password
+      email: data.email,
+      password: data.password
     };
-    
+
     this.auth.signup(credentials).then(
-			(u) => {
+      u => {
         loading.dismiss();
         this.addToDatabase(u.user.email, u.user.uid);
         this.navCtrl.setRoot(TabsPage, { tabIndex: 1 });
       },
-			(error) => {
+      error => {
         loading.dismiss();
-        this.signupError = error.message
+        this.signupError = error.message;
       }
     );
   }
@@ -92,21 +89,20 @@ export class SignupPage {
     this.navCtrl.push(LoginPage);
   }
 
-  private addToDatabase(email, id){
+  private addToDatabase(email, id) {
     let docRef = this.db.collection("users").doc(id);
 
-    docRef.set(
-      {
+    docRef
+      .set({
         email: email,
         watchList: [],
         alreadyWatched: []
-      }
-    )
-    .then(function(docRef) {
+      })
+      .then(function(docRef) {
         console.log("Document written with ID: ", id);
-    })
-    .catch(function(error) {
+      })
+      .catch(function(error) {
         console.error("Error adding document: ", error);
-    });
+      });
   }
 }
