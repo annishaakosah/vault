@@ -41,11 +41,11 @@ ion-icon {
     width: 8em;
     height: 8em;
   }
-    &[class*="custom-gitlab"] {
-      mask-image: url(../assets/icon/gitlab.svg);
-    }
+  &[class*="custom-gitlab"] {
+    mask-image: url(../assets/icon/gitlab.svg);
   }
-
+}
+  
 
 .toolbar {
   height: 60px;
