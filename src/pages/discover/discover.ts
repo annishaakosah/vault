@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { DiscoverService } from '../../providers/discover.service';
 import { DetailsPage } from '../details/details';
 import { ImdbService } from '../../providers/imdb-app.service';
@@ -11,6 +11,8 @@ import { Show } from '../../models/show';
   templateUrl: 'discover.html',
 })
 export class DiscoverPage {
+  @ViewChild(Content) content: Content;
+  
   results: Show[];
   page = 1;
   sort_by = "popularity.desc";
@@ -53,6 +55,7 @@ export class DiscoverPage {
   }
 
   public getWithGenre(id) {
+    this.content.scrollToTop(200);
     this.currentGenre = id;
     if(id) {
       this.discover.discoverByGenre(id, this.sort_by)
