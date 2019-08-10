@@ -26,14 +26,10 @@ export class EpisodeListPage {
     this.show = this.navParams.get("show");
 
     // get the season data for the given season number
-    for (
-      let seasonNum = this.show.seasons[0].season_number;
-      seasonNum < this.show.seasons.length;
-      seasonNum++
-    ) {
-      this.search.getSeason(this.show.id, seasonNum).then(
+    for (let season of this.show.seasons) {
+      this.search.getSeason(this.show.id, season.season_number).then(
         data => {
-          this.seasons.push(data);
+          this.seasons[season.season_number] = data;
         },
         err => {
           console.log("something went wrong");
