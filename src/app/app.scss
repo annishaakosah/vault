@@ -31,15 +31,16 @@ ion-icon {
     mask-position: 50% 50%;
     mask-repeat: no-repeat;
     background: linear-gradient(
-            to bottom right,
-            color($colors, primary),
-            color($colors, secondary)
-        );
+      to bottom right,
+      color($colors, primary),
+      color($colors, secondary)
+    );
     mask-image: url(../assets/icon/logo.svg);
     width: 8em;
     height: 8em;
-  &[class*="custom-gitlab"] {
-    mask-image: url(../assets/icon/gitlab.svg);
+    &[class*="custom-gitlab"] {
+      mask-image: url(../assets/icon/gitlab.svg);
+    }
   }
 }
 
@@ -51,15 +52,13 @@ ion-icon {
   background-color: rgb(255, 255, 255);
 }
 
-
 .bg-color {
-    background: rgb(247, 247, 247);
+  background: rgb(247, 247, 247);
 }
 
 .details-bg-color {
-  background: rgb(250, 250, 250)
+  background: rgb(250, 250, 250);
 }
-
 
 ion-title {
   font-family: "Avenir-Black" !important;
@@ -68,20 +67,19 @@ ion-title {
 }
 
 ion-segment {
-    font-family: "Avenir-Black" !important;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+  font-family: "Avenir-Black" !important;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .header {
-    font-family: "Avenir" !important;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 10px;
+  font-family: "Avenir" !important;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 10px;
 }
 
-
-.toolbar-title, .toolbar-title-ios {
-    padding-top: 15px;
+.toolbar-title,
+.toolbar-title-ios {
+  padding-top: 15px;
 }
-
