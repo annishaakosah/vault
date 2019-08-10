@@ -27,9 +27,9 @@ export class DiscoverService {
     );
   }
 
-  public discoverByGenre(id: number, sort_by = 'popularity.desc') {
+  public discoverByGenre(id: number, sort_by = 'popularity.desc', displayLoading = true) {
     if(!id) {
-      this.discover(sort_by)
+      this.discover(sort_by, displayLoading)
       return;
     }
 
@@ -43,13 +43,15 @@ export class DiscoverService {
     );
   }
 
-  public discover(sort_by = 'popularity.desc') {
+  public discover(sort_by = 'popularity.desc', displayLoading = true) {
     let loading = this.loadingCtrl.create({
       spinner: 'crescent',
       content: "Loading content",
       showBackdrop: false
     })
-    loading.present()
+    if(displayLoading) {
+      loading.present()
+    }
     this.http.get(`${this.apiDiscover}?api_key=${this.apiKey}&sort_by=${sort_by}&language=en-US`, { responseType: 'text' })
       .subscribe(response => {
         const responseBody = JSON.parse(response);

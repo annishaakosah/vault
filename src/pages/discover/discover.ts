@@ -49,7 +49,7 @@ export class DiscoverPage {
   doRefresh(event) {
     this.page = 1;
     setTimeout(() => {
-      this.discover.discoverByGenre(this.currentGenre, this.sort_by)
+      this.discover.discoverByGenre(this.currentGenre, this.sort_by, false)
       event.complete();
     }, 1000);
   }

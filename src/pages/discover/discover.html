@@ -1,5 +1,5 @@
 <ion-header no-border>
-    
+
   <ion-navbar>
     <ion-title text-center>Discover</ion-title>
   </ion-navbar>
@@ -36,13 +36,11 @@
   </div>
 
   <ion-content padding [ngClass]="scrollerClass">
-    
-      <ion-refresher (ionRefresh)="doRefresh($event)">
-          <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
-            refreshingText="Refreshing...">
-          </ion-refresher-content>
-        </ion-refresher>
 
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content refreshingSpinner="crescent">
+      </ion-refresher-content>
+    </ion-refresher>
 
     <ion-grid class='gestures' (tap)="optionsID=undefined">
       <ion-row>

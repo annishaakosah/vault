@@ -93,5 +93,12 @@ page-discover {
 
   .scroll-content {
     margin-top: 65px !important;
+    border-top: none !important;
+  }
+
+  ion-refresher {
+    top: 90px !important;
+    z-index: 99 !important;
+    height: 80px !important;
   }
 }
