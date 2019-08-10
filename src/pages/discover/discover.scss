@@ -27,6 +27,9 @@ page-discover {
 
   .filter {
     width: 100%;
+    height: 25px;
+    min-height: 10px;
+    padding: 0 7%;
 
     ion-select {
       color: color($colors, primary);
@@ -40,17 +43,21 @@ page-discover {
   }
 
   .options-overlay {
-    width:100%;
-    height: 100%;
-    z-index: 1000;
-    position: absolute;
+    position: fixed;
+    width: 100%;
+    height: calc(100% - 132px);
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    top: 83px;
+    left: 0;
 
     .scroll-y {
-      height: calc(100% - 75px) !important;
+      height: calc(100% - 10px) !important;
     }
 
     .scroll-content {
       padding: 0 !important;
+      margin-top: 0px !important;
     }
 
     ion-item {
@@ -82,5 +89,16 @@ page-discover {
 
   .selected {
     color: color($colors, primary);
+  }
+
+  .scroll-content {
+    margin-top: 65px !important;
+    border-top: none !important;
+  }
+
+  ion-refresher {
+    top: 90px !important;
+    z-index: 99 !important;
+    height: 80px !important;
   }
 }

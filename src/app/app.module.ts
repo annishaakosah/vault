@@ -31,6 +31,7 @@ import { EpisodeListPage } from '../pages/episode-list/episode-list';
 import { EpisodeDetailsPage } from '../pages/episode-details/episode-details';
 import { SettingsPage } from '../pages/settings/settings';
 import { AboutPage } from '../pages/about/about';
+import { ChangePasswordPage } from '../pages/change-password/change-password';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AboutPage } from '../pages/about/about';
     EpisodeListPage,
     EpisodeDetailsPage,
     SettingsPage,
-    AboutPage
+    AboutPage,
+    ChangePasswordPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { AboutPage } from '../pages/about/about';
     EpisodeListPage,
     EpisodeDetailsPage,
     SettingsPage,
-    AboutPage
+    AboutPage,
+    ChangePasswordPage
   ],
   providers: [
     StatusBar,
