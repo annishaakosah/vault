@@ -22,6 +22,9 @@ ion-icon {
   &[class*="custom-icon4"] {
     mask-image: url(../assets/icon/watched.svg);
   }
+  &[class*="custom-icon5"] {
+    mask-image: url(../assets/icon/settings.svg);
+  }
 }
 
 .toolbar {
