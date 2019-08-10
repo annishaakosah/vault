@@ -1,57 +1,128 @@
 page-episode-details {
-    .backdrop {
-        position: relative;
-        height: 200px;
-        overflow: hidden;
-        background: #ddd;
-        img {
-          opacity: 1;
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-          position: absolute;
+  .backdrop {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: #ddd;
+    img {
+      opacity: 1;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      position: absolute;
+    }
+  }
+  .episode-data {
+    font-family: Avenir;
+    padding: 40px 30px 30px 30px;
+
+    .date {
+      color: #aaa;
+      font-size: 20px !important;
+      float: left;
+      font-family: Avenir-Heavy !important;
+    }
+    .vote {
+      position: absolute;
+      padding-top: 20px;
+      margin-bottom: 20px;
+      b {
+        color: #4f4f4f !important;
+      }
+      .text {
+        float: left;
+        color: #aaa;
+        font-size: 13px;
+        b {
+          font-weight: 600;
+          font-size: 16px;
+          color: #222;
         }
       }
-      .episode-data {
-        font-family: Avenir;
-      }
-
-      .buttons {
-        width: 100%;
-        padding-top: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .show-progress {
-        display: flex;
-        text-align: center;
-        justify-content: space-around;
-        text-transform: uppercase;
-        font-family: Avenir;
-       
-      }
-
-      .season-progress {
+      .stars {
         float: left;
-        font-size: 1.5em;
-    
+        padding-left: 10px;
+        font-size: 20px;
+        ion-icon {
+          color: #fbcd00;
+          line-height: 0px;
+        }
       }
-      .episode-progress {
-        float: left;
-        font-size: 1.5em;
+      .count {
+        clear: both;
+        color: #ccc;
       }
+    }
+    .overview {
+      margin-top: 80px;
+      font-size: 18px;
+      line-height: 30px;
+      padding: 15px 0 15px 0;
+      color: #4f4f4f !important;
+      font-family: Avenir-Light !important;
+    }
+  }
 
-      .overview {
-        margin-top: 50px;
-        font-size: 18px;
-        line-height: 30px;
-        padding: 15px 0 15px 0;
-        color: #444;
-        font-weight: 250;
-      }
-    
+  .buttons {
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
+    box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
+  }
 
+  .button {
+    display: inline-block;
+    width: 50%;
+  }
+
+  .show-progress {
+    color: #4f4f4f !important;
+    padding: 40px 40px 0px 40px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-family: Avenir;
     
+  }
+
+
+    .progress{
+      width: 10px;
+      position: absolute;
+      border-bottom: 1px solid red;
+    }
+
+    #one {
+      width: 10px;
+      border-bottom: 1px solid red;
+    }
+
+    .line{
+      width: 112px;
+    height: 5px;
+    margin-left: 25px;
+    border-bottom: 1px solid grey;
+    }
+
+
+   
+
+  .season-progress {
+    font-size: 1.5em;
+    display: inline-block;
+    width: 50%;
+  }
+  .episode-progress {
+    font-size: 1.5em;
+    display: inline-block;
+    width: 50%;
+  }
+
+
 }

@@ -25,21 +25,39 @@
   </div>
 
   <div class="show-progress" *ngIf="episode">
-    <div class="season-progress">Season {{ episode.season_number }}</div>
-    <div class="episode-progress">Episode {{ episode.episode_number}}</div>
-  
-  </div>
-
-  <div padding class="episode-data" *ngIf="episode">
-    <div class="year">{{ episode.air_date }}</div>
-    <div class="vote">
-      <div class="text">
-        <b>{{ episode.vote_average }}</b>/10
+      <div class="season-progress">Season {{ episode.season_number }}
+          <div style="position:absolute" class="line"></div>
+          <div style="position:absolute" class="line" id="one"></div>
       </div>
-
-      <div class="count">{{ episode.vote_count }} votes</div>
+     
+      <div class="episode-progress">Episode {{ episode.episode_number}}
+          <div style="position:absolute" class="line"></div>
+          <div style="position:absolute" class="line" id="one"></div>
+      </div>
     </div>
 
-    <div padding class="overview">{{ episode.overview }}</div>
+  <div class="episode-data" *ngIf="episode">
+      <div class="date">{{ episode.air_date | date:'MMMM dd, yyyy' }}</div>
+      <br>
+      <div class="vote">
+        <div class="text">
+          <b>{{ episode.vote_average }}</b>/10
+        </div>
+        <div class="stars">
+          <ion-icon [name]="episode.vote_average >= 2 ? 'star' : episode.vote_average >= 1 ? 'star-half' : 'star-outline'">
+          </ion-icon>
+          <ion-icon [name]="episode.vote_average >= 4 ? 'star' : episode.vote_average >= 3 ? 'star-half' : 'star-outline'">
+          </ion-icon>
+          <ion-icon [name]="episode.vote_average >= 6 ? 'star' : episode.vote_average >= 5 ? 'star-half' : 'star-outline'">
+          </ion-icon>
+          <ion-icon [name]="episode.vote_average >= 8 ? 'star' : episode.vote_average >= 7 ? 'star-half' : 'star-outline'">
+          </ion-icon>
+          <ion-icon [name]="episode.vote_average >= 10 ? 'star' : episode.vote_average >= 9 ? 'star-half' : 'star-outline'">
+          </ion-icon>
+        </div>
+        <div class="count">{{ episode.vote_count }} votes</div>
+      </div>
+
+    <div class="overview">{{ episode.overview }}</div>
   </div>
 </ion-content>
