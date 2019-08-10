@@ -55,7 +55,6 @@ import { AboutPage } from '../pages/about/about';
     AngularFireAuthModule,
     AngularFirestoreModule,
     LongPressModule
-    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
