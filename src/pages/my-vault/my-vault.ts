@@ -57,12 +57,15 @@ export class MyVaultPage {
 
   swipeEvent(swipe) {
     if(!swipe) {return}
+
     if(swipe.direction == 2) { //LEFT
       this.optionsID = undefined;
+      this.slider.slideTo(1, 500);
       this.selectedList = "watchList"
     }
     else if (swipe.direction == 4) { //RIGHT
       this.optionsID = undefined;
+      this.slider.slideTo(0, 500);
       this.selectedList = "alreadyWatched"
     }
   }

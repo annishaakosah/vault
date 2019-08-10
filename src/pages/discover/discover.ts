@@ -44,6 +44,14 @@ export class DiscoverPage {
     }, 1000);
   }
 
+  doRefresh(event) {
+    this.page = 1;
+    setTimeout(() => {
+      this.discover.discoverByGenre(this.currentGenre, this.sort_by)
+      event.complete();
+    }, 1000);
+  }
+
   public getWithGenre(id) {
     this.currentGenre = id;
     if(id) {

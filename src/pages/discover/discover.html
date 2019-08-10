@@ -5,6 +5,15 @@
 </ion-header>
 
 <ion-content padding [ngClass]="scrollerClass">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingIcon="arrow-dropdown" 
+      pullingText="Pull to refresh" 
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <ion-grid class="filter">
     <ion-row justify-content-center align-items-center>
       <ion-col col-3>
@@ -12,15 +21,15 @@
       </ion-col>
       <ion-col col-8>
         <ion-item>
-            <ion-select no-padding value="popularity.desc" [(ngModel)]="sort_by" (ionChange)="change_selection(sort_by)">
-                <ion-option value="popularity.desc">Popularity (high to low)</ion-option>
-                <ion-option value="popularity.asc">Popularity (low to high)</ion-option>
-                <ion-option value="first_air_date.desc">Newest</ion-option>
-                <ion-option value="first_air_date.asc">Oldest</ion-option>
-                <ion-option value="vote_average.desc">Top rated</ion-option>
-              </ion-select>
+          <ion-select no-padding value="popularity.desc" [(ngModel)]="sort_by" (ionChange)="change_selection(sort_by)">
+            <ion-option value="popularity.desc">Popularity (high to low)</ion-option>
+            <ion-option value="popularity.asc">Popularity (low to high)</ion-option>
+            <ion-option value="first_air_date.desc">Newest</ion-option>
+            <ion-option value="first_air_date.asc">Oldest</ion-option>
+            <ion-option value="vote_average.desc">Top rated</ion-option>
+          </ion-select>
         </ion-item>
-        
+
       </ion-col>
       <ion-col col-1>
         <ion-icon class="filter-button" large name="options" (click)="toggleOptions()"></ion-icon>
