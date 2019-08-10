@@ -10,5 +10,12 @@ page-about {
         align-content: center;
         justify-content: center;
         flex-direction: column;
+
+        ion-icon {
+            margin-top: 12%;
+            width: 100%;
+            color: #ff9300;
+            font-size: 35px;
+        }
     }
 }

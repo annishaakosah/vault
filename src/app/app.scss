@@ -25,6 +25,9 @@ ion-icon {
   &[class*="custom-icon5"] {
     mask-image: url(../assets/icon/settings.svg);
   }
+  &[class*="custom-gitlab"] {
+    mask-image: url(../assets/icon/gitlab.svg);
+  }
 }
 
 .toolbar {
