@@ -87,4 +87,14 @@ ion-segment {
   padding-top: 15px;
 }
 
-
+.underline {
+  width: 70px;
+  margin-left: calc(50% - 35px);
+  margin-right: auto;
+  margin-top: -13px;
+  position: fixed;
+  padding: 0px;
+  hr {
+    border-bottom: 2px solid color($colors, primary);
+  }
+}
