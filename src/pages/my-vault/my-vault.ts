@@ -4,6 +4,9 @@ import { NavController } from 'ionic-angular';
 import { ImdbService } from '../../providers/imdb-app.service';
 import { DetailsPage } from '../details/details';
 import { Show } from '../../models/show';
+import { ViewChild } from '@angular/core';
+import { Slides } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-my-vault',
@@ -12,15 +15,25 @@ import { Show } from '../../models/show';
 })
 
 export class MyVaultPage {
+  @ViewChild('slider') slider: Slides;
+
   watchList: Show[];
   alreadyWatched: Show[];
   selectedList = 'watchList'
-  titles;
   optionsID = undefined;
 
   constructor(
     private imdbService: ImdbService, 
     private navCtrl: NavController) { 
+  }
+
+  selectedTab(list) {
+    if(list == "watchList") {
+      this.slider.slideTo(1, 500);
+    }
+    else if(list == "alreadyWatched") {
+      this.slider.slideTo(0, 500);
+    }
   }
 
   ionViewDidLoad(){
@@ -32,44 +45,28 @@ export class MyVaultPage {
     this.optionsID = undefined;
   }
 
+  moveButton(event) {
+    let ind = event._snapIndex.toString();
+    if(ind == 0) {
+      this.selectedList = "alreadyWatched"
+    }
+    else if (ind == 1) {
+      this.selectedList = "watchList"
+    }
+  }
+
   swipeEvent(swipe) {
+    if(!swipe) {return}
+
     if(swipe.direction == 2) { //LEFT
       this.optionsID = undefined;
+      this.slider.slideTo(1, 500);
       this.selectedList = "watchList"
     }
     else if (swipe.direction == 4) { //RIGHT
       this.optionsID = undefined;
+      this.slider.slideTo(0, 500);
       this.selectedList = "alreadyWatched"
-    }
-  }
-
-  public getTitles(){
-    switch(this.selectedList) {
-      case "watchList":
-        this.titles = this.getWatchListTitles()
-        break;
-      case "alreadyWatched":
-        this.titles = this.getAlreadyWatchedTitles();
-        break;
-      default:
-        this.titles = this.getWatchListTitles()
-        break;
-    }
-    return this.titles
-  }
-
-  public removeFromList(id){
-    switch(this.selectedList) {
-      case "watchList":
-        this.removeFromWatchList(id)
-        this.titles = this.getWatchListTitles();
-        break;
-      case "alreadyWatched":
-        this.removeFromAlreadyWatched(id)
-        this.titles = this.getAlreadyWatchedTitles();
-        break;
-      default:
-        break;
     }
   }
 
@@ -78,12 +75,10 @@ export class MyVaultPage {
       case "watchList":
         this.imdbService.addToAlreadyWatched(id, this.watchList[id]);
         this.removeFromWatchList(id)
-        this.titles = this.getWatchListTitles();
         break;
       case "alreadyWatched":
         this.imdbService.addToWatchList(id, this.alreadyWatched[id]);
         this.removeFromAlreadyWatched(id)
-        this.titles = this.getAlreadyWatchedTitles();
         break;
       default:
         break;
@@ -91,40 +86,33 @@ export class MyVaultPage {
   }
 
   public getDetails(id){
+    if(this.optionsID) {
+      this.optionsID = undefined;
+      return;
+    }
     this.navCtrl.push(DetailsPage, { id: id, list: this.selectedList });
     this.optionsID = undefined;
   }
 
-  public getImageUrl(id){
-    switch(this.selectedList){
-      case "watchList":
-        return `https://image.tmdb.org/t/p/w500${this.watchList[id]}`
-      case "alreadyWatched":
-        return `https://image.tmdb.org/t/p/w500${this.alreadyWatched[id]}`
-      default:
-        break;
-    }
-  }
-
-  private getWatchListTitles() {
+  public getWatchListTitles() {
     this.watchList = this.imdbService.getWatchList();
     if(this.watchList) {
       return Object.keys(this.watchList)
     }
   }
 
-  private getAlreadyWatchedTitles() {
+  public getAlreadyWatchedTitles() {
     this.alreadyWatched = this.imdbService.getAlreadyWatched();
     if(this.alreadyWatched) {
       return Object.keys(this.alreadyWatched)
     }
   }
 
-  private removeFromWatchList(id) {
+  public removeFromWatchList(id) {
     this.imdbService.removeFromWatchList(id);
   }
 
-  private removeFromAlreadyWatched(id) {
+  public removeFromAlreadyWatched(id) {
     this.imdbService.removeFromAlreadyWatched(id);
   }
 }

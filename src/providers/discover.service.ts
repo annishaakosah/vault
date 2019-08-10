@@ -28,6 +28,11 @@ export class DiscoverService {
   }
 
   public discoverByGenre(id: number, sort_by = 'popularity.desc') {
+    if(!id) {
+      this.discover(sort_by)
+      return;
+    }
+
     this.http.get(`${this.apiDiscover}?api_key=${this.apiKey}&sort_by=${sort_by}&with_genres=${id}&language=en-US`, { responseType: 'text' })
       .subscribe(response => {
         const responseBody = JSON.parse(response);
