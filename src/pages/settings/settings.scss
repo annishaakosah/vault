@@ -1,6 +1,8 @@
 page-settings {
     .underline {
         width: 100%;
+        height: 100%;
+        padding: 8px;
         border-bottom: 3px solid color($colors, primary); /* This creates the border. Replace black with whatever color you want. */
     }
     .content {

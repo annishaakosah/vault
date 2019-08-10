@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic
 import { AuthService } from '../../providers/auth.service';
 import { LoginPage } from '../login/login';
 import { AboutPage } from '../about/about';
+import { ChangePasswordPage } from '../change-password/change-password';
 
 @IonicPage()
 @Component({
@@ -46,6 +47,10 @@ export class SettingsPage {
       ]
     })
     alert.present();
+  }
+
+  changePassword() {
+    this.navCtrl.push(ChangePasswordPage)
   }
 
 }

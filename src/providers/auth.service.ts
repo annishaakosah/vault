@@ -43,11 +43,7 @@ export class AuthService {
 
     updatePassword(password) {
         var user = this.currentUser();
-        user.updatePassword(password).then(function () {
-            alert("Successfully changed password")
-        }).catch(function (error) {
-            console.log("Error updating password")
-        });
+        return user.updatePassword(password)
     }
 
     deleteAccount() {
