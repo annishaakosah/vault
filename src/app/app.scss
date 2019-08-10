@@ -12,6 +12,8 @@ ion-icon {
   // custom icons
   &[class*="custom-icon1"] {
     mask-image: url(../assets/icon/logo.svg);
+    width: 1.6em !important;
+    height: 1.6em !important;
   }
   &[class*="custom-icon2"] {
     mask-image: url(../assets/icon/discover.svg);
@@ -38,11 +40,12 @@ ion-icon {
     mask-image: url(../assets/icon/logo.svg);
     width: 8em;
     height: 8em;
+  }
     &[class*="custom-gitlab"] {
       mask-image: url(../assets/icon/gitlab.svg);
     }
   }
-}
+
 
 .toolbar {
   height: 60px;

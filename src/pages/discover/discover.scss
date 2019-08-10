@@ -6,7 +6,7 @@ page-discover {
   .poster {
     width: 100%;
     height: 270px;
-    border-radius: 6px;
+    border-radius: 3px;
     img.poster {
       width: 100%;
       height: 260px;
@@ -14,7 +14,7 @@ page-discover {
     }
     .icons {
       position: absolute;
-      border-radius: 5px;
+      border-radius: 3px;
       bottom: 1px;
       left: calc(50% - (40px / 2));
       background-color: white;
