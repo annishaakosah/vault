@@ -1,36 +1,43 @@
 page-settings {
-    .content {
-        text-align: center;
-    }
-    .green-button {
-        font-family: Avenir-Black;
-        font-size: 1.3em;
-        background: color($colors, secondary) !important;
-        -webkit-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
-        -moz-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
-        box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
-        padding: 8%;
-        width: 80%;
-        margin: 6%;
-    }
+  ion-header {
+    padding-bottom: 15px;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
+    box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
+  }
 
-    .green-button:active {
-        background: color($colors, button-press) !important;
-    }
-    
-    .red-button {
-        font-family: Avenir-Black;
-        font-size: 1.3em;
-        background: color($colors, error) !important;
-        -webkit-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
-        -moz-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
-        box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
-        padding: 8%;
-        width: 80%;
-        margin: 6%;
-    }
+  .content {
+    text-align: center;
+  }
+  .green-button {
+    font-family: Avenir-Black;
+    font-size: 1.3em;
+    background: color($colors, secondary) !important;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
+    box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
+    padding: 8%;
+    width: 80%;
+    margin: 6%;
+  }
 
-    .red-button:active {
-        background: color($colors, danger) !important;
-    }
+  .green-button:active {
+    background: color($colors, button-press) !important;
+  }
+
+  .red-button {
+    font-family: Avenir-Black;
+    font-size: 1.3em;
+    background: color($colors, error) !important;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
+    box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
+    padding: 8%;
+    width: 80%;
+    margin: 6%;
+  }
+
+  .red-button:active {
+    background: color($colors, danger) !important;
+  }
 }
