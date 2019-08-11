@@ -69,19 +69,19 @@ export class DetailsPage {
         {
           text: "Facebook",
           handler:()=> {
-            this.socialSharing.shareViaFacebook("Check out '" + show.name + "' I just discovered using #vault", 'https://image.tmdb.org/t/p/original' + show.poster_path);
+            this.socialSharing.shareViaFacebook("Check out \"" + show.name + "\" I just discovered using #vault", 'https://image.tmdb.org/t/p/original' + show.poster_path);
           }
         },
         {
           text: "Twitter",
           handler:()=> {
-            this.socialSharing.shareViaTwitter("Check out '" + show.name + "' I just discovered using #vault", 'https://image.tmdb.org/t/p/original' + show.poster_path);
+            this.socialSharing.shareViaTwitter("Check out \"" + show.name + "\" I just discovered using #vault", 'https://image.tmdb.org/t/p/original' + show.poster_path);
           }
         },
         {
           text: "Instagram",
           handler:()=> {
-            this.socialSharing.shareViaInstagram("Check out '" + show.name + "' I just discovered using #vault", 'https://image.tmdb.org/t/p/original' + show.poster_path);
+            this.socialSharing.shareViaInstagram("Check out \"" + show.name + "\" I just discovered using #vault", 'https://image.tmdb.org/t/p/original' + show.poster_path);
           }
         },
         {
