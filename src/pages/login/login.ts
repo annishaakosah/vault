@@ -48,7 +48,7 @@ export class LoginPage {
     this.navCtrl.push(SignupPage);
   }
 
-  async login() {
+  login() {
     let data = this.loginForm.value;
 
     if (!data.email) {
@@ -63,15 +63,15 @@ export class LoginPage {
     loading.present()
 
     let credentials = {
-			email: data.email,
-			password: data.password
+      email: data.email,
+      password: data.password
     };
 
     this.auth.login(credentials)
       .then(
         () => {
           loading.dismiss()
-          this.navCtrl.setRoot(TabsPage);
+          this.navCtrl.setRoot(TabsPage, { newUser: true });
         },
         error => {
           loading.dismiss()

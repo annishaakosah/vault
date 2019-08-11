@@ -10,7 +10,6 @@ export class AuthService {
     constructor(public auth: AngularFireAuth) {
         auth.authState.subscribe((auth) => {
             this.authState = auth;
-            console.log(this.authState);
         });
     }
 

@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { ImdbService } from '../../providers/imdb-app.service';
 import { DetailsPage } from '../details/details';
 import { Show } from '../../models/show';
@@ -24,7 +24,8 @@ export class MyVaultPage {
 
   constructor(
     private imdbService: ImdbService, 
-    private navCtrl: NavController) { 
+    private navCtrl: NavController, 
+    private navParams: NavParams) { 
   }
 
   selectedTab(list) {
@@ -36,7 +37,7 @@ export class MyVaultPage {
     }
   }
 
-  ionViewDidLoad(){
+  ionViewDidLoad() {
     this.watchList = this.imdbService.getWatchList();  
     this.alreadyWatched = this.imdbService.getAlreadyWatched();
   }

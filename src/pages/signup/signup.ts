@@ -76,7 +76,7 @@ export class SignupPage {
       u => {
         loading.dismiss();
         this.addToDatabase(u.user.email, u.user.uid);
-        this.navCtrl.setRoot(TabsPage, { tabIndex: 1 });
+        this.navCtrl.setRoot(TabsPage, { tabIndex: 1, newUser: true });
       },
       error => {
         loading.dismiss();

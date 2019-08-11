@@ -4,6 +4,7 @@ import { AuthService } from '../../providers/auth.service';
 import { LoginPage } from '../login/login';
 import { AboutPage } from '../about/about';
 import { ChangePasswordPage } from '../change-password/change-password';
+import { ImdbService } from '../../providers/imdb-app.service';
 
 @IonicPage()
 @Component({
@@ -17,7 +18,8 @@ export class SettingsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public appCtrl: App,
-    private auth: AuthService) {
+    private auth: AuthService, 
+    private imdbService: ImdbService) {
   }
 
   getAbout() {
@@ -25,8 +27,12 @@ export class SettingsPage {
   }
 
   logOut() {
-    this.auth.logOut();
-    this.appCtrl.getRootNav().push(LoginPage);
+    this.auth.logOut().then(
+      () => {this.appCtrl.getRootNav().push(LoginPage);},
+      (error) => {
+        console.log("Error logging out.")
+      }
+    )
   }
 
   deleteAccount() {
@@ -40,6 +46,7 @@ export class SettingsPage {
         {
           text: 'Yes',
           handler: () => {
+            this.imdbService.deleteUserDetails();
             this.auth.deleteAccount();
             this.appCtrl.getRootNav().push(LoginPage);
           }

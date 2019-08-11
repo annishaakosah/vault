@@ -29,12 +29,17 @@ export class DiscoverPage {
   }
 
   ionViewDidLoad() {
+    let newUser = this.navParams.get("newUser") 
+    if (newUser) {
+      this.imdbService.updateUser();
+    }
     this.discover.discover();
     this.discover.getGenres();
   }
 
   change_selection() {
     this.page = 1
+    this.content.scrollToTop(200);
     this.discover.discover(this.sort_by);
   }
 
