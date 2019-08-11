@@ -5,6 +5,7 @@ import { SearchPage } from '../search/search';
 import { DiscoverPage } from '../discover/discover';
 import { SettingsPage } from '../settings/settings';
 import { ImdbService } from '../../providers/imdb-app.service';
+import { SearchTitleService } from '../../providers/search-title.service';
 
 @IonicPage()
 @Component({
@@ -18,7 +19,11 @@ export class TabsPage {
   tab4Root = SettingsPage;
   myIndex: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public imdbService: ImdbService) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public imdbService: ImdbService,
+    public search: SearchTitleService) {
     this.myIndex = navParams.get('tabIndex') || 0;
   }
 
@@ -26,6 +31,7 @@ export class TabsPage {
     let newUser = this.navParams.get("newUser")
     if (newUser) {
       this.imdbService.reset();
+      this.search.reset();
     }
   }
 

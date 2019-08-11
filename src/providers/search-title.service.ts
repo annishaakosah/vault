@@ -12,9 +12,13 @@ export class SearchTitleService {
   private notFound: boolean;
   private notProvided: boolean;
 
-  private results;
+  private results: Show[];
 
   constructor(private httpClient: HttpClient) { }
+
+  public reset(){
+    this.results = [];
+  }
 
   public searchTitle(title: string): void {
     if (!title) {
