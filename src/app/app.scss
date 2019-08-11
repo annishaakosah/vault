@@ -10,28 +10,28 @@ ion-icon {
     height: 0.91em;
   }
   // custom icons
-  &[class*="custom-icon1"] {
+  &[class*="custom-vault"] {
     mask-image: url(../assets/icon/logo.svg);
     width: 1.6em !important;
     height: 1.6em !important;
   }
-  &[class*="custom-icon2"] {
+  &[class*="custom-discover"] {
     mask-image: url(../assets/icon/discover.svg);
   }
-  &[class*="custom-icon3"] {
+  &[class*="custom-search"] {
     mask-image: url(../assets/icon/search.svg);
   }
-  &[class*="custom-icon4"] {
+  &[class*="custom-watched"] {
     mask-image: url(../assets/icon/watched.svg);
   }
-  &[class*="custom-icon5"] {
+  &[class*="custom-settings"] {
     mask-image: url(../assets/icon/settings.svg);
   }
   &[class*="custom-share"] {
     mask-image: url(../assets/icon/share.svg);
   }
 
-  &[class*="icon6"] {
+  &[class*="vault-logo"] {
     mask-size: contain;
     mask-position: 50% 50%;
     mask-repeat: no-repeat;
@@ -102,7 +102,9 @@ ion-segment {
   }
 }
 
-.refresher-refreshing .spinner-crescent circle, .refresher-refreshing .spinner-ios line, .refresher-refreshing .spinner-ios-small line{
+.refresher-refreshing .spinner-crescent circle, 
+.refresher-refreshing .spinner-ios line, 
+.refresher-refreshing .spinner-ios-small line{
   stroke : color($colors, "text");
 }
 

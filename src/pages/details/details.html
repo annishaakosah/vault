@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar>
     <ion-title text-center>
       {{show?.name}}
@@ -23,13 +23,13 @@
   <div class="buttons">
     <div class="button" *ngIf="!inAlreadyWatched()">
       <button ion-button icon-only clear large color="primary" (click)="addToAlreadyWatchedList()">
-        <ion-icon name="custom-icon4"></ion-icon>
+        <ion-icon name="custom-watched"></ion-icon>
       </button>
     </div>
 
     <div class="button" *ngIf="inAlreadyWatched()">
-      <button ion-button icon-only clear large color="active" (click)="removeFromAlreadyWatched()">
-        <ion-icon name="custom-icon4"></ion-icon>
+      <button ion-button icon-only clear large color="error" (click)="removeFromAlreadyWatched()">
+        <ion-icon name="custom-watched"></ion-icon>
       </button>
     </div>
 

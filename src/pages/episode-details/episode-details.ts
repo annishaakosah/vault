@@ -1,9 +1,14 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  ActionSheetController
+} from "ionic-angular";
 import { Show } from "../../models/show";
 import { Episode } from "../../models/episode";
 import { DetailsPage } from "../details/details";
-import { SocialSharing } from '@ionic-native/social-sharing';
+import { SocialSharing } from "@ionic-native/social-sharing";
 
 @IonicPage()
 @Component({
@@ -30,14 +35,16 @@ export class EpisodeDetailsPage {
     this.season = this.navParams.get("season");
     this.episode = this.navParams.get("episode");
 
-    let seasProgress =  this.season.season_number/this.show.number_of_seasons * 100;
+    let seasProgress =
+      (this.season.season_number / this.show.number_of_seasons) * 100;
     if (seasProgress > 100) {
-      this.seasonProgress = 100
+      this.seasonProgress = 100;
     } else {
       this.seasonProgress = seasProgress;
     }
-    
-    this.episodeProgress = this.episode.episode_number/this.season.episode_count * 100;
+
+    this.episodeProgress =
+      (this.episode.episode_number / this.season.episode_count) * 100;
   }
 
   ionViewDidLeave() {
@@ -51,23 +58,44 @@ export class EpisodeDetailsPage {
   shareEpisode(episode) {
     let shareShowActionSheet = this.actionSheetController.create({
       title: "Share episode",
-      buttons:[
+      buttons: [
         {
           text: "Facebook",
-          handler:()=> {
-            this.socialSharing.shareViaFacebook("I just watched \"" + this.show.name + " - " + this.episode.name + "\" #vault", 'https://image.tmdb.org/t/p/original' + this.episode.stillPath);
+          handler: () => {
+            this.socialSharing.shareViaFacebook(
+              'I just watched "' +
+                this.show.name +
+                " - " +
+                this.episode.name +
+                '" #vault',
+              "https://image.tmdb.org/t/p/original" + this.episode.stillPath
+            );
           }
         },
         {
           text: "Twitter",
-          handler:()=> {
-            this.socialSharing.shareViaTwitter("I just watched \"" + this.show.name + " - " + this.episode.name + "\" #vault", 'https://image.tmdb.org/t/p/original' + this.episode.stillPath);
+          handler: () => {
+            this.socialSharing.shareViaTwitter(
+              'I just watched "' +
+                this.show.name +
+                " - " +
+                this.episode.name +
+                '" #vault',
+              "https://image.tmdb.org/t/p/original" + this.episode.stillPath
+            );
           }
         },
         {
           text: "Instagram",
-          handler:()=> {
-            this.socialSharing.shareViaInstagram("I just watched \"" + this.show.name + " - " + this.episode.name + "\" #vault", 'https://image.tmdb.org/t/p/original' + this.episode.stillPath);
+          handler: () => {
+            this.socialSharing.shareViaInstagram(
+              'I just watched "' +
+                this.show.name +
+                " - " +
+                this.episode.name +
+                '" #vault',
+              "https://image.tmdb.org/t/p/original" + this.episode.stillPath
+            );
           }
         },
         {
