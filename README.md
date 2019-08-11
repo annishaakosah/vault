@@ -4,8 +4,6 @@
 
 This is a TV show manager application that Annisha Akosah (300399598) and Sam Ong (300363819) created for our mobile app development course, SWEN325. We are Poopy Software™ 💩
 
-You can view a demo of our app [here](). 
-
 ## How to run the application
 
 This app uses the ionic 3 framework.
