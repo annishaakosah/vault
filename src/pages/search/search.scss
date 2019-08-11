@@ -31,4 +31,14 @@ page-search {
       cursor: pointer;
     }
   }
+
+  .search-imdb {
+    padding: 0px 16px 16px 16px;
+  }
+
+  ion-searchbar {
+    background-color: white !important;
+    padding: 0px 16px 16px 16px;
+    font-family: Avenir;
+}
 }
