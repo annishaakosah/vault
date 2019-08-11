@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { ImdbService } from '../../providers/imdb-app.service';
 import { DetailsPage } from '../details/details';
 import { Show } from '../../models/show';
@@ -22,10 +22,7 @@ export class MyVaultPage {
   selectedList = 'watchList'
   optionsID = undefined;
 
-  constructor(
-    private imdbService: ImdbService, 
-    private navCtrl: NavController, 
-    private navParams: NavParams) { 
+  constructor(private imdbService: ImdbService, private navCtrl: NavController) { 
   }
 
   selectedTab(list) {

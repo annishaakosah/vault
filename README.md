@@ -2,7 +2,9 @@
 
 # SWEN325 - Vault Application
 
-This is a TV show manager application that Annisha Akosah (300399598) and Sam Ong (300363819) created for our mobile app development course, SWEN325. You can view a demo of our app [here]().
+This is a TV show manager application that Annisha Akosah (300399598) and Sam Ong (300363819) created for our mobile app development course, SWEN325. We are Poopy Software™ 💩
+
+You can view a demo of our app [here](). 
 
 ## How to run the application
 
@@ -41,7 +43,7 @@ git clone https://gitlab.ecs.vuw.ac.nz/ongsama/vault.git
 2. Navigate into the folder
 
 ```
-    cd vault
+cd vault
 ```
 
 3. Install dependencies
@@ -190,10 +192,16 @@ These are features that we didn't have time to include in our app but would have
 
 - Grid/list view
 - Reorder shows in my vault
+- TV show recommendations
+- Advanced search
 - Calendar
 - Push notifications for new episodes
 - View TV show cast
-- Swipe between tv shows
+- Swipe between tv shows/episodes
 - Give TV shows a rating
 - Add support for movies
 - Be able to view friend's watch lists
+
+
+
+Thanks from the team at Poopy Software™ 💩

@@ -67,16 +67,15 @@ export class LoginPage {
       password: data.password
     };
 
-    this.auth.login(credentials)
-      .then(
-        () => {
-          loading.dismiss()
-          this.navCtrl.setRoot(TabsPage, { newUser: true });
-        },
-        error => {
-          loading.dismiss()
-          this.loginError = error.message;
-        }
-      );
+    this.auth.login(credentials).then(
+      () => {
+        loading.dismiss()
+        this.navCtrl.setRoot(TabsPage, { newUser: true });
+      },
+      error => {
+        loading.dismiss()
+        this.loginError = error.message;
+      }
+    );
   }
 }
