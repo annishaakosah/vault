@@ -7,7 +7,7 @@ page-signup {
 
     .signup-box {
       padding: 0px 20px 0px 20px;
-      margin-top: 30px;
+      margin-top: 10%;
     }
 
     .input-field {
@@ -45,7 +45,7 @@ page-signup {
       height: 5%;
     }
 
-    .signup-button:active{
+    .signup-button:active {
       background: color($colors, button-press) !important;
     }
   }
