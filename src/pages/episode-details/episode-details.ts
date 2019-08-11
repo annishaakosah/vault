@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController, NavParams, ActionSheetController } from "ionic-angular";
 import { Show } from "../../models/show";
 import { Episode } from "../../models/episode";
 import { DetailsPage } from "../details/details";
+import { SocialSharing } from "@ionic-native/social-sharing";
 
 /**
  * Generated class for the EpisodeDetailsPage page.
@@ -24,6 +25,8 @@ export class EpisodeDetailsPage {
   seasonProgress: number;
   constructor(
     public navCtrl: NavController,
+    private actionSheetController: ActionSheetController,
+    private socialSharing: SocialSharing,
     public navParams: NavParams
   ) {}
 
@@ -48,4 +51,34 @@ export class EpisodeDetailsPage {
     this.navCtrl.setRoot(DetailsPage, {id: id}, {animate: true, direction: 'forward'});
   }
 
+  shareEpisode(episode) {
+    let shareShowActionSheet = this.actionSheetController.create({
+      title: "Share episode",
+      buttons:[
+        {
+          text: "Facebook",
+          handler:()=> {
+            this.socialSharing.shareViaFacebook("I just watched '" + this.show.name + " - " + this.episode.name + "' #vault", 'https://image.tmdb.org/t/p/original' + episode.still_path);
+          }
+        },
+        {
+          text: "Twitter",
+          handler:()=> {
+            this.socialSharing.shareViaTwitter("I just watched '" + this.show.name + " - " + this.episode.name + "' #vault", 'https://image.tmdb.org/t/p/original' + episode.still_path);
+          }
+        },
+        {
+          text: "Instagram",
+          handler:()=> {
+            this.socialSharing.shareViaInstagram("I just watched '" + this.show.name + " - " + this.episode.name + "' #vault", 'https://image.tmdb.org/t/p/original' + episode.still_path);
+          }
+        },
+        {
+          text: "Cancel",
+          role: "destructive"
+        }
+      ]
+    });
+    shareShowActionSheet.present();
+  }
 }

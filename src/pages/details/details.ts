@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import { SearchTitleService } from '../../providers/search-title.service';
 import { ImdbService } from '../../providers/imdb-app.service';
 import { EpisodeListPage } from '../episode-list/episode-list';
 import { Show } from '../../models/show';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 
 @IonicPage()
 @Component({
@@ -19,6 +21,8 @@ export class DetailsPage {
     private search: SearchTitleService,
     private imdbService: ImdbService,
     public navCtrl: NavController,
+    private actionSheetController: ActionSheetController,
+    private socialSharing: SocialSharing,
     public navParams: NavParams) {
   }
 
@@ -33,17 +37,6 @@ export class DetailsPage {
     });
   }
 
-  // inList(){
-  //   switch(this.list){
-  //     case ("watchList"):
-  //       return this.imdbService.isInWatchList(this.id)
-  //     case "alreadyWatched":
-  //       return this.imdbService.isInAlreadyWatched(this.id)
-  //     default:
-  //       return false
-  //   }
-  // }
-
   public inWatchList() {
     return this.imdbService.isInWatchList(this.id);
   }
@@ -53,18 +46,10 @@ export class DetailsPage {
   }
 
   removeFromWatchList(){
-    // if(this.list == "alreadyWatched") {
-    //   console.error("You cannot perform this action")
-    //   return
-    // }
     this.imdbService.removeFromWatchList(this.id)
   }
 
   removeFromAlreadyWatched(){
-    // if(this.list == "watchList") {
-    //   console.error("You cannot perform this action")
-    //   return
-    // }
     this.imdbService.removeFromAlreadyWatched(this.id)
   }
 
@@ -76,4 +61,35 @@ export class DetailsPage {
 
   public addToAlreadyWatchedList = () => this.imdbService.addToAlreadyWatched(this.show.id, this.show.poster_path);
 
+
+  shareShow(show) {
+    let shareShowActionSheet = this.actionSheetController.create({
+      title: "Share show",
+      buttons:[
+        {
+          text: "Facebook",
+          handler:()=> {
+            this.socialSharing.shareViaFacebook("Check out '" + show.name + "' I just discovered using #vault", 'https://image.tmdb.org/t/p/original' + show.poster_path);
+          }
+        },
+        {
+          text: "Twitter",
+          handler:()=> {
+            this.socialSharing.shareViaTwitter("Check out '" + show.name + "' I just discovered using #vault", 'https://image.tmdb.org/t/p/original' + show.poster_path);
+          }
+        },
+        {
+          text: "Instagram",
+          handler:()=> {
+            this.socialSharing.shareViaInstagram("Check out '" + show.name + "' I just discovered using #vault", 'https://image.tmdb.org/t/p/original' + show.poster_path);
+          }
+        },
+        {
+          text: "Cancel",
+          role: "destructive"
+        }
+      ]
+    });
+    shareShowActionSheet.present();
+  }
 }

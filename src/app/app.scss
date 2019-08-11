@@ -27,6 +27,9 @@ ion-icon {
   &[class*="custom-icon5"] {
     mask-image: url(../assets/icon/settings.svg);
   }
+  &[class*="custom-share"] {
+    mask-image: url(../assets/icon/share.svg);
+  }
 
   &[class*="icon6"] {
     mask-size: contain;
