@@ -21,17 +21,6 @@
   </div>
 
   <div class="buttons">
-    <div class="button" *ngIf="inWatchList()">
-      <button ion-button icon-only clear large color="danger" (click)="removeFromWatchList()">
-        <ion-icon name="ios-checkmark-circle-outline"></ion-icon>
-      </button>
-    </div>
-    <div class="button" *ngIf="!inWatchList()">
-      <button ion-button icon-only clear large (click)="addToWatchList()">
-        <ion-icon name="ios-add-circle-outline"></ion-icon>
-      </button>
-    </div>
-
     <div class="button" *ngIf="!inAlreadyWatched()">
       <button ion-button icon-only clear large color="primary" (click)="addToAlreadyWatchedList()">
         <ion-icon name="custom-icon4"></ion-icon>
@@ -44,9 +33,20 @@
       </button>
     </div>
 
+    <div class="button" *ngIf="inWatchList()">
+        <button ion-button icon-only clear large color="error" (click)="removeFromWatchList()">
+          <ion-icon name="ios-checkmark-circle-outline"></ion-icon>
+        </button>
+      </div>
+      <div class="button" *ngIf="!inWatchList()">
+        <button ion-button icon-only clear large (click)="addToWatchList()">
+          <ion-icon name="ios-add-circle-outline"></ion-icon>
+        </button>
+      </div>
+
     <div class="button">
-        <button ion-button icon-only clear large color="active" (click)="removeFromAlreadyWatched()">
-          <ion-icon name="ios-share-outline"></ion-icon>
+        <button ion-button icon-only clear large color="primary" (click)="shareShow(show)">
+          <ion-icon name="custom-share"></ion-icon>
         </button>
       </div>
 
