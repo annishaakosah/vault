@@ -1,5 +1,4 @@
 <ion-header no-border>
-
   <ion-navbar>
     <ion-title text-center>Discover</ion-title>
   </ion-navbar>
@@ -35,7 +34,7 @@
     </ion-scroll>
   </div>
 
-  <ion-content padding [ngClass]="scrollerClass">
+  <ion-content padding class="bg-color" [ngClass]="scrollerClass">
 
     <ion-refresher (ionRefresh)="doRefresh($event)">
       <ion-refresher-content refreshingSpinner="crescent">
