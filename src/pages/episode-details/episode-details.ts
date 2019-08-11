@@ -29,6 +29,7 @@ export class EpisodeDetailsPage {
   ) {}
 
   ionViewDidLoad() {
+    this.navCtrl.swipeBackEnabled = true;
     console.log("ionViewDidLoad EpisodeDetailsPage");
     this.show = this.navParams.get("show");
     this.season = this.navParams.get("season");
@@ -46,12 +47,12 @@ export class EpisodeDetailsPage {
       (this.episode.episode_number / this.season.episode_count) * 100;
   }
 
-  public getDetails(id) {
-    this.navCtrl.setRoot(
-      DetailsPage,
-      { id: id },
-      { animate: true, direction: "forward" }
-    );
+  ionViewDidLeave() {
+    this.navCtrl.swipeBackEnabled = false;
+  }
+
+  public getDetails(id){
+    this.navCtrl.setRoot(DetailsPage, {id: id}, {animate: true, direction: 'forward'});
   }
 
   shareEpisode(episode) {

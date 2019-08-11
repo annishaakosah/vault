@@ -20,12 +20,21 @@ export class EpisodeListPage {
     private search: SearchTitleService,
     public navCtrl: NavController,
     public navParams: NavParams
-  ) {}
+  ) { }
 
   ionViewDidLoad() {
+    this.navCtrl.swipeBackEnabled = false;
     this.show = this.navParams.get("show");
 
-    // get the season data for the given season number
+    this.loadSeasons();
+  }
+    
+  ionViewDidLeave() {
+    this.navCtrl.swipeBackEnabled = true;
+  }
+
+  // get the season data for the given season number
+  loadSeasons() {
     for (let season of this.show.seasons) {
       this.search.getSeason(this.show.id, season.season_number).then(
         data => {
@@ -35,6 +44,14 @@ export class EpisodeListPage {
           console.log("something went wrong");
         }
       );
+    }
+  }
+
+  //Becuase swipBackEnabled doesn't work on this page
+  swipeEvent(swipe) {
+    if (!swipe) { return }
+    if (swipe.direction == 4 && this.navCtrl.canGoBack()) {
+      this.navCtrl.pop();
     }
   }
 

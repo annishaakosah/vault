@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content class="bg-color">
-    <div class="show-data" *ngIf="seasons.length != 0">
+    <div class="show-data" *ngIf="seasons.length != 0" (swipe)="swipeEvent($event)">
       <ion-item-group class="season" *ngFor="let season of show.seasons;">
         <ion-item-divider sticky>{{season.name}}</ion-item-divider>
         <ion-item class="episode" *ngFor="let episode of getEpisodes(season.season_number)" (click)="getEpisodeDetails(show, season, episode)"> {{episode.name}} </ion-item>

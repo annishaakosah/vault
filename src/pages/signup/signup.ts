@@ -86,7 +86,7 @@ export class SignupPage {
   }
 
   login() {
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.push(LoginPage, {}, {animate: true, direction: 'back'});
   }
 
   private addToDatabase(email, id) {
