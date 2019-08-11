@@ -1,11 +1,11 @@
 <ion-header no-border>
-  <ion-navbar>
-    <ion-title text-center>Search</ion-title>
-  </ion-navbar>
-  <div no-padding class="underline"><hr></div>
-</ion-header>
+    <ion-navbar>
+      <ion-title text-center>Search</ion-title>
+    </ion-navbar>
+    <div no-padding class="underline"><hr></div>
+  </ion-header>
 
-<ion-content padding class="bg-color">
+<ion-content padding >
   <div class="search-imdb" padding>
     <ion-searchbar #title type="search" (keyup.enter)="search(title.value)" placeholder="Search for a title..."
       clear-input=true padding>
