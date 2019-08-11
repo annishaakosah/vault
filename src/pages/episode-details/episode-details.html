@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar>
     <ion-title text-center>{{ episode?.name }}</ion-title>
   </ion-navbar>
@@ -36,7 +36,7 @@
     <div class="progress">Episode {{ episode.episode_number}}
       <div class="progress-bar">
         <div class="light-grey">
-            <div class="grey" [ngStyle]="{'width': episodeProgress+'%'}"></div>
+          <div class="grey" [ngStyle]="{'width': episodeProgress+'%'}"></div>
         </div>
       </div>
     </div>

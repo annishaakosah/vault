@@ -73,16 +73,6 @@ $colors: (
 @import "roboto";
 @import "noto-sans";
 
-// @font-face {
-//   font-family: 'Lacquer', sans-serif;
-//   src: url('../assets/fonts/Lacquer/Lacquer-Regular.ttf');
-//   font-weight: 200;
-//   font-style: normal;
-// }
-
-// @import url('https://fonts.googleapis.com/css?family=Oxygen+Mono&display=swap');
-// $font-family-base: "Oxygen", sans-serif !default;
-
 @font-face {
   font-family: Avenir-Black;
   src: url("../assets/fonts/Avenir/AvenirLTStd-black.otf");
@@ -105,8 +95,7 @@ $toolbar-md-title-text-color: #404040;
 $toolbar-ios-title-text-color: #404040;
 $toolbar-wp-title-text-color: #404040;
 
-
 $text-input-md-highlight-color: #51cfb1;
-$text-input-highlight-color-valid: #DBDBDB !important;
-$text-input-highlight-color-invalid:#DBDBDB !important;
+$text-input-highlight-color-valid: #DBDBDB;
+$text-input-highlight-color-invalid:#DBDBDB;
 

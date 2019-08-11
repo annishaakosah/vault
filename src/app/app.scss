@@ -102,7 +102,9 @@ ion-segment {
   }
 }
 
-.refresher-refreshing .spinner-crescent circle, .refresher-refreshing .spinner-ios line, .refresher-refreshing .spinner-ios-small line{
+.refresher-refreshing .spinner-crescent circle, 
+.refresher-refreshing .spinner-ios line, 
+.refresher-refreshing .spinner-ios-small line{
   stroke : color($colors, "text");
 }
 

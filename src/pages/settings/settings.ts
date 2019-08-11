@@ -53,4 +53,8 @@ export class SettingsPage {
     this.navCtrl.push(ChangePasswordPage)
   }
 
+  getNotifications() {
+    // TODO: notifications function
+  }
+
 }
