@@ -1,8 +1,8 @@
 page-signup {
   .signup-content {
     .logo-row {
-        margin-top: 90px !important;
-        padding: 0 !important;
+      margin-top: 12% !important;
+      padding: 0 !important;
     }
 
     .signup-box {
@@ -45,7 +45,7 @@ page-signup {
       height: 5%;
     }
 
-    .signup-button:hover .signup-button:active{
+    .signup-button:active{
       background: color($colors, button-press) !important;
     }
   }

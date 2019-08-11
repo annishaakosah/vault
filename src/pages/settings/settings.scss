@@ -11,7 +11,6 @@ page-settings {
   }
   .green-button {
     font-family: Avenir-Black;
-    font-size: 1.3em;
     background: color($colors, secondary) !important;
     -webkit-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
     -moz-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
@@ -27,7 +26,6 @@ page-settings {
 
   .red-button {
     font-family: Avenir-Black;
-    font-size: 1.3em;
     background: color($colors, error) !important;
     -webkit-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
     -moz-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
