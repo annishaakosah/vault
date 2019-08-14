@@ -1,28 +1,37 @@
-<ion-header>
-  <ion-navbar>
-  </ion-navbar>
-</ion-header>
+<ion-content class="signup-content" padding no-bounce>
 
-<ion-content padding>
-  <form (ngSubmit)="signup()" [formGroup]="signupForm">
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <ion-icon name="vault-logo"></ion-icon>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
 
-    <ion-item>
-      <ion-label floating color="mid">Email</ion-label>
-      <ion-input type="text" formControlName="email"></ion-input>
-    </ion-item>
+  <div class="signup-box">
+    <form (ngSubmit)="signup()" [formGroup]="signupForm">
+      <ion-item class="input-field">
+        <ion-label floating color="mid">Email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label floating color="mid">Password</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
-    </ion-item>
+      <ion-item class="input-field">
+        <ion-label floating color="mid">Password </ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
 
-    <ion-item>
-        <ion-label floating color="mid">Confirm password</ion-label>
-        <ion-input type="password" formControlName="passwordConf"></ion-input>
-    </ion-item>
+      <ion-item class="input-field">
+          <ion-label floating color="mid">Confirm Password </ion-label>
+          <ion-input type="password" formControlName="passwordConf"></ion-input>
+        </ion-item>
 
-    <div>{{signupError}}</div>
-
-    <button ion-button type="submit">Signup</button>
-  </form>
+      <ion-row>
+        <p class="error">{{signupError}}</p>
+        <ion-col class="signup-col">
+          <button ion-button type="submit" class="signup-button">Sign up</button>
+          <p>Already have an account? <button (click)="login()">Log in</button></p>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
 </ion-content>

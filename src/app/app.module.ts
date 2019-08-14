@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { SocialSharing } from '@ionic-native/social-sharing';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule }from 'angularfire2/auth'; 
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -29,6 +30,9 @@ import { DetailsPage } from '../pages/details/details';
 import { TabsPage } from '../pages/tabs/tabs';
 import { EpisodeListPage } from '../pages/episode-list/episode-list';
 import { EpisodeDetailsPage } from '../pages/episode-details/episode-details';
+import { SettingsPage } from '../pages/settings/settings';
+import { AboutPage } from '../pages/about/about';
+import { ChangePasswordPage } from '../pages/change-password/change-password';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import { EpisodeDetailsPage } from '../pages/episode-details/episode-details';
     DiscoverPage,
     DetailsPage,
     EpisodeListPage,
-    EpisodeDetailsPage
+    EpisodeDetailsPage,
+    SettingsPage,
+    AboutPage,
+    ChangePasswordPage
   ],
   imports: [
     BrowserModule,
@@ -63,7 +70,10 @@ import { EpisodeDetailsPage } from '../pages/episode-details/episode-details';
     DiscoverPage,
     DetailsPage,
     EpisodeListPage,
-    EpisodeDetailsPage
+    EpisodeDetailsPage,
+    SettingsPage,
+    AboutPage,
+    ChangePasswordPage
   ],
   providers: [
     StatusBar,
@@ -72,7 +82,8 @@ import { EpisodeDetailsPage } from '../pages/episode-details/episode-details';
     ImdbService,
     SearchTitleService,
     AuthService,
-    DiscoverService
+    DiscoverService,
+    SocialSharing
   ]
 })
 export class AppModule {}

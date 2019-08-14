@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Show } from '../models/show';
 
 @Injectable()
 export class SearchTitleService {
@@ -11,9 +12,13 @@ export class SearchTitleService {
   private notFound: boolean;
   private notProvided: boolean;
 
-  private results;
+  private results: Show[];
 
   constructor(private httpClient: HttpClient) { }
+
+  public reset(){
+    this.results = [];
+  }
 
   public searchTitle(title: string): void {
     if (!title) {
@@ -57,8 +62,8 @@ export class SearchTitleService {
     });
   }
 
-  public getByID(id: number) {
-    return new Promise((resolve, reject) => {
+  public getByID(id: number): Promise<Show> {
+    return new Promise<Show>((resolve, reject) => {
       this.httpClient.get(`${this.apiFind}${id}?api_key=${this.apiKey}`, { responseType: 'text' })
         .subscribe(response => {
           resolve(JSON.parse(response));

@@ -1,5 +1,74 @@
 page-signup {
-    .toolbar-background {
-        //CHANGE THIS
+  .signup-content {
+    .logo-row {
+      margin-top: 12% !important;
+      padding: 0 !important;
     }
+
+    .signup-box {
+      padding: 0px 20px 0px 20px;
+      margin-top: 10%;
+    }
+
+    .input-field {
+      font-family: Avenir;
+      color: color($colors, text);
+    }
+
+    ion-row {
+      align-items: center;
+      text-align: center;
+    }
+
+    .item-md.item-block .item-inner {
+      padding-right: 0px !important;
+      border-bottom: #fff !important;
+    }
+
+    .signup-col {
+      margin: 0px 16px 0px 16px;
+      padding-bottom: 20px;
+    }
+
+    .signup-button {
+      font-family: Avenir-Black;
+      font-size: 1.3em;
+      background: color($colors, secondary)!important;
+      border-radius: 30px !important;
+      width: 5em;
+      -webkit-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
+      -moz-box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
+      box-shadow: 2px 2px 5px 0px rgba(189, 189, 189, 1);
+      margin-top: 20px;
+      padding: 20px 24px;
+      width: 80%;
+      height: 5%;
+    }
+
+    .signup-button:active {
+      background: color($colors, button-press) !important;
+    }
+  }
+  p {
+    font-family: Avenir-Heavy;
+    color: #4f4f4f !important;
+    button {
+      background-color: #fff !important;
+      border: none;
+      color: color($colors, secondary);
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1em;
+      padding: none;
+    }
+  }
+
+  .error {
+    color: color($colors, error) !important;
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

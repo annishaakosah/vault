@@ -1,6 +1,10 @@
-<ion-content padding>
-  <ion-item no-padding no-margin>
-    <ion-label>Sorted by</ion-label>
+<ion-header no-border>
+  <ion-navbar>
+    <ion-title text-center>Discover</ion-title>
+  </ion-navbar>
+  <div no-padding class="underline"><hr></div>
+
+  <ion-toolbar no-padding class="filter">
     <ion-select no-padding value="popularity.desc" [(ngModel)]="sort_by" (ionChange)="change_selection(sort_by)">
       <ion-option value="popularity.desc">Popularity (high to low)</ion-option>
       <ion-option value="popularity.asc">Popularity (low to high)</ion-option>
@@ -8,22 +12,52 @@
       <ion-option value="first_air_date.asc">Oldest</ion-option>
       <ion-option value="vote_average.desc">Top rated</ion-option>
     </ion-select>
-  </ion-item>
-  <ion-grid class='gestures' (tap)="optionsID=undefined">
-    <ion-row>
-      <ion-col col-6 col-md-4 col-lg-2 class="poster" *ngFor="let title of getResults()">
-        <img src="{{'https://image.tmdb.org/t/p/w500'+title.poster_path}}" class="poster"
-          (click)='getDetails(title.id)' />
-        <div class="icons">
-          <ion-icon *ngIf="inWatchList(title.id)" name="checkmark" color="danger"
-            (click)="removeFromWatchList(title.id)"></ion-icon>
-          <ion-icon *ngIf="!inWatchList(title.id)" name="add" color="primary" (click)="addToWatchList(title)">
-          </ion-icon>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
-</ion-content>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toggleOptions()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<body>
+  <div class="options-overlay" *ngIf="showGenres">
+    <ion-scroll scrollY="true">
+      <ion-item>
+        <ion-label (click)="getWithGenre()" [ngClass]="!currentGenre ? 'selected' : ''">ALL GENRES</ion-label>
+      </ion-item>
+      <div *ngFor="let genre of getGenresList()">
+        <ion-item (click)="getWithGenre(genre.id)">
+          <ion-label [ngClass]="genre.id == currentGenre ? 'selected' : ''">{{genre.name | uppercase }}</ion-label>
+        </ion-item>
+      </div>
+    </ion-scroll>
+  </div>
+
+  <ion-content padding class="bg-color" [ngClass]="scrollerClass">
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content refreshingSpinner="crescent">
+      </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-grid class='gestures' (tap)="optionsID=undefined">
+      <ion-row>
+        <ion-col col-6 col-md-4 col-lg-2 class="poster" *ngFor="let title of getResults()">
+          <img src="{{'https://image.tmdb.org/t/p/w500'+title.poster_path}}" class="poster"
+            (click)='getDetails(title.id)' />
+          <div class="icons">
+            <ion-icon *ngIf="inWatchList(title.id)" name="checkmark" color="danger"
+              (click)="removeFromWatchList(title.id)">
+            </ion-icon>
+            <ion-icon *ngIf="!inWatchList(title.id)" name="add" color="primary" (click)="addToWatchList(title)">
+            </ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+</body>

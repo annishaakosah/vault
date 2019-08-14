@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { SearchTitleService } from "../../providers/search-title.service";
 import { EpisodeDetailsPage } from "../episode-details/episode-details";
+import { Show } from "../../models/show";
 
 @IonicPage()
 @Component({
@@ -9,7 +10,7 @@ import { EpisodeDetailsPage } from "../episode-details/episode-details";
   templateUrl: "episode-list.html"
 })
 export class EpisodeListPage {
-  show;
+  show: Show;
   seasons = [];
   season;
   seasonNumbers;
@@ -19,25 +20,38 @@ export class EpisodeListPage {
     private search: SearchTitleService,
     public navCtrl: NavController,
     public navParams: NavParams
-  ) {}
+  ) { }
 
   ionViewDidLoad() {
+    this.navCtrl.swipeBackEnabled = false;
     this.show = this.navParams.get("show");
 
-    // get the season data for the given season number
-    for (
-      let seasonNum = this.show.seasons[0].season_number;
-      seasonNum < this.show.seasons.length;
-      seasonNum++
-    ) {
-      this.search.getSeason(this.show.id, seasonNum).then(
+    this.loadSeasons();
+  }
+    
+  ionViewDidLeave() {
+    this.navCtrl.swipeBackEnabled = true;
+  }
+
+  // get the season data for the given season number
+  loadSeasons() {
+    for (let season of this.show.seasons) {
+      this.search.getSeason(this.show.id, season.season_number).then(
         data => {
-          this.seasons.push(data);
+          this.seasons[season.season_number] = data;
         },
         err => {
           console.log("something went wrong");
         }
       );
+    }
+  }
+
+  //Becuase swipBackEnabled doesn't work on this page
+  swipeEvent(swipe) {
+    if (!swipe) { return }
+    if (swipe.direction == 4 && this.navCtrl.canGoBack()) {
+      this.navCtrl.pop();
     }
   }
 
@@ -49,7 +63,11 @@ export class EpisodeListPage {
     }
   }
 
-  getEpisodeDetails(episode) {
-    this.navCtrl.push(EpisodeDetailsPage, { episode: episode });
+  getEpisodeDetails(show, season, episode) {
+    this.navCtrl.push(EpisodeDetailsPage, {
+      show: show,
+      season: season,
+      episode: episode
+    });
   }
 }

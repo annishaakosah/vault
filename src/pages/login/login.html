@@ -1,25 +1,30 @@
-<ion-header></ion-header>
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <ion-icon name="vault-logo"></ion-icon>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box">
 
-<ion-content padding>
-  <div class="container">
     <form (ngSubmit)="login()" [formGroup]="loginForm" class="form">
-
       <ion-item class="input-field">
         <ion-label floating color="mid">Email</ion-label>
         <ion-input type="text" formControlName="email"></ion-input>
       </ion-item>
 
       <ion-item class="input-field">
-        <ion-label floating color="mid">Password</ion-label>
+        <ion-label floating color="mid">Password </ion-label>
         <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
-
-      <div>{{loginError}}</div>
-      <div class=buttons>
-      <button ion-button type="submit" class="login-button">Login</button>
-      <button ion-button (click)="signup()" color="light" class="signup-button">Signup</button></div>
+      <ion-row>
+        <p class="error">{{loginError}}</p>
+        <ion-col class="signup-col">
+          <button ion-button type="submit" class="login-button">Log in</button>
+          <p>Don't have an account? <button (click)="signup()">Sign up</button></p>
+        </ion-col>
+      </ion-row>
     </form>
-    
-    
-</div>
+  </div>
 </ion-content>

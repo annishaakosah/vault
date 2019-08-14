@@ -5,15 +5,12 @@
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
 
-
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
 
-
 @import "ionic.globals";
-
 
 // Shared Variables
 // --------------------------------------------------
@@ -21,9 +18,6 @@ $app-direction: ltr;
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
-
-
-
 
 // Named Color Variables
 // --------------------------------------------------
@@ -34,34 +28,28 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #408abf,
-  secondary:  #639f9c,
-  danger:     #ba333b,
-  light:      #f4f4f4,
-  dark:       #222
+  primary: #49b4b4,
+  secondary: #51cfb1,
+  danger: #ba333b,
+  error: #ff5252,
+  button-press: #419c87,
+  light: #f4f4f4,
+  dark: #222,
+  active: #c2c2c2,
+  text: #4F4F4F
 );
-
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
-
-
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
-
-
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
-
-
 
 // App Theme
 // --------------------------------------------------
@@ -72,7 +60,6 @@ $colors: (
 
 @import "ionic.theme.default";
 
-
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
@@ -80,14 +67,35 @@ $colors: (
 
 @import "ionic.ionicons";
 
-
 // Fonts
 // --------------------------------------------------
 
 @import "roboto";
 @import "noto-sans";
 
+@font-face {
+  font-family: Avenir-Black;
+  src: url("../assets/fonts/Avenir/AvenirLTStd-black.otf");
+}
+
+@font-face {
+  font-family: Avenir-Light;
+  src: url("../assets/fonts/Avenir/AvenirLTStd-light.otf");
+}
+
+@font-face {
+  font-family: Avenir-Heavy;
+  src: url("../assets/fonts/Avenir/AvenirLTStd-heavy.otf");
+}
+
 $tabs-ios-tab-icon-size: 1.5em;
 $tabs-md-tab-icon-size: 1.5em;
 
+$toolbar-md-title-text-color: #404040;
+$toolbar-ios-title-text-color: #404040;
+$toolbar-wp-title-text-color: #404040;
+
+$text-input-md-highlight-color: #51cfb1;
+$text-input-highlight-color-valid: #DBDBDB;
+$text-input-highlight-color-invalid:#DBDBDB;
 

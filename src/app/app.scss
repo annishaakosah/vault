@@ -1,38 +1,110 @@
 ion-icon {
-    &[class*="custom-"] {
-        // Instead of using the font-based icons
-        // We're applying SVG masks
-        mask-size: contain;
-        mask-position: 50% 50%;
-        mask-repeat: no-repeat;
-        background: currentColor;
-        width: 0.91em;
-        height: 0.91em;
-    }
-    // custom icons
-    &[class*="custom-icon1"] {
-        mask-image: url(../assets/icon/vault.svg);
-    }
-    &[class*="custom-icon2"] {
-        mask-image: url(../assets/icon/discover.svg);
-    }
-    &[class*="custom-icon3"] {
-        mask-image: url(../assets/icon/search.svg);
-    }
-    &[class*="custom-icon4"] {
-        mask-image: url(../assets/icon/watched.svg);
-    }
-}
+  &[class*="custom-"] {
+    // Instead of using the font-based icons
+    // We're applying SVG masks
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 0.91em;
+    height: 0.91em;
+  }
+  // custom icons
+  &[class*="custom-vault"] {
+    mask-image: url(../assets/icon/logo.svg);
+    width: 1.6em !important;
+    height: 1.6em !important;
+  }
+  &[class*="custom-discover"] {
+    mask-image: url(../assets/icon/discover.svg);
+  }
+  &[class*="custom-search"] {
+    mask-image: url(../assets/icon/search.svg);
+  }
+  &[class*="custom-watched"] {
+    mask-image: url(../assets/icon/watched.svg);
+  }
+  &[class*="custom-settings"] {
+    mask-image: url(../assets/icon/settings.svg);
+  }
+  &[class*="custom-share"] {
+    mask-image: url(../assets/icon/share.svg);
+  }
 
+  &[class*="vault-logo"] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: linear-gradient(
+      to bottom right,
+      color($colors, primary),
+      color($colors, secondary)
+    );
+    mask-image: url(../assets/icon/logo.svg);
+    width: 8em;
+    height: 8em;
+  }
+  &[class*="custom-gitlab"] {
+    mask-image: url(../assets/icon/gitlab.svg);
+  }
+}
+  
 
 .toolbar {
-    height: 60px;
-  }
-
-  .toolbar-background {
-    background-color: rgb(255, 255, 255);
-  }
-
-  .bg-style {
-    background: rgb(243, 242, 241);
+  height: 60px;
 }
+
+.toolbar-background {
+  background-color: rgb(255, 255, 255);
+}
+
+.bg-color {
+  background: rgb(247, 247, 247);
+}
+
+.details-bg-color {
+  background: rgb(250, 250, 250);
+}
+
+ion-title {
+  font-family: "Avenir-Black" !important;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+ion-segment {
+  font-family: "Avenir-Black" !important;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.header {
+  font-family: "Avenir" !important;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 10px;
+}
+
+.toolbar-title,
+.toolbar-title-ios {
+  padding-top: 15px;
+}
+
+.underline {
+  width: 70px;
+  margin-left: calc(50% - 35px);
+  margin-right: auto;
+  margin-top: -10.5px;
+  position: fixed;
+  padding: 0px;
+  hr {
+    border-bottom: 2px solid color($colors, primary);
+  }
+}
+
+.refresher-refreshing .spinner-crescent circle, 
+.refresher-refreshing .spinner-ios line, 
+.refresher-refreshing .spinner-ios-small line{
+  stroke : color($colors, "text");
+}
+

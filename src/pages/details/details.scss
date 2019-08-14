@@ -1,4 +1,9 @@
 page-details {
+  ion-header {
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
+    box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
+  }
   .backdrop {
     position: relative;
     height: 270px;
@@ -13,8 +18,6 @@ page-details {
       position: absolute;
     }
   }
-
-  
 
   .poster-shadow {
     width: 170px;
@@ -32,9 +35,17 @@ page-details {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #ffffff;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
+    box-shadow: 0px 4px 5px 0px rgba(153, 151, 153, 0.3);
   }
 
-  
+  .button {
+    display: inline-block;
+    width: 33.3%;
+  }
+
   div.poster {
     position: absolute;
     z-index: 99999;
@@ -56,26 +67,30 @@ page-details {
     }
   }
   .show-data {
-    padding-top: 0px;
-    padding-right: 16px;
-    padding-left: 16px;
-    padding-bottom: 16px;
+    padding: 40px 30px 30px 30px;
+    font-family: Avenir;
+    
     .name {
-      font-weight: 800;
       letter-spacing: -0.03em;
       font-size: 32px;
       line-height: 30px;
       padding: 0 0 10px 0;
+      color: #404040;
+      font-family: Avenir-Heavy !important;
     }
     .year {
       width: 100px;
       color: #aaa;
       font-size: 20px;
       float: left;
+      font-family: Avenir-Heavy !important;
     }
     .vote {
       float: right;
       text-align: right;
+      b {
+        color: #4F4F4F !important;
+      }
       .text {
         float: right;
         color: #aaa;
@@ -103,18 +118,20 @@ page-details {
     .overview {
       margin-top: 50px;
       font-size: 18px;
-      line-height: 21px;
+      line-height: 30px;
       padding: 15px 0 15px 0;
-      color: #444;
-      font-weight: 250;
+      color: #4F4F4F !important;
+      font-family: Avenir-Light !important;
     }
-    .duration, .genres {
+    .duration,
+    .genres {
       font-size: 16px;
       line-height: 18px;
       padding: 15px 0 5px 0;
+      color: #4F4F4F !important;
       .label {
-        color: #222;
-        padding: 4px 0 4px 24px;
+        color: #4F4F4F !important;
+        padding: 4px 0 10px 24px;
         font-weight: 100;
         ion-icon {
           position: absolute;
@@ -123,7 +140,7 @@ page-details {
         }
       }
       .value {
-        color: #444;
+        color: #4F4F4F !important;
         font-weight: 400;
       }
     }

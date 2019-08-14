@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar>
     <ion-title text-center>
       {{show?.name}}
@@ -11,7 +11,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="details-bg-color">
   <div class="backdrop" *ngIf="show">
     <img *ngIf="show.backdrop_path" [src]="'https://image.tmdb.org/t/p/original' + show.backdrop_path">
   </div>
@@ -21,26 +21,35 @@
   </div>
 
   <div class="buttons">
-    <div class="button" *ngIf="inList()">
-      <button ion-button icon-only clear large color="danger" (click)="removeFromWatchList()">
-        <ion-icon name="ios-checkmark-circle-outline"></ion-icon>
+    <div class="button" *ngIf="!inAlreadyWatched()">
+      <button ion-button icon-only clear large color="primary" (click)="addToAlreadyWatchedList()">
+        <ion-icon name="custom-watched"></ion-icon>
       </button>
     </div>
-    <div class="button" *ngIf="!inList()">
-      <button ion-button icon-only clear large (click)="addToWatchList()">
-        <ion-icon name="ios-add-circle-outline"></ion-icon>
+
+    <div class="button" *ngIf="inAlreadyWatched()">
+      <button ion-button icon-only clear large color="error" (click)="removeFromAlreadyWatched()">
+        <ion-icon name="custom-watched"></ion-icon>
       </button>
     </div>
-    <div class="button" *ngIf="!inList()">
-      <button ion-button icon-only clear large (click)="addToAlreadyWatchedList()">
-        <ion-icon name="custom-icon4"></ion-icon>
-      </button>
-    </div>
+
+    <div class="button" *ngIf="inWatchList()">
+        <button ion-button icon-only clear large color="error" (click)="removeFromWatchList()">
+          <ion-icon name="ios-checkmark-circle-outline"></ion-icon>
+        </button>
+      </div>
+      <div class="button" *ngIf="!inWatchList()">
+        <button ion-button icon-only clear large (click)="addToWatchList()">
+          <ion-icon name="ios-add-circle-outline"></ion-icon>
+        </button>
+      </div>
+
     <div class="button">
-      <button ion-button icon-only clear large (click)="addToAlreadyWatchedList()">
-        <ion-icon name="custom-icon4"></ion-icon>
-      </button>
-    </div>
+        <button ion-button icon-only clear large color="primary" (click)="shareShow(show)">
+          <ion-icon name="custom-share"></ion-icon>
+        </button>
+      </div>
+
   </div>
 
   <div class="show-data" *ngIf="show">

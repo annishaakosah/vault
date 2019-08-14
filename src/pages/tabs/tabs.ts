@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MyVaultPage } from '../my-vault/my-vault';
 import { SearchPage } from '../search/search';
 import { DiscoverPage } from '../discover/discover';
+import { SettingsPage } from '../settings/settings';
+import { ImdbService } from '../../providers/imdb-app.service';
+import { SearchTitleService } from '../../providers/search-title.service';
 
 @IonicPage()
 @Component({
@@ -13,10 +16,23 @@ export class TabsPage {
   tab1Root = MyVaultPage;
   tab2Root = DiscoverPage;
   tab3Root = SearchPage;
+  tab4Root = SettingsPage;
   myIndex: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public imdbService: ImdbService,
+    public search: SearchTitleService) {
     this.myIndex = navParams.get('tabIndex') || 0;
+  }
+
+  ionViewDidLoad() {
+    let newUser = this.navParams.get("newUser")
+    if (newUser) {
+      this.imdbService.reset();
+      this.search.reset();
+    }
   }
 
 }

@@ -1,27 +1,29 @@
-page-my-vault {    
+page-my-vault { 
     .poster {
-        width: 100%;
+        width: 170px;
         height: 270px;
 
         img.poster {
             width: 100%;
             height: 260px;
             object-fit: cover;
+            border-radius: 3px;
         }
 
         .overlay {
+            border-radius: 3px;
             position: absolute;
             bottom: 5px;
             background-color: rgba(255,255,255,0.9);
             overflow: hidden;
-            width: 100%;
+            width: 95%;
             height: 260px;
             z-index: 99;
             .icons {
                 width: 100%;
                 text-align: center;
                 color: rgba(120,120,120,0.9);
-                font-size: 4.5rem;
+                font-size: 4rem;
                 position: relative;
                 margin-top: 35%;
             }
@@ -31,6 +33,11 @@ page-my-vault {
             padding-bottom: 20%;
         }
         
+    }
+
+    ion-slide.swiper-slide {
+        align-items: flex-start;
+        overflow-y: scroll;
     }
 
     .gestures {
@@ -46,6 +53,7 @@ page-my-vault {
         border-left-width: 0px !important;
         border-right-width: 0px !important;
         border-bottom-width: 0px !important;
+        font-size: 0.8em !important;
 
         &.segment-activated {
             border-color: color($colors, primary) !important;
@@ -55,12 +63,17 @@ page-my-vault {
 
     ion-segment {
         height: auto;
-        padding-top: 50px;
+        font-size: 1.3em !important;
+        font-family: "Avenir-Black" !important;
+        letter-spacing: 1.5px !important;
         background: rgb(255, 255, 255);
-        // border-radius: 0px !important;
+        -webkit-box-shadow: 0px 4px 5px 0px rgba(153,151,153,0.3);
+        -moz-box-shadow: 0px 4px 5px 0px rgba(153,151,153,0.3);
+        box-shadow: 0px 4px 5px 0px rgba(153,151,153,0.3);
     }
 
-    .bg-color {
-        background: rgb(243, 242, 241);
+    .scroll-content {
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;
     }
 }
