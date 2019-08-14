@@ -55,7 +55,7 @@ export class EpisodeDetailsPage {
     this.navCtrl.setRoot(DetailsPage, {id: id}, {animate: true, direction: 'forward'});
   }
 
-  shareEpisode(episode) {
+  shareEpisode(ep) {
     let shareShowActionSheet = this.actionSheetController.create({
       title: "Share episode",
       buttons: [
