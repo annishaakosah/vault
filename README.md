@@ -1,8 +1,10 @@
-![Vault logo](/resources/icon2.png)
+
 
 # SWEN325 - Vault Application
 
 This is a TV show manager application that Annisha Akosah (300399598) and Sam Ong (300363819) created for our mobile app development course, SWEN325. We are Poopy Software™ 💩
+
+**View a demo of our app [here](https://www.youtube.com/watch?v=vg38gwwyOI8&)**
 
 ## How to run the application
 
